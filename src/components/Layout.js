@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
+import HeroBanner from './HeroBanner';
 const { Header, Content, Footer } = Layout;
 
 const AppLayout = () => (
@@ -17,19 +18,16 @@ const AppLayout = () => (
         <Menu.Item key="3">nav 3</Menu.Item>
       </Menu>
     </Header>
-    <Content style={{ padding: '0 50px' }}>
-      <Breadcrumb style={{ margin: '16px 0' }}>
+    <Content style={{ padding: '0 10px' }}>
+      {/* <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>List</Breadcrumb.Item>
         <Breadcrumb.Item>App</Breadcrumb.Item>
-      </Breadcrumb>
-      <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-        Content
+      </Breadcrumb> */}
+      <div style={{ background: '#fff', minHeight: 600 }}>
+        <HeroBanner />
       </div>
     </Content>
-    <Footer style={{ textAlign: 'center' }}>
-      Ant Design ©2018 Created by Ant UED
-    </Footer>
   </Layout>
 );
 export default AppLayout;
