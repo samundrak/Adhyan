@@ -1,9 +1,8 @@
 import React from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
-import HeroBanner from './HeroBanner';
-const { Header, Content, Footer } = Layout;
+import { Layout, Menu } from 'antd';
+const { Header, Content } = Layout;
 
-const AppLayout = () => (
+const AppLayout = ({ children }: { children: React.ElementType }) => (
   <Layout className="layout">
     <Header>
       <div className="logo" />
@@ -24,9 +23,7 @@ const AppLayout = () => (
         <Breadcrumb.Item>List</Breadcrumb.Item>
         <Breadcrumb.Item>App</Breadcrumb.Item>
       </Breadcrumb> */}
-      <div style={{ background: '#fff', minHeight: 600 }}>
-        <HeroBanner />
-      </div>
+      <div style={{ background: '#fff', minHeight: 600 }}>{children}</div>
     </Content>
   </Layout>
 );
