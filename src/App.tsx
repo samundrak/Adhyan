@@ -1,14 +1,17 @@
 import React from 'react';
-import { Switch, Router } from 'react-router-dom';
-import logo from './logo.svg';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout';
+import Guest from './views/Guest';
 
 function App() {
   return (
     <div className="App">
-      <Switch />
-      <Layout />
+      <Layout>
+        <Switch>
+          <Route to="/" exact component={Guest} />
+        </Switch>
+      </Layout>
     </div>
   );
 }

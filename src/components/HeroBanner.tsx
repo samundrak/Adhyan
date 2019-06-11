@@ -5,14 +5,16 @@ import banner from '../images/hero-banner.jpg';
 const Container = styled.div`
   background-image: url(${banner});
   width: 100%;
-  height: 650px;
+  height: 100%;
   background-size: cover;
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-  margin-top: 1%;
+  filter: blur(0.5px);
+  -webkit-filter: blur(0.5px);
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: cover;
 `;
-const HeroBanner = () => <Container />;
+type PropsType = {
+  [props: string]: string;
+};
+const HeroBanner = (props: PropsType) => <Container {...props} />;
 export default HeroBanner;
