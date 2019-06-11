@@ -7,8 +7,8 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   background-size: cover;
-  filter: blur(0.5px);
-  -webkit-filter: blur(0.5px);
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: cover;

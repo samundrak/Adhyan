@@ -26,6 +26,7 @@ const BigText = styled.div`
   font-size: 100px;
   color: #fffdfd;
   border-style: solid;
+  margin-bottom: 1%;
 `;
 class Guest extends React.Component {
   handleGetStarted = () => {
