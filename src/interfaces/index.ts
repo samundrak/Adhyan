@@ -11,3 +11,6 @@ export interface UserInterface {
   createdAt: Date | null;
   uid: string;
 }
+export interface StateInterface {
+  user: UserInterface;
+}

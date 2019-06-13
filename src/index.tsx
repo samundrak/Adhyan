@@ -8,7 +8,7 @@ import 'antd/dist/antd.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import firebase, { firestore } from './firebase';
+import { firestore } from './firebase';
 
 const store = configureStore({});
 
@@ -18,7 +18,7 @@ adhyan.listenToFireStoreEvents();
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <App />
+      <App app={adhyan} />
     </Router>
   </Provider>,
   document.getElementById('root')
