@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import configureStore from './store/configureStore';
-
+import Adhyan from './core/Adhyan';
 import 'antd/dist/antd.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { firestore, auth } from './firebase';
 
-const store = configureStore();
+const store = configureStore({});
+
+const adhyan: Adhyan = new Adhyan(store, firestore, auth);
+adhyan.listenToFireStoreEvents();
 
 ReactDOM.render(
   <Provider store={store}>
