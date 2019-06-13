@@ -8,11 +8,11 @@ import 'antd/dist/antd.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { firestore, auth } from './firebase';
+import firebase, { firestore } from './firebase';
 
 const store = configureStore({});
 
-const adhyan: Adhyan = new Adhyan(store, firestore, auth);
+const adhyan: Adhyan = new Adhyan(store, firestore);
 adhyan.listenToFireStoreEvents();
 
 ReactDOM.render(

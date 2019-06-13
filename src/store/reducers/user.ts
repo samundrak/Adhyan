@@ -1,8 +1,17 @@
-const initialState = {
-  fullName: '',
-  id: '',
+import { produce } from 'immer';
+import { UserInterface } from '../../interfaces';
+import { SET_USER } from '../types';
+
+const initialState: UserInterface = {
+  displayName: '',
+  photoURL: '',
+  uid: '',
+  createdAt: null,
 };
 
-export default (state = initialState, action) => {
-  return state;
-};
+export default produce((draft: UserInterface, action) => {
+  switch (action.type) {
+    case SET_USER:
+      return action.data;
+  }
+}, initialState);

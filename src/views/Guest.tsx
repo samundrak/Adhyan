@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import HeroBanner from '../components/HeroBanner';
 import { Button } from 'antd';
-import { signinWithGoogle } from '../firebase';
+// import { signinWithGoogle } from '../firebase';
 
 const Container = styled.div`
   width: 100%;
@@ -30,7 +30,7 @@ const BigText = styled.div`
 `;
 class Guest extends React.Component {
   handleGetStarted = () => {
-    signinWithGoogle();
+    // signinWithGoogle();
   };
   render() {
     return (

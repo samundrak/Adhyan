@@ -1,5 +1,5 @@
 import FirestoreModel from './FirestoreModel';
-import firebase from 'firebase';
+import firebase from '../firebase';
 
 class Auth extends FirestoreModel {
   auth: firebase.auth.Auth;
