@@ -1,5 +1,6 @@
 import FirestoreModel from './FirestoreModel';
 import firebase from '../firebase';
+import { GOOGLE } from '../consts';
 
 class Auth extends FirestoreModel {
   auth: firebase.auth.Auth;
@@ -10,8 +11,9 @@ class Auth extends FirestoreModel {
     this.firestore = firestore;
   }
   signin(provider: string) {
-    if (provider === 'google') {
-      new firebase.auth.GoogleAuthProvider();
+    if (provider === GOOGLE) {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      this.auth.signInWithPopup(provider);
     }
   }
   signout() {

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { Context } from 'react';
 import styled from 'styled-components';
 import HeroBanner from '../components/HeroBanner';
 import { Button } from 'antd';
+import { AppContext } from '../providers/AppProvider';
+import { GOOGLE } from '../consts';
+import Adhyan from '../core/Adhyan';
 // import { signinWithGoogle } from '../firebase';
 
 const Container = styled.div`
@@ -29,8 +32,10 @@ const BigText = styled.div`
   margin-bottom: 1%;
 `;
 class Guest extends React.Component {
+  static contextType: Context<Adhyan> = AppContext;
+
   handleGetStarted = () => {
-    // signinWithGoogle();
+    this.context.auth.signin(GOOGLE);
   };
   render() {
     return (
