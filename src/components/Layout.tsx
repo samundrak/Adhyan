@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Breadcrumb } from 'antd';
 import AuthDropdown from './AuthDropdown';
 import { UserInterface } from '../interfaces';
 import { AUTH_NAVBAR } from '../consts';
@@ -32,20 +33,25 @@ const AppLayout = ({
   <Layout className="layout">
     <Header
       style={{
-        position: 'fixed',
         zIndex: 1,
         width: '100%',
         backgroundColor: '#161a1e',
       }}
     >
       <HeaderBox>
-        <AppName className="logo">Adhyan</AppName>
+        <AppName className="logo">
+          <Link to="/">Adhyan</Link>
+        </AppName>
         <Menu
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={['2']}
           style={{ lineHeight: '64px', backgroundColor: '#161a1e' }}
-        />
+        >
+          <Menu.Item key="1">
+            <Link to="/upload">Upload</Link>
+          </Menu.Item>
+        </Menu>
         <HeaderItemRight>
           {user.uid && (
             <AuthDropdown user={user} onClick={onClick(AUTH_NAVBAR)} />
@@ -53,13 +59,10 @@ const AppLayout = ({
         </HeaderItemRight>
       </HeaderBox>
     </Header>
-    <Content>
-      {/* <Breadcrumb style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
-      </Breadcrumb> */}
-      <div style={{ background: '#fff', minHeight: 600 }}>{children}</div>
+    <Content style={{ padding: '0 50px', margin: '16px 0' }}>
+      <div style={{ padding: 24, background: '#fff', minHeight: 600 }}>
+        {children}
+      </div>
     </Content>
   </Layout>
 );

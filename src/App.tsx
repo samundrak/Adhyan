@@ -9,6 +9,8 @@ import Adhyan from './core/Adhyan';
 import { ClickParam } from 'antd/lib/menu';
 import { SIGN_OUT } from './consts';
 import AppProvider from './providers/AppProvider';
+import Home from './views/Home';
+import Upload from './views/Upload';
 
 type PropsType = {
   user: UserInterface;
@@ -27,9 +29,14 @@ class App extends React.Component<PropsType> {
       <div className="App">
         <AppProvider app={this.props.app}>
           <Layout user={this.props.user} onClick={this.handleLayoutClick}>
-            <Switch>
-              <Route to="/" exact component={Guest} />
-            </Switch>
+            {!this.props.user.uid ? (
+              <Guest />
+            ) : (
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/upload" exact component={Upload} />
+              </Switch>
+            )}
           </Layout>
         </AppProvider>
       </div>
