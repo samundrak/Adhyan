@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Context } from 'react';
 import styled from 'styled-components';
 import { Upload as AntdUpload, Icon, message, Button } from 'antd';
 import { AppContext } from '../providers/AppProvider';
+import Adhyan from '../core/Adhyan';
 
 const Dragger = AntdUpload.Dragger;
 const Container = styled.div`
@@ -9,28 +10,19 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 const Item = styled.div`
   margin: 10px;
 `;
 class Upload extends React.Component {
-  static contextType = AppContext;
+  static contextType: Context<Adhyan> = AppContext;
 
   componentDidMount() {
     console.log('hello');
   }
-  handleFileChange = (file) => {
-    console.log(file);
-    return storage()
-      .ref()
-      .child('user-profiles')
-      .child(this.uid)
-      .child(this.file.name)
-      .put(this.file)
-      .then((response) => {
-        return response.ref.getDownloadURL();
-      })
-      .then((photoURL) => this.userRef.update({ photoURL }));
+  handleFileChange = async (file: File) => {
+    const downloadUrl = await this.context.uploadItem(file);
   };
   render() {
     return (
@@ -48,9 +40,6 @@ class Upload extends React.Component {
               uploading company data or other band files
             </p>
           </Dragger>
-        </Item>
-        <Item>
-          <Button type="primary">Upload</Button>
         </Item>
       </Container>
     );

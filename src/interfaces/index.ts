@@ -1,4 +1,7 @@
-export interface StoreInterface {}
+export interface StoreInterface {
+  getState(): StateInterface;
+  dispatch(arg: any): any;
+}
 export interface Disposable {
   dispose(): void;
 }

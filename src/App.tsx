@@ -1,4 +1,5 @@
 import React from 'react';
+import { Spin } from 'antd';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
@@ -27,18 +28,20 @@ class App extends React.Component<PropsType> {
   render() {
     return (
       <div className="App">
-        <AppProvider app={this.props.app}>
-          <Layout user={this.props.user} onClick={this.handleLayoutClick}>
-            {!this.props.user.uid ? (
-              <Guest />
-            ) : (
-              <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/upload" exact component={Upload} />
-              </Switch>
-            )}
-          </Layout>
-        </AppProvider>
+        <Spin loading={true}>
+          <AppProvider app={this.props.app}>
+            <Layout user={this.props.user} onClick={this.handleLayoutClick}>
+              {!this.props.user.uid ? (
+                <Guest />
+              ) : (
+                <Switch>
+                  <Route path="/" exact component={Home} />
+                  <Route path="/upload" exact component={Upload} />
+                </Switch>
+              )}
+            </Layout>
+          </AppProvider>
+        </Spin>
       </div>
     );
   }
