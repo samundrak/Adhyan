@@ -14,6 +14,10 @@ export interface UserInterface {
   createdAt: Date | null;
   uid: string;
 }
+export interface GlobalInterface {
+  loading: boolean;
+}
 export interface StateInterface {
   user: UserInterface;
+  global: GlobalInterface;
 }

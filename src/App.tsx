@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout';
 import Guest from './views/Guest';
-import { StateInterface, UserInterface } from './interfaces';
+import { StateInterface, UserInterface, GlobalInterface } from './interfaces';
 import Adhyan from './core/Adhyan';
 import { ClickParam } from 'antd/lib/menu';
 import { SIGN_OUT } from './consts';
@@ -16,6 +16,7 @@ import Upload from './views/Upload';
 type PropsType = {
   user: UserInterface;
   app: Adhyan;
+  global: GlobalInterface;
 };
 class App extends React.Component<PropsType> {
   handleLayoutClick = (type: string) => {
@@ -28,7 +29,7 @@ class App extends React.Component<PropsType> {
   render() {
     return (
       <div className="App">
-        <Spin loading={true}>
+        <Spin spinning={this.props.global.loading}>
           <AppProvider app={this.props.app}>
             <Layout user={this.props.user} onClick={this.handleLayoutClick}>
               {!this.props.user.uid ? (
@@ -49,5 +50,6 @@ class App extends React.Component<PropsType> {
 
 const mapStateToProps = (state: StateInterface) => ({
   user: state.user,
+  global: state.global,
 });
 export default connect(mapStateToProps)(App);

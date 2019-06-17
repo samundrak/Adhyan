@@ -1,8 +1,12 @@
 import React, { Context } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import styled from 'styled-components';
 import { Upload as AntdUpload, Icon, message, Button } from 'antd';
 import { AppContext } from '../providers/AppProvider';
 import Adhyan from '../core/Adhyan';
+import { loading } from '../store/actions/global';
 
 const Dragger = AntdUpload.Dragger;
 const Container = styled.div`
@@ -15,14 +19,26 @@ const Container = styled.div`
 const Item = styled.div`
   margin: 10px;
 `;
-class Upload extends React.Component {
+type PropsType = {
+  actions: any;
+};
+class Upload extends React.Component<PropsType> {
   static contextType: Context<Adhyan> = AppContext;
 
   componentDidMount() {
     console.log('hello');
+    console.log(this.props.actions);
   }
   handleFileChange = async (file: File) => {
-    const downloadUrl = await this.context.uploadItem(file);
+    try {
+      this.props.dispatch(this.props.actions.loading(true));
+      const downloadUrl = await this.context.uploadItem(file);
+      return downloadUrl;
+    } catch (err) {
+      console.error(err);
+    } finally {
+      this.props.actions.loading(false);
+    }
   };
   render() {
     return (
@@ -45,4 +61,10 @@ class Upload extends React.Component {
     );
   }
 }
-export default Upload;
+const mapActionToProps = (dispatch: any) => ({
+  actions: bindActionCreators({ loading }, dispatch),
+});
+export default connect(
+  null,
+  mapActionToProps
+)(Upload);
