@@ -5,7 +5,7 @@ const initialState = { loading: false };
 export default produce((draft, action) => {
   switch (action.type) {
     case GLOBAL_LOADING:
-      draft.status = action.data;
+      draft.loading = action.data;
       break;
   }
 }, initialState);

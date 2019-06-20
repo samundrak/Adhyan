@@ -4,6 +4,8 @@ import Auth from '../models/Auth';
 import User from '../models/User';
 import { setUser } from '../store/actions/users';
 import firebase from '../firebase';
+import Book from '../models/Book';
+import { UploadFile } from 'antd/lib/upload/interface';
 
 class Adhyan {
   store: StoreInterface;
@@ -55,6 +57,10 @@ class Adhyan {
         console.log(downloadURL);
         return downloadURL;
       });
+  }
+  async createNewBook(bookItem: { file: UploadFile; uploadedItemURL: string }) {
+    const book = new Book(this.firestore);
+    return book.create(bookItem);
   }
   dispose() {
     this.disposableItems.forEach((item: Disposable) => {
