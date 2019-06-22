@@ -25,8 +25,7 @@ class Upload extends React.Component<PropsType> {
   file: UploadFile | null = null;
 
   componentDidMount() {
-    console.log('hello');
-    console.log(this.props.actions);
+    console.log(this.context.auth);
   }
   handleFileChange = async (change: UploadChangeParam) => {
     try {
@@ -38,11 +37,10 @@ class Upload extends React.Component<PropsType> {
         uploadedItemURL: uploadedItem
       });
       console.log(bookRef)
-      this.props.actions.loading(false)
     } catch (err) {
       console.error(err);
     } finally {
-      // this.props.actions.loading(false);
+      this.props.actions.loading(false);
     }
   };
   render() {

@@ -12,6 +12,7 @@ import { SIGN_OUT } from './consts';
 import AppProvider from './providers/AppProvider';
 import Home from './views/Home';
 import Upload from './views/Upload';
+import Books from './views/Books';
 
 type PropsType = {
   user: UserInterface;
@@ -35,11 +36,12 @@ class App extends React.Component<PropsType> {
               {!this.props.user.uid ? (
                 <Guest />
               ) : (
-                <Switch>
-                  <Route path="/" exact component={Home} />
-                  <Route path="/upload" exact component={Upload} />
-                </Switch>
-              )}
+                  <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/upload" exact component={Upload} />
+                    <Route path="/books" exact component={Books} />
+                  </Switch>
+                )}
             </Layout>
           </AppProvider>
         </Spin>

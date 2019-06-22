@@ -1,10 +1,6 @@
 import { FirestoreModelContract } from '../interfaces';
 
-class FirestoreModel implements FirestoreModelContract {
-  firestore: firebase.firestore.Firestore;
-
-  constructor(firestore: firebase.firestore.Firestore) {
-    this.firestore = firestore;
-  }
-}
+const FirestoreModel: FirestoreModelContract = class FirestoreModel {
+  constructor(public firestore: firebase.firestore.Firestore) {}
+};
 export default FirestoreModel;

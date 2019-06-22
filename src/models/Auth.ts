@@ -1,11 +1,13 @@
 import FirestoreModel from './FirestoreModel';
 import firebase from '../firebase';
 import { GOOGLE } from '../consts';
+import User from './User';
 
 class Auth extends FirestoreModel {
   auth: firebase.auth.Auth;
+  user!: firebase.firestore.DocumentReference;
 
-  constructor(firestore: firebase.firestore.Firestore) {
+  constructor(public firestore: firebase.firestore.Firestore) {
     super(firestore);
     this.auth = firebase.auth();
     this.firestore = firestore;

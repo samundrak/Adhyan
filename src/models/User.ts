@@ -1,3 +1,4 @@
+import { UploadFile } from 'antd/lib/upload/interface';
 import FirestoreModel from './FirestoreModel';
 
 class User extends FirestoreModel {
@@ -28,6 +29,36 @@ class User extends FirestoreModel {
     if (!uid) return null;
     return this.firestore.collection('users').doc(uid);
   };
+
+  async createBook(
+    bookItem: {
+      file: UploadFile;
+      uploadedItemURL: string;
+    },
+    user: firebase.firestore.DocumentReference
+  ): Promise<any> {
+    const { file, uploadedItemURL } = bookItem;
+    const filenameArr = file.name.split('.');
+    const extension = filenameArr.pop();
+    const filename = filenameArr.join('');
+
+    return user.collection('books').add({
+      file: {
+        name: file.name,
+        size: file.size,
+        url: uploadedItemURL,
+        type: file.type,
+      },
+      name: filename,
+      extension,
+    });
+  }
+
+  async getBooks(user: firebase.firestore.DocumentReference) {
+    const booksRef = await user.collection('books').get();
+    console.log(booksRef);
+    // return booksRef.docs().data();
+  }
 }
 
 export default User;

@@ -1,4 +1,8 @@
-import { StoreInterface, Disposable } from '../interfaces';
+import {
+  StoreInterface,
+  Disposable,
+  SimpleControllerInterface,
+} from '../interfaces';
 import AuthDisposal from './dispose/AuthDisposal';
 import Auth from '../models/Auth';
 import User from '../models/User';
@@ -6,6 +10,7 @@ import { setUser } from '../store/actions/users';
 import firebase from '../firebase';
 import Book from '../models/Book';
 import { UploadFile } from 'antd/lib/upload/interface';
+import BooksController from '../controllers/BooksController';
 
 class Adhyan {
   store: StoreInterface;
@@ -34,6 +39,8 @@ class Adhyan {
     let user: firebase.User | null = userAuth || {};
     if (userAuth) {
       const userRef = await new User(this.firestore).createProfile(userAuth);
+      this.auth.user = userRef;
+      console.log(userRef);
       if (userRef) {
         userRef.onSnapshot((snapshot) => {
           user = <firebase.User>{ uid: snapshot.id, ...snapshot.data() };
@@ -54,13 +61,19 @@ class Adhyan {
       .put(file)
       .then((response) => {
         const downloadURL = response.ref.getDownloadURL();
-        console.log(downloadURL);
         return downloadURL;
       });
   }
+  createController(type: string): SimpleControllerInterface | undefined {
+    switch (type) {
+      case 'books':
+        return new BooksController(this.firestore, this.auth);
+    }
+  }
   async createNewBook(bookItem: { file: UploadFile; uploadedItemURL: string }) {
-    const book = new Book(this.firestore);
-    return book.create(bookItem);
+    if (!this.auth.auth.currentUser) return new Error('No user');
+    const user = new User(this.firestore);
+    return await user.createBook(bookItem, this.auth.user);
   }
   dispose() {
     this.disposableItems.forEach((item: Disposable) => {

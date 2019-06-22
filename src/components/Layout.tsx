@@ -80,7 +80,7 @@ const AppLayout = ({
               </Link>
             </Menu.Item>
             <Menu.Item key="books">
-              <Link to="/">
+              <Link to="/books">
                 <Icon type="book" />Books
               </Link>
             </Menu.Item>
