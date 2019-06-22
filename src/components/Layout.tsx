@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Icon, Breadcrumb } from 'antd';
 import AuthDropdown from './AuthDropdown';
 import { UserInterface } from '../interfaces';
 import { AUTH_NAVBAR } from '../consts';
 import { ClickParam } from 'antd/lib/menu';
-const { Header, Content } = Layout;
+
+const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
 
 const AppName = styled.div`
   color: white;
@@ -30,42 +32,74 @@ const AppLayout = ({
   children: JSX.Element;
   onClick: (type: string) => (event: ClickParam) => void;
 }) => (
-    <Layout className="layout">
-      <Header
-        style={{
-          zIndex: 1,
-          width: '100%',
-          backgroundColor: '#161a1e',
-        }}
-      >
+    <Layout>
+      <Header className="header">
         <HeaderBox>
-          <AppName className="logo">
-            <Link to="/">Adhyan</Link>
-          </AppName>
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            style={{ lineHeight: '64px', backgroundColor: '#161a1e' }}
-          >
-            <Menu.Item key="1">
-              <Link to="/upload">
-                <Icon type="upload" /> Upload
+          <HeaderItemLeft>
+            <div className="logo" />
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              defaultSelectedKeys={['2']}
+              style={{ lineHeight: '64px', }}
+            >
+              <Menu.Item key="1">
+                <Link to="/">
+                  <Icon type="home" />Home
               </Link>
-            </Menu.Item>
-          </Menu>
+              </Menu.Item>
+
+              <Menu.Item key="2">
+                <Link to="/upload">
+                  <Icon type="upload" /> Upload
+              </Link>
+              </Menu.Item>
+
+            </Menu>
+          </HeaderItemLeft>
           <HeaderItemRight>
             {user.uid && (
               <AuthDropdown user={user} onClick={onClick(AUTH_NAVBAR)} />
             )}
           </HeaderItemRight>
         </HeaderBox>
+
+
       </Header>
-      <Content style={{ padding: '0 50px', margin: '16px 0' }}>
-        <div style={{ padding: 24, background: '#fff', minHeight: 600 }}>
-          {children}
-        </div>
-      </Content>
+      <Layout>
+        <Sider width={200} style={{ background: '#fff' }}>
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{ height: '100%', borderRight: 0 }}
+          >
+            <Menu.Item key="home">
+              <Link to="/">
+                <Icon type="home" />Home
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="books">
+              <Link to="/">
+                <Icon type="book" />Books
+              </Link>
+            </Menu.Item>
+
+          </Menu>
+        </Sider>
+        <Layout style={{ padding: '0 24px 24px' }}>
+          <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>List</Breadcrumb.Item>
+            <Breadcrumb.Item>App</Breadcrumb.Item>
+          </Breadcrumb>
+          <Content style={{ padding: '0 50px', margin: '16px 0' }}>
+            <div style={{ padding: 24, background: '#fff', minHeight: 600 }}>
+              {children}
+            </div>
+          </Content>
+        </Layout>
+      </Layout>
     </Layout>
   );
 export default AppLayout;
