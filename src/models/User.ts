@@ -1,5 +1,6 @@
 import { UploadFile } from 'antd/lib/upload/interface';
 import FirestoreModel from './FirestoreModel';
+import { BOOKS_PROCESSING_STATUS } from '../consts';
 
 class User extends FirestoreModel {
   createProfile = async (user: firebase.User, additionalData?: {}) => {
@@ -51,6 +52,7 @@ class User extends FirestoreModel {
       },
       name: filename,
       extension,
+      status: BOOKS_PROCESSING_STATUS.PROCESSING,
     });
   }
 

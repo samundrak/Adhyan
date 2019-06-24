@@ -1,8 +1,9 @@
 import React, { Context } from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
-import { Row, Col, Upload as AntdUpload, Icon, Button } from 'antd';
+import { Row, Col, Upload as AntdUpload, Icon } from 'antd';
 import { AppContext } from '../providers/AppProvider';
 import Adhyan from '../core/Adhyan';
 import { loading } from '../store/actions/global';
@@ -19,24 +20,22 @@ const Item = styled.div`
 `;
 type PropsType = {
   actions: any;
+  history: RouteComponentProps
 };
 class Upload extends React.Component<PropsType> {
   static contextType: Context<Adhyan> = AppContext;
   file: UploadFile | null = null;
 
-  componentDidMount() {
-    console.log(this.context.auth);
-  }
   handleFileChange = async (change: UploadChangeParam) => {
     try {
       this.file = change.file;
       this.props.actions.loading(true)
       const uploadedItem = await this.context.uploadItem(this.file);
-      const bookRef = await this.context.createNewBook({
+      await this.context.createNewBook({
         file: this.file,
         uploadedItemURL: uploadedItem
       });
-      console.log(bookRef)
+      this.props.history.push('/books');
     } catch (err) {
       console.error(err);
     } finally {
@@ -83,4 +82,4 @@ const mapActionToProps = (dispatch: any) => ({
 export default connect(
   null,
   mapActionToProps
-)(Upload);
+)(withRouter(Upload));

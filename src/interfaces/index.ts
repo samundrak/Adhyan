@@ -31,6 +31,7 @@ export interface BookInterface {
     size: number;
     url: string;
   };
+  status: string;
 }
 export interface SimpleControllerInterface {
   firestore: firebase.firestore.Firestore;

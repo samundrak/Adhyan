@@ -40,7 +40,6 @@ const AppLayout = ({
             <Menu
               theme="dark"
               mode="horizontal"
-              defaultSelectedKeys={['2']}
               style={{ lineHeight: '64px', }}
             >
               <Menu.Item key="1">
@@ -49,11 +48,7 @@ const AppLayout = ({
               </Link>
               </Menu.Item>
 
-              <Menu.Item key="2">
-                <Link to="/upload">
-                  <Icon type="upload" /> Upload
-              </Link>
-              </Menu.Item>
+
 
             </Menu>
           </HeaderItemLeft>
@@ -84,7 +79,11 @@ const AppLayout = ({
                 <Icon type="book" />Books
               </Link>
             </Menu.Item>
-
+            <Menu.Item key="upload">
+              <Link to="/upload">
+                <Icon type="upload" /> Upload
+              </Link>
+            </Menu.Item>
           </Menu>
         </Sider>
         <Layout style={{ padding: '0 24px 24px' }}>

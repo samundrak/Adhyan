@@ -1,9 +1,10 @@
 import React, { Context } from 'react';
 import { prettySize } from 'pretty-size';
-import { Table, Divider, Tag } from 'antd';
+import { Table, Tag } from 'antd';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { booksLoaded } from '../store/actions/books'
+import { loading } from '../store/actions/global';
 import BooksController from '../controllers/BooksController';
 import Adhyan from '../core/Adhyan';
 import { AppContext } from '../providers/AppProvider';
@@ -11,7 +12,8 @@ import { BookInterface } from '../interfaces';
 
 type PropsType = {
     actions: {
-        booksLoaded: (books: BookInterface[]) => null
+        booksLoaded: (books: BookInterface[]) => null,
+        loading: (status: boolean) => null
     },
     books: {
         items: BookInterface[]
@@ -78,10 +80,11 @@ class Books extends React.Component<PropsType> {
 
     }
     async componentWillMount() {
-
+        this.props.actions.loading(true);
         // @todo handle error
         const books: BookInterface[] = await this.controller.getBooks();
         this.props.actions.booksLoaded(books);
+        this.props.actions.loading(false);
 
     }
     render() {
@@ -96,6 +99,6 @@ const mapStateToProps = ({ books }) => ({
     books
 });
 const mapActions = dispatch => ({
-    actions: bindActionCreators({ booksLoaded }, dispatch)
+    actions: bindActionCreators({ booksLoaded, loading }, dispatch)
 })
 export default connect(mapStateToProps, mapActions)(Books);
