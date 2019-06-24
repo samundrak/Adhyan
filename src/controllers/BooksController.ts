@@ -1,5 +1,5 @@
 import Auth from '../models/Auth';
-import { SimpleControllerInterface } from '../interfaces';
+import { SimpleControllerInterface, BookInterface } from '../interfaces';
 import { collectIdsAndDocs } from '../utils';
 
 class BooksController implements SimpleControllerInterface {
@@ -9,9 +9,10 @@ class BooksController implements SimpleControllerInterface {
   ) {}
   createNewBook() {}
 
-  async getBooks() {
+  async getBooks(): Promise<BookInterface[]> {
+    if (!this.auth.user) return [];
     const booksRef = await this.auth.user.collection('books').get();
-    return booksRef.docs.map(collectIdsAndDocs);
+    return <BookInterface[]>booksRef.docs.map(collectIdsAndDocs);
   }
 }
 export default BooksController;

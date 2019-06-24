@@ -24,6 +24,7 @@ export interface StateInterface {
   global: GlobalInterface;
 }
 export interface BookInterface {
+  id: string;
   file: {
     type: string;
     name: string;
