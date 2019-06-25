@@ -30,10 +30,10 @@ class Upload extends React.Component<PropsType> {
     try {
       this.file = change.file;
       this.props.actions.loading(true)
-      const uploadedItem = await this.context.uploadItem(this.file);
+      const uploadedItemURL = await this.context.uploadItem(this.file);
       await this.context.createNewBook({
         file: this.file,
-        uploadedItemURL: uploadedItem
+        uploadedItemURL
       });
       this.props.history.push('/books');
     } catch (err) {

@@ -11,6 +11,7 @@ import firebase from '../firebase';
 import Book from '../models/Book';
 import { UploadFile } from 'antd/lib/upload/interface';
 import BooksController from '../controllers/BooksController';
+import { getRandomFileName } from '../utils';
 
 class Adhyan {
   store: StoreInterface;
@@ -57,7 +58,7 @@ class Adhyan {
       .ref()
       .child('user-uploads')
       .child(user.uid)
-      .child(file.name)
+      .child(getRandomFileName(file.name))
       .put(file)
       .then((response) => {
         const downloadURL = response.ref.getDownloadURL();

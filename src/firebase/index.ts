@@ -24,7 +24,7 @@ export const provider = new firebase.auth.GoogleAuthProvider();
 export const storage = () => firebase.storage();
 
 if (process.env.NODE_ENV !== 'production') {
-  window.fb = firebase;
+  window.firestore = firestore;
 }
 
 export default firebase;

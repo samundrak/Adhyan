@@ -69,11 +69,7 @@ const AppLayout = ({
             defaultOpenKeys={['sub1']}
             style={{ height: '100%', borderRight: 0 }}
           >
-            <Menu.Item key="home">
-              <Link to="/">
-                <Icon type="home" />Home
-              </Link>
-            </Menu.Item>
+
             <Menu.Item key="books">
               <Link to="/books">
                 <Icon type="book" />Books
