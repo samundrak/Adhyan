@@ -1,0 +1,187 @@
+[debug] [2019-06-26T17:55:03.968Z] ----------------------------------------------------------------------
+[debug] [2019-06-26T17:55:03.970Z] Command:       /home/samundrak/.nvm/versions/node/v10.3.0/bin/node /home/samundrak/.nvm/versions/node/v10.3.0/bin/firebase emulators:start
+[debug] [2019-06-26T17:55:03.971Z] CLI Version:   7.0.1
+[debug] [2019-06-26T17:55:03.971Z] Platform:      linux
+[debug] [2019-06-26T17:55:03.971Z] Node Version:  v10.3.0
+[debug] [2019-06-26T17:55:03.971Z] Time:          Wed Jun 26 2019 23:40:03 GMT+0545 (NPT)
+[debug] [2019-06-26T17:55:03.971Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-26T17:55:03.980Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-26T17:55:03.980Z] > authorizing via signed-in user
+[debug] [2019-06-26T17:55:03.983Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/adhyan-2603e  
+ 
+[debug] [2019-06-26T17:55:06.284Z] <<< HTTP RESPONSE 200
+[info] i  Starting emulators: ["functions","firestore"]
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-06-26T17:55:06.308Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/901997733879:getServerAppConfig  
+ 
+[debug] [2019-06-26T17:55:07.431Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: Emulator started at http://localhost:5001
+[debug] [2019-06-26T17:55:07.693Z] Starting emulator firestore with args {"host":"localhost","port":8080,"rules":"/home/samundrak/projects/Adhyan/firestore.rules","functions_emulator":"localhost:5001"}
+[info] i  firestore: Logging to firestore-debug.log
+[info] ✔  firestore: Emulator started at http://localhost:8080
+[debug] [2019-06-26T17:55:09.090Z] API endpoint: http://
+[debug] [2019-06-26T17:55:09.091Z] localhost:8080
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:8080
+
+Dev App Server is now running.
+
+
+[info] i  firestore: For testing set FIRESTORE_EMULATOR_HOST=localhost:8080
+[info] i  functions: Watching "/home/samundrak/projects/Adhyan/functions" for Cloud Functions...
+[debug] [2019-06-26T17:55:09.652Z] Functions runtime initialized.
+[debug] [2019-06-26T17:55:09.652Z] Disabled runtime features: undefined
+[debug] [2019-06-26T17:55:09.802Z] Couldn't find @google-cloud/firestore or google-gax, this may be okay if using @google-cloud/firestore@2.0.0
+[debug] [2019-06-26T17:55:09.803Z] Outgoing network have been stubbed.
+[debug] [2019-06-26T17:55:09.867Z] Checked functions.config()
+[debug] [2019-06-26T17:55:09.871Z] firebase-admin has been stubbed.
+[info] >  (node:24686) ExperimentalWarning: The http2 module is an experimental API.
+[debug] [2019-06-26T17:56:21.770Z] File /home/samundrak/projects/Adhyan/functions/index.js changed, reloading triggers
+[debug] [2019-06-26T17:56:23.195Z] Functions runtime initialized.
+[debug] [2019-06-26T17:56:23.198Z] Disabled runtime features: undefined
+[debug] [2019-06-26T17:56:23.350Z] Couldn't find @google-cloud/firestore or google-gax, this may be okay if using @google-cloud/firestore@2.0.0
+[debug] [2019-06-26T17:56:23.351Z] Outgoing network have been stubbed.
+[debug] [2019-06-26T17:56:23.414Z] Checked functions.config()
+[debug] [2019-06-26T17:56:23.419Z] firebase-admin has been stubbed.
+[debug] [2019-06-26T17:56:23.421Z] config() parent accessed!
+[info] i  functions: HTTP trigger initialized at http://localhost:5001/adhyan-2603e/us-central1/helloWorld
+[info] i  functions: Setting up Cloud Firestore trigger "createUser"
+[debug] [2019-06-26T17:56:23.482Z] addFirestoreTrigger "{\"eventTrigger\":{\"resource\":\"projects/adhyan-2603e/databases/(default)/documents/posts/{postId}\",\"eventType\":\"providers/cloud.firestore/eventTypes/document.write\",\"service\":\"firestore.googleapis.com\"}}"
+[info] >  (node:24863) ExperimentalWarning: The http2 module is an experimental API.
+[debug] [2019-06-26T17:56:23.810Z] Jun 26, 2019 11:41:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+
+[debug] [2019-06-26T17:56:24.056Z] Jun 26, 2019 11:41:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+
+[info] ✔  functions: Trigger "createUser" has been acknowledged by the Cloud Firestore emulator.
+[debug] [2019-06-26T17:56:38.290Z] Accepted request GET /adhyan-2603e/us-central1/helloWorld --> helloWorld
+[debug] [2019-06-26T17:56:38.708Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "helloWorld"
+[debug] [2019-06-26T17:56:38.711Z] Disabled runtime features: undefined
+[debug] [2019-06-26T17:56:38.905Z] Couldn't find @google-cloud/firestore or google-gax, this may be okay if using @google-cloud/firestore@2.0.0
+[debug] [2019-06-26T17:56:38.905Z] Outgoing network have been stubbed.
+[debug] [2019-06-26T17:56:38.982Z] Checked functions.config()
+[debug] [2019-06-26T17:56:38.986Z] firebase-admin has been stubbed.
+[debug] [2019-06-26T17:56:38.987Z] config() parent accessed!
+[warn] ⚠  Error: Cannot set both "settings.host" and "settings.servicePath".
+    at Firestore.validateAndApplySettings (/home/samundrak/projects/Adhyan/functions/node_modules/@google-cloud/firestore/build/src/index.js:358:23)
+    at Firestore.settings (/home/samundrak/projects/Adhyan/functions/node_modules/@google-cloud/firestore/build/src/index.js:344:14)
+    at initializeSettings (/home/samundrak/.nvm/versions/node/v10.3.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:271:33)
+    at Proxy.<anonymous> (/home/samundrak/.nvm/versions/node/v10.3.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:298:25)
+    at Object.<anonymous> (/home/samundrak/projects/Adhyan/functions/index.js:9:11)
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+    at Module.load (internal/modules/cjs/loader.js:612:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[info] >  (node:24924) ExperimentalWarning: The http2 module is an experimental API.
+[debug] [2019-06-26T17:56:59.086Z] File /home/samundrak/projects/Adhyan/functions/index.js changed, reloading triggers
+[debug] [2019-06-26T17:57:00.477Z] Functions runtime initialized.
+[debug] [2019-06-26T17:57:00.480Z] Disabled runtime features: undefined
+[debug] [2019-06-26T17:57:00.665Z] Couldn't find @google-cloud/firestore or google-gax, this may be okay if using @google-cloud/firestore@2.0.0
+[debug] [2019-06-26T17:57:00.666Z] Outgoing network have been stubbed.
+[debug] [2019-06-26T17:57:00.740Z] Checked functions.config()
+[debug] [2019-06-26T17:57:00.744Z] firebase-admin has been stubbed.
+[debug] [2019-06-26T17:57:00.747Z] config() parent accessed!
+[info] >  (node:24933) ExperimentalWarning: The http2 module is an experimental API.
+[debug] [2019-06-26T17:57:03.754Z] Accepted request GET /adhyan-2603e/us-central1/helloWorld --> helloWorld
+[debug] [2019-06-26T17:57:04.160Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "helloWorld"
+[debug] [2019-06-26T17:57:04.163Z] Disabled runtime features: undefined
+[debug] [2019-06-26T17:57:04.344Z] Couldn't find @google-cloud/firestore or google-gax, this may be okay if using @google-cloud/firestore@2.0.0
+[debug] [2019-06-26T17:57:04.345Z] Outgoing network have been stubbed.
+[debug] [2019-06-26T17:57:04.427Z] Checked functions.config()
+[debug] [2019-06-26T17:57:04.432Z] firebase-admin has been stubbed.
+[debug] [2019-06-26T17:57:04.434Z] config() parent accessed!
+[warn] ⚠  Error: Cannot set both "settings.host" and "settings.servicePath".
+    at Firestore.validateAndApplySettings (/home/samundrak/projects/Adhyan/functions/node_modules/@google-cloud/firestore/build/src/index.js:358:23)
+    at Firestore.settings (/home/samundrak/projects/Adhyan/functions/node_modules/@google-cloud/firestore/build/src/index.js:344:14)
+    at initializeSettings (/home/samundrak/.nvm/versions/node/v10.3.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:271:33)
+    at Proxy.<anonymous> (/home/samundrak/.nvm/versions/node/v10.3.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:298:25)
+    at Object.<anonymous> (/home/samundrak/projects/Adhyan/functions/index.js:9:11)
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+    at Module.load (internal/modules/cjs/loader.js:612:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[info] >  (node:24940) ExperimentalWarning: The http2 module is an experimental API.
+[debug] [2019-06-26T17:57:11.861Z] File /home/samundrak/projects/Adhyan/functions/index.js changed, reloading triggers
+[debug] [2019-06-26T17:57:13.413Z] Functions runtime initialized.
+[debug] [2019-06-26T17:57:13.415Z] Disabled runtime features: undefined
+[debug] [2019-06-26T17:57:13.676Z] Couldn't find @google-cloud/firestore or google-gax, this may be okay if using @google-cloud/firestore@2.0.0
+[debug] [2019-06-26T17:57:13.676Z] Outgoing network have been stubbed.
+[debug] [2019-06-26T17:57:13.792Z] Checked functions.config()
+[debug] [2019-06-26T17:57:13.799Z] firebase-admin has been stubbed.
+[debug] [2019-06-26T17:57:13.800Z] config() parent accessed!
+[info] >  (node:24950) ExperimentalWarning: The http2 module is an experimental API.
+[debug] [2019-06-26T17:57:14.868Z] Accepted request GET /adhyan-2603e/us-central1/helloWorld --> helloWorld
+[debug] [2019-06-26T17:57:15.269Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "helloWorld"
+[debug] [2019-06-26T17:57:15.271Z] Disabled runtime features: undefined
+[debug] [2019-06-26T17:57:15.457Z] Couldn't find @google-cloud/firestore or google-gax, this may be okay if using @google-cloud/firestore@2.0.0
+[debug] [2019-06-26T17:57:15.458Z] Outgoing network have been stubbed.
+[debug] [2019-06-26T17:57:15.532Z] Checked functions.config()
+[debug] [2019-06-26T17:57:15.536Z] firebase-admin has been stubbed.
+[debug] [2019-06-26T17:57:15.538Z] config() parent accessed!
+[warn] ⚠  Error: Cannot set both "settings.host" and "settings.servicePath".
+    at Firestore.validateAndApplySettings (/home/samundrak/projects/Adhyan/functions/node_modules/@google-cloud/firestore/build/src/index.js:358:23)
+    at Firestore.settings (/home/samundrak/projects/Adhyan/functions/node_modules/@google-cloud/firestore/build/src/index.js:344:14)
+    at initializeSettings (/home/samundrak/.nvm/versions/node/v10.3.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:271:33)
+    at Proxy.<anonymous> (/home/samundrak/.nvm/versions/node/v10.3.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:298:25)
+    at Object.<anonymous> (/home/samundrak/projects/Adhyan/functions/index.js:9:11)
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+    at Module.load (internal/modules/cjs/loader.js:612:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[info] >  (node:24956) ExperimentalWarning: The http2 module is an experimental API.
+[debug] [2019-06-26T17:57:16.922Z] Accepted request GET /adhyan-2603e/us-central1/helloWorld --> helloWorld
+[debug] [2019-06-26T17:57:17.331Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "helloWorld"
+[debug] [2019-06-26T17:57:17.333Z] Disabled runtime features: undefined
+[debug] [2019-06-26T17:57:17.520Z] Couldn't find @google-cloud/firestore or google-gax, this may be okay if using @google-cloud/firestore@2.0.0
+[debug] [2019-06-26T17:57:17.521Z] Outgoing network have been stubbed.
+[debug] [2019-06-26T17:57:17.591Z] Checked functions.config()
+[debug] [2019-06-26T17:57:17.596Z] firebase-admin has been stubbed.
+[debug] [2019-06-26T17:57:17.597Z] config() parent accessed!
+[warn] ⚠  Error: Cannot set both "settings.host" and "settings.servicePath".
+    at Firestore.validateAndApplySettings (/home/samundrak/projects/Adhyan/functions/node_modules/@google-cloud/firestore/build/src/index.js:358:23)
+    at Firestore.settings (/home/samundrak/projects/Adhyan/functions/node_modules/@google-cloud/firestore/build/src/index.js:344:14)
+    at initializeSettings (/home/samundrak/.nvm/versions/node/v10.3.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:271:33)
+    at Proxy.<anonymous> (/home/samundrak/.nvm/versions/node/v10.3.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:298:25)
+    at Object.<anonymous> (/home/samundrak/projects/Adhyan/functions/index.js:9:11)
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+    at Module.load (internal/modules/cjs/loader.js:612:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[info] >  (node:24964) ExperimentalWarning: The http2 module is an experimental API.
+[debug] [2019-06-26T17:59:16.964Z] Accepted request GET /adhyan-2603e/us-central1/helloWorld --> helloWorld
+[debug] [2019-06-26T17:59:17.342Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "helloWorld"
+[debug] [2019-06-26T17:59:17.344Z] Disabled runtime features: undefined
+[debug] [2019-06-26T17:59:17.526Z] Couldn't find @google-cloud/firestore or google-gax, this may be okay if using @google-cloud/firestore@2.0.0
+[debug] [2019-06-26T17:59:17.526Z] Outgoing network have been stubbed.
+[debug] [2019-06-26T17:59:17.608Z] Checked functions.config()
+[debug] [2019-06-26T17:59:17.613Z] firebase-admin has been stubbed.
+[debug] [2019-06-26T17:59:17.614Z] config() parent accessed!
+[warn] ⚠  Error: Cannot set both "settings.host" and "settings.servicePath".
+    at Firestore.validateAndApplySettings (/home/samundrak/projects/Adhyan/functions/node_modules/@google-cloud/firestore/build/src/index.js:358:23)
+    at Firestore.settings (/home/samundrak/projects/Adhyan/functions/node_modules/@google-cloud/firestore/build/src/index.js:344:14)
+    at initializeSettings (/home/samundrak/.nvm/versions/node/v10.3.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:271:33)
+    at Proxy.<anonymous> (/home/samundrak/.nvm/versions/node/v10.3.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:298:25)
+    at Object.<anonymous> (/home/samundrak/projects/Adhyan/functions/index.js:9:11)
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+    at Module.load (internal/modules/cjs/loader.js:612:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[info] >  (node:25028) ExperimentalWarning: The http2 module is an experimental API.
