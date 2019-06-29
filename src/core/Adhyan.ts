@@ -8,7 +8,6 @@ import Auth from '../models/Auth';
 import User from '../models/User';
 import { setUser } from '../store/actions/users';
 import firebase from '../firebase';
-import Book from '../models/Book';
 import { UploadFile } from 'antd/lib/upload/interface';
 import BooksController from '../controllers/BooksController';
 import { getRandomFileName } from '../utils';
@@ -44,7 +43,7 @@ class Adhyan {
       console.log(userRef);
       if (userRef) {
         userRef.onSnapshot((snapshot) => {
-          user = <firebase.User>{ uid: snapshot.id, ...snapshot.data() };
+          user = { uid: snapshot.id, ...snapshot.data() } as firebase.User;
         });
       }
     }

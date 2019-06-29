@@ -27,12 +27,16 @@ const getColorOfStatus = status => {
     }
     return obj[status]
 }
+
+// eslint-disable-next-line
+const jsVoidLink = 'javascript:void(0);';
+
 const columns = [
     {
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
-        render: text => <a href="javascript:;">{text}</a>,
+        render: text => <a href={jsVoidLink}>{text}</a>,
     },
     {
         title: 'Size',
@@ -44,7 +48,7 @@ const columns = [
         title: 'URL',
         dataIndex: 'file.url',
         key: 'fileUrl',
-        render: url => <a href={url} target="_blank">Download</a>
+        render: url => <a href={url} target="_blank" rel="noopener noreferrer">Download</a>
     },
     {
 
@@ -64,7 +68,7 @@ const columns = [
         key: 'action',
         render: (text, record) => (
             <span>
-                <a href="javascript:;">Delete</a>
+                <a href={jsVoidLink} rel="noopener noreferrer">Delete</a>
             </span>
         ),
     },
@@ -94,7 +98,7 @@ class Books extends React.Component<PropsType> {
     }
 }
 
-// const 
+// const
 const mapStateToProps = ({ books }) => ({
     books
 });

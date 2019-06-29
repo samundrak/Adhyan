@@ -1,18 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Layout, Menu, Icon, Breadcrumb } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 import AuthDropdown from './AuthDropdown';
 import { UserInterface } from '../interfaces';
 import { AUTH_NAVBAR } from '../consts';
 import { ClickParam } from 'antd/lib/menu';
 
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+const { Header, Content, Sider } = Layout;
 
-const AppName = styled.div`
-  color: white;
-`;
 const HeaderBox = styled.div`
   display: flex;
   flex-direction: 'row';

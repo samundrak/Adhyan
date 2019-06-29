@@ -12,12 +12,9 @@ import { UploadFile } from 'antd/lib/upload/interface';
 
 const Dragger = AntdUpload.Dragger;
 const Container = styled.div`
-
   height: 100%;
 `;
-const Item = styled.div`
-  margin: 10px;
-`;
+
 type PropsType = {
   actions: any;
   history: RouteComponentProps

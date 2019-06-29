@@ -12,7 +12,7 @@ class BooksController implements SimpleControllerInterface {
   async getBooks(): Promise<BookInterface[]> {
     if (!this.auth.user) return [];
     const booksRef = await this.auth.user.collection('books').get();
-    return <BookInterface[]>booksRef.docs.map(collectIdsAndDocs);
+    return booksRef.docs.map(collectIdsAndDocs) as BookInterface[];
   }
 }
 export default BooksController;
