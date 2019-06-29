@@ -2,10 +2,13 @@
   "name": "adhyan",
   "version": "0.1.0",
   "private": true,
+  "license": "ISC",
   "dependencies": {
     "antd": "^3.19.3",
     "firebase": "^6.1.1",
+    "husky": "^2.7.0",
     "immer": "^3.1.3",
+    "lint-staged": "^8.2.1",
     "pretty-size": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -25,8 +28,21 @@
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "eslint-config-prettier": "^6.0.0",
+    "eslint-config-react-app": "^4.0.1",
     "eslint-plugin-prettier": "^3.1.0",
+    "eslint_d": "^8.0.0",
     "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,8 +1,3 @@
-import {
-  StoreInterface,
-  Disposable,
-  SimpleControllerInterface,
-} from '../interfaces';
 import AuthDisposal from './dispose/AuthDisposal';
 import Auth from '../models/Auth';
 import User from '../models/User';
@@ -34,7 +29,7 @@ class Adhyan {
     this.disposableItems.push(new AuthDisposal(unsubscribeAuth));
   }
   handleAuthStateChange = async (
-    userAuth: firebase.User | null
+    userAuth: firebase.User | null,
   ): Promise<any> => {
     let user: firebase.User | null = userAuth || {};
     if (userAuth) {
@@ -42,7 +37,7 @@ class Adhyan {
       this.auth.user = userRef;
       console.log(userRef);
       if (userRef) {
-        userRef.onSnapshot((snapshot) => {
+        userRef.onSnapshot(snapshot => {
           user = { uid: snapshot.id, ...snapshot.data() } as firebase.User;
         });
       }
@@ -59,7 +54,7 @@ class Adhyan {
       .child(user.uid)
       .child(getRandomFileName(file.name))
       .put(file)
-      .then((response) => {
+      .then(response => {
         const downloadURL = response.ref.getDownloadURL();
         return downloadURL;
       });

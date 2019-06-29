@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StateInterface, UserInterface } from '../interfaces';
 
 type PropsType = {
   user: UserInterface;
@@ -16,7 +15,9 @@ class Home extends React.Component<PropsType> {
     );
   }
 }
+
 const mapStateToProps = (state: StateInterface) => ({
   user: state.user,
 });
+
 export default connect(mapStateToProps)(Home);

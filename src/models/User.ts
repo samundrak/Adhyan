@@ -36,7 +36,7 @@ class User extends FirestoreModel {
       file: UploadFile;
       uploadedItemURL: string;
     },
-    user: firebase.firestore.DocumentReference
+    user: firebase.firestore.DocumentReference,
   ): Promise<any> {
     const { file, uploadedItemURL } = bookItem;
     const filenameArr = file.name.split('.');

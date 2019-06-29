@@ -5,7 +5,7 @@ import { collectIdsAndDocs } from '../utils';
 class BooksController implements SimpleControllerInterface {
   constructor(
     public firestore: firebase.firestore.Firestore,
-    public auth: Auth
+    public auth: Auth,
   ) {}
   createNewBook() {}
 

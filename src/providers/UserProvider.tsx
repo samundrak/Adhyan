@@ -1,5 +1,4 @@
 import React, { createContext, Context } from 'react';
-import { UserInterface } from '../interfaces';
 
 export const UserContext: Context<any> = createContext({});
 

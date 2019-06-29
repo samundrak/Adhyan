@@ -17,7 +17,7 @@ const Container = styled.div`
 
 type PropsType = {
   actions: any;
-  history: RouteComponentProps
+  history: RouteComponentProps;
 };
 class Upload extends React.Component<PropsType> {
   static contextType: Context<Adhyan> = AppContext;
@@ -26,11 +26,11 @@ class Upload extends React.Component<PropsType> {
   handleFileChange = async (change: UploadChangeParam) => {
     try {
       this.file = change.file;
-      this.props.actions.loading(true)
+      this.props.actions.loading(true);
       const uploadedItemURL = await this.context.uploadItem(this.file);
       await this.context.createNewBook({
         file: this.file,
-        uploadedItemURL
+        uploadedItemURL,
       });
       this.props.history.push('/books');
     } catch (err) {
@@ -48,7 +48,8 @@ class Upload extends React.Component<PropsType> {
               <Col>
                 <Dragger
                   onChange={this.handleFileChange}
-                  {...this.props} beforeUpload={() => false}
+                  {...this.props}
+                  beforeUpload={() => false}
                   showUploadList={false}
                 >
                   <p className="ant-upload-drag-icon">
@@ -56,14 +57,14 @@ class Upload extends React.Component<PropsType> {
                   </p>
                   <p className="ant-upload-text">
                     Click or drag file to this area to upload
-            </p>
+                  </p>
                   <p className="ant-upload-hint">
-                    You can upload only one file at a time, Only PDF is allowed to upload
-            </p>
+                    You can upload only one file at a time, Only PDF is allowed
+                    to upload
+                  </p>
                 </Dragger>
               </Col>
             </Row>
-
           </Col>
           <Col md={6} sm={12}>
             Some guide to upload
@@ -78,5 +79,5 @@ const mapActionToProps = (dispatch: any) => ({
 });
 export default connect(
   null,
-  mapActionToProps
+  mapActionToProps,
 )(withRouter(Upload));
