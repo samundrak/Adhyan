@@ -2,7 +2,7 @@ import FirestoreModel from './FirestoreModel';
 import firebase from '../firebase';
 import { GOOGLE } from '../consts';
 
-class Auth extends FirestoreModel {
+class Auth extends FirestoreModel implements IAuth {
   auth: firebase.auth.Auth;
   user!: firebase.firestore.DocumentReference;
 
