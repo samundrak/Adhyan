@@ -5,7 +5,6 @@ import { Button } from 'antd';
 import { AppContext } from '../providers/AppProvider';
 import { GOOGLE } from '../consts';
 import Adhyan from '../core/Adhyan';
-// import { signinWithGoogle } from '../firebase';
 
 const Container = styled.div`
   width: 100%;

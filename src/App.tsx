@@ -5,7 +5,6 @@ import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout';
 import Guest from './views/Guest';
-import { StateInterface, UserInterface, GlobalInterface } from './interfaces';
 import Adhyan from './core/Adhyan';
 import { ClickParam } from 'antd/lib/menu';
 import { SIGN_OUT } from './consts';
@@ -36,12 +35,12 @@ class App extends React.Component<PropsType> {
               {!this.props.user.uid ? (
                 <Guest />
               ) : (
-                  <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/upload" exact component={Upload} />
-                    <Route path="/books" exact component={Books} />
-                  </Switch>
-                )}
+                <Switch>
+                  <Route path="/" exact component={Home} />
+                  <Route path="/upload" exact component={Upload} />
+                  <Route path="/books" exact component={Books} />
+                </Switch>
+              )}
             </Layout>
           </AppProvider>
         </Spin>
@@ -54,4 +53,5 @@ const mapStateToProps = (state: StateInterface) => ({
   user: state.user,
   global: state.global,
 });
+
 export default connect(mapStateToProps)(App);

@@ -1,5 +1,4 @@
 import FirestoreModel from './FirestoreModel';
-import { firestore } from '../firebase';
 
 class Book extends FirestoreModel {
   name: string = 'books';

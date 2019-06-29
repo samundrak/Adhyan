@@ -14,6 +14,7 @@ firestore.settings({ timestampsInSnapshots: true });
 exports.helloWorld = functions.https.onRequest(async (request, response) => {
   response.send('Hello from Firebasess!');
 });
+
 exports.createUser = functions.firestore
   .document('posts/{postId}')
   .onWrite((snap, context) => {
