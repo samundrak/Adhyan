@@ -18,3 +18,5 @@
 .env.test.local
 .env.production.local
 *.log
+
+package-lock.json
