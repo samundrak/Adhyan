@@ -6,6 +6,7 @@ import firebase from '../firebase';
 import { UploadFile } from 'antd/lib/upload/interface';
 import BooksController from '../controllers/BooksController';
 import { getRandomFileName } from '../utils';
+import UploadController from '../controllers/UploadController';
 
 class Adhyan {
   store: StoreInterface;
@@ -61,8 +62,10 @@ class Adhyan {
   }
   createController(type: string): SimpleControllerInterface | undefined {
     switch (type) {
-      case 'books':
+      case CONTROLLERS.BOOKS:
         return new BooksController(this.firestore, this.auth);
+      case CONTROLLERS.UPLOAD:
+        return new UploadController(this.firestore, this.auth);
     }
   }
   async createNewBook(bookItem: { file: UploadFile; uploadedItemURL: string }) {
@@ -75,5 +78,9 @@ class Adhyan {
       item.dispose();
     });
   }
+}
+export enum CONTROLLERS {
+  BOOKS = 'BOOKS',
+  UPLOAD = 'UPLOAD',
 }
 export default Adhyan;

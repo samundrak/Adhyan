@@ -5,10 +5,11 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
 import { Row, Col, Upload as AntdUpload, Icon } from 'antd';
 import { AppContext } from '../providers/AppProvider';
-import Adhyan from '../core/Adhyan';
+import Adhyan, { CONTROLLERS } from '../core/Adhyan';
 import { loading } from '../store/actions/global';
 import { UploadChangeParam } from 'antd/lib/upload';
 import { UploadFile } from 'antd/lib/upload/interface';
+import UploadController from '../controllers/UploadController';
 
 const Dragger = AntdUpload.Dragger;
 const Container = styled.div`
@@ -22,6 +23,12 @@ type PropsType = {
 class Upload extends React.Component<PropsType> {
   static contextType: Context<Adhyan> = AppContext;
   file: UploadFile | null = null;
+  controller: UploadController;
+
+  constructor(props: PropsType, context) {
+    super(props, context);
+    this.controller = this.context.createController(CONTROLLERS.UPLOAD);
+  }
 
   handleFileChange = async (change: UploadChangeParam) => {
     try {
