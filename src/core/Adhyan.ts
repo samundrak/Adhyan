@@ -11,6 +11,7 @@ import firebase from '../firebase';
 import { UploadFile } from 'antd/lib/upload/interface';
 import BooksController from '../controllers/BooksController';
 import { getRandomFileName } from '../utils';
+import UploadController from '../controllers/UploadController';
 
 class Adhyan {
   store: StoreInterface;
@@ -34,7 +35,7 @@ class Adhyan {
     this.disposableItems.push(new AuthDisposal(unsubscribeAuth));
   }
   handleAuthStateChange = async (
-    userAuth: firebase.User | null
+    userAuth: firebase.User | null,
   ): Promise<any> => {
     let user: firebase.User | null = userAuth || {};
     if (userAuth) {
@@ -42,7 +43,7 @@ class Adhyan {
       this.auth.user = userRef;
       console.log(userRef);
       if (userRef) {
-        userRef.onSnapshot((snapshot) => {
+        userRef.onSnapshot(snapshot => {
           user = { uid: snapshot.id, ...snapshot.data() } as firebase.User;
         });
       }
@@ -59,15 +60,17 @@ class Adhyan {
       .child(user.uid)
       .child(getRandomFileName(file.name))
       .put(file)
-      .then((response) => {
+      .then(response => {
         const downloadURL = response.ref.getDownloadURL();
         return downloadURL;
       });
   }
   createController(type: string): SimpleControllerInterface | undefined {
     switch (type) {
-      case 'books':
+      case CONTROLLERS.BOOKS:
         return new BooksController(this.firestore, this.auth);
+      case CONTROLLERS.UPLOAD:
+        return new UploadController(this.firestore, this.auth);
     }
   }
   async createNewBook(bookItem: { file: UploadFile; uploadedItemURL: string }) {
@@ -80,5 +83,9 @@ class Adhyan {
       item.dispose();
     });
   }
+}
+export enum CONTROLLERS {
+  BOOKS = 'BOOKS',
+  UPLOAD = 'UPLOAD',
 }
 export default Adhyan;

@@ -5,10 +5,11 @@ import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
 import { Row, Col, Upload as AntdUpload, Icon } from 'antd';
 import { AppContext } from '../providers/AppProvider';
-import Adhyan from '../core/Adhyan';
+import Adhyan, { CONTROLLERS } from '../core/Adhyan';
 import { loading } from '../store/actions/global';
 import { UploadChangeParam } from 'antd/lib/upload';
 import { UploadFile } from 'antd/lib/upload/interface';
+import UploadController from '../controllers/UploadController';
 
 const Dragger = AntdUpload.Dragger;
 const Container = styled.div`
@@ -17,20 +18,26 @@ const Container = styled.div`
 
 type PropsType = {
   actions: any;
-  history: RouteComponentProps
+  history: RouteComponentProps;
 };
 class Upload extends React.Component<PropsType> {
   static contextType: Context<Adhyan> = AppContext;
   file: UploadFile | null = null;
+  controller: UploadController;
+
+  constructor(props: PropsType, context) {
+    super(props, context);
+    this.controller = this.context.createController(CONTROLLERS.UPLOAD);
+  }
 
   handleFileChange = async (change: UploadChangeParam) => {
     try {
       this.file = change.file;
-      this.props.actions.loading(true)
+      this.props.actions.loading(true);
       const uploadedItemURL = await this.context.uploadItem(this.file);
       await this.context.createNewBook({
         file: this.file,
-        uploadedItemURL
+        uploadedItemURL,
       });
       this.props.history.push('/books');
     } catch (err) {
@@ -48,7 +55,8 @@ class Upload extends React.Component<PropsType> {
               <Col>
                 <Dragger
                   onChange={this.handleFileChange}
-                  {...this.props} beforeUpload={() => false}
+                  {...this.props}
+                  beforeUpload={() => false}
                   showUploadList={false}
                 >
                   <p className="ant-upload-drag-icon">
@@ -56,14 +64,14 @@ class Upload extends React.Component<PropsType> {
                   </p>
                   <p className="ant-upload-text">
                     Click or drag file to this area to upload
-            </p>
+                  </p>
                   <p className="ant-upload-hint">
-                    You can upload only one file at a time, Only PDF is allowed to upload
-            </p>
+                    You can upload only one file at a time, Only PDF is allowed
+                    to upload
+                  </p>
                 </Dragger>
               </Col>
             </Row>
-
           </Col>
           <Col md={6} sm={12}>
             Some guide to upload
@@ -78,5 +86,5 @@ const mapActionToProps = (dispatch: any) => ({
 });
 export default connect(
   null,
-  mapActionToProps
+  mapActionToProps,
 )(withRouter(Upload));
