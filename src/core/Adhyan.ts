@@ -7,7 +7,11 @@ import { UploadFile } from 'antd/lib/upload/interface';
 import BooksController from '../controllers/BooksController';
 import { getRandomFileName } from '../utils';
 import UploadController from '../controllers/UploadController';
-
+import { Disposable, StoreInterface } from '../interfaces';
+export enum CONTROLLERS {
+  BOOKS = 'BOOKS',
+  UPLOAD = 'UPLOAD',
+}
 class Adhyan {
   store: StoreInterface;
   firestore: firebase.firestore.Firestore;
@@ -32,40 +36,26 @@ class Adhyan {
   handleAuthStateChange = async (
     userAuth: firebase.User | null,
   ): Promise<any> => {
-    let user: firebase.User | null = userAuth || {};
+    let user: firebase.User | {} = userAuth || {};
     if (userAuth) {
       const userRef = await new User(this.firestore).createProfile(userAuth);
       this.auth.user = userRef;
-      console.log(userRef);
       if (userRef) {
         userRef.onSnapshot(snapshot => {
           user = { uid: snapshot.id, ...snapshot.data() } as firebase.User;
+          this.store.dispatch(setUser(user));
+          this.auth.user = userRef;
         });
       }
     }
-
-    this.store.dispatch(setUser(user));
   };
 
-  uploadItem(file: File): Promise<boolean> {
-    const { user } = this.store.getState();
-    return this.storage
-      .ref()
-      .child('user-uploads')
-      .child(user.uid)
-      .child(getRandomFileName(file.name))
-      .put(file)
-      .then(response => {
-        const downloadURL = response.ref.getDownloadURL();
-        return downloadURL;
-      });
-  }
-  createController(type: string): SimpleControllerInterface | undefined {
+  createController<T>(type: string) {
     switch (type) {
       case CONTROLLERS.BOOKS:
         return new BooksController(this.firestore, this.auth);
       case CONTROLLERS.UPLOAD:
-        return new UploadController(this.firestore, this.auth);
+        return new UploadController(this.firestore, this.auth, this.storage);
     }
   }
   async createNewBook(bookItem: { file: UploadFile; uploadedItemURL: string }) {
@@ -79,8 +69,5 @@ class Adhyan {
     });
   }
 }
-export enum CONTROLLERS {
-  BOOKS = 'BOOKS',
-  UPLOAD = 'UPLOAD',
-}
+
 export default Adhyan;

@@ -5,6 +5,7 @@ import { Layout, Menu, Icon } from 'antd';
 import AuthDropdown from './AuthDropdown';
 import { AUTH_NAVBAR } from '../consts';
 import { ClickParam } from 'antd/lib/menu';
+import { UserInterface } from '../interfaces';
 
 const { Header, Content, Sider } = Layout;
 

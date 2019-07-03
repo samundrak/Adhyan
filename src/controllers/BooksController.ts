@@ -1,22 +1,21 @@
 import Auth from '../models/Auth';
-import { SimpleControllerInterface, BookInterface } from '../interfaces';
+import { BookInterface } from '../interfaces';
 import { collectIdsAndDocs } from '../utils';
 import Books from '../services/Books';
 import Book from '../models/Book';
 
-class BooksController implements SimpleControllerInterface {
+class BooksController {
   booksService: Books;
   constructor(
-    public firestore: firebase.firestore.Firestore,
-    public auth: Auth,
+    private firestore: firebase.firestore.Firestore,
+    private auth: Auth,
   ) {
-    this.booksService = new Books(this.firestore, new Book(this.firestore));
+    this.booksService = new Books(this.firestore);
   }
 
-  async getBooks(): Promise<BookInterface[]> {
+  async getBooks(userId: string): Promise<BookInterface[]> {
     if (!this.auth.user) return [];
-    const booksRef = await this.auth.user.collection('books').get();
-    return booksRef.docs.map(collectIdsAndDocs) as BookInterface[];
+    return this.booksService.getBooksByUserId(userId);
   }
 }
 export default BooksController;

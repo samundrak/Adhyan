@@ -8,8 +8,10 @@ import { loading } from '../store/actions/global';
 import BooksController from '../controllers/BooksController';
 import Adhyan, { CONTROLLERS } from '../core/Adhyan';
 import { AppContext } from '../providers/AppProvider';
+import { BookInterface, UserInterface } from '../interfaces';
 
 type PropsType = {
+  user: UserInterface;
   actions: {
     booksLoaded: (books: BookInterface[]) => null;
     loading: (status: boolean) => null;
@@ -87,7 +89,9 @@ class Books extends React.Component<PropsType> {
   async componentWillMount() {
     this.props.actions.loading(true);
     // @todo handle error
-    const books: BookInterface[] = await this.controller.getBooks();
+    const books: BookInterface[] = await this.controller.getBooks(
+      this.props.user.uid,
+    );
     this.props.actions.booksLoaded(books);
     this.props.actions.loading(false);
   }
@@ -101,8 +105,9 @@ class Books extends React.Component<PropsType> {
 }
 
 // const
-const mapStateToProps = ({ books }) => ({
+const mapStateToProps = ({ books, user }) => ({
   books,
+  user,
 });
 const mapActions = dispatch => ({
   actions: bindActionCreators({ booksLoaded, loading }, dispatch),

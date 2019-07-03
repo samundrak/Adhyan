@@ -1,17 +1,32 @@
 import Auth from '../models/Auth';
+import Upload from '../services/Upload';
+import { UploadFile } from 'antd/lib/upload/interface';
 import Books from '../services/Books';
-import Book from '../models/Book';
 
 class UploadController {
-  booksService: Books;
+  uploadService: Upload;
 
   constructor(
-    public firestore: firebase.firestore.Firestore,
-    public auth: Auth,
+    private firestore: firebase.firestore.Firestore,
+    private auth: Auth,
+    private storage: firebase.storage.Storage,
   ) {
-    this.booksService = new Books(this.firestore, new Book(this.firestore));
+    this.uploadService = new Upload(this.storage);
   }
 
-  createNewBook() {}
+  async createNewBook(file: UploadFile, userId: string) {
+    const uploadedItemURL: string = await this.uploadService.uploadNewFile(
+      file,
+      userId,
+    );
+    const bookService = new Books(this.firestore);
+    return bookService.createBook(
+      {
+        file,
+        uploadedItemURL,
+      },
+      userId,
+    );
+  }
 }
 export default UploadController;

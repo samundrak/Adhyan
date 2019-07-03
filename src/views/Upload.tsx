@@ -10,6 +10,7 @@ import { loading } from '../store/actions/global';
 import { UploadChangeParam } from 'antd/lib/upload';
 import { UploadFile } from 'antd/lib/upload/interface';
 import UploadController from '../controllers/UploadController';
+import { UserInterface } from '../interfaces';
 
 const Dragger = AntdUpload.Dragger;
 const Container = styled.div`
@@ -18,6 +19,7 @@ const Container = styled.div`
 
 type PropsType = {
   actions: any;
+  user: UserInterface;
   history: RouteComponentProps;
 };
 class Upload extends React.Component<PropsType> {
@@ -34,11 +36,7 @@ class Upload extends React.Component<PropsType> {
     try {
       this.file = change.file;
       this.props.actions.loading(true);
-      const uploadedItemURL = await this.context.uploadItem(this.file);
-      await this.context.createNewBook({
-        file: this.file,
-        uploadedItemURL,
-      });
+      await this.controller.createNewBook(this.file, this.props.user.uid);
       this.props.history.push('/books');
     } catch (err) {
       console.error(err);
@@ -84,7 +82,10 @@ class Upload extends React.Component<PropsType> {
 const mapActionToProps = (dispatch: any) => ({
   actions: bindActionCreators({ loading }, dispatch),
 });
+const mapStateToProps = state => ({
+  user: state.user,
+});
 export default connect(
-  null,
+  mapStateToProps,
   mapActionToProps,
 )(withRouter(Upload));

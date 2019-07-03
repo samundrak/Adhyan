@@ -1,12 +1,14 @@
 import { UploadFile } from 'antd/lib/upload/interface';
 import { BOOKS_PROCESSING_STATUS } from '../consts';
 import Book from '../models/Book';
+import { BookInterface } from '../interfaces';
 
 class Books {
-  constructor(
-    private firestore: firebase.firestore.Firestore,
-    private books: Book,
-  ) {}
+  private book: Book;
+
+  constructor(private firestore: firebase.firestore.Firestore) {
+    this.book = new Book(this.firestore);
+  }
 
   async createBook(
     bookItem: {
@@ -20,7 +22,7 @@ class Books {
     const extension = filenameArr.pop();
     const filename = filenameArr.join('');
 
-    return this.books.create({
+    return this.book.create({
       file: {
         name: file.name,
         size: file.size,
@@ -32,6 +34,10 @@ class Books {
       status: BOOKS_PROCESSING_STATUS.PROCESSING,
       userId,
     });
+  }
+
+  async getBooksByUserId(userId: string): Promise<BookInterface[]> {
+    return this.book.get('userId', '==', userId);
   }
 }
 export default Books;

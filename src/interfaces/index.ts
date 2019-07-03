@@ -1,36 +1,35 @@
 // import Auth from '../models/Auth';
-interface IAuth {
+export interface IAuth {
   signin: (provider: string) => void;
   signout: () => void;
   getAuth: () => void;
 }
 
-interface StoreInterface {
+export interface StoreInterface {
   getState(): StateInterface;
   dispatch(arg: any): any;
 }
 
-interface Disposable {
+export interface Disposable {
   dispose(): void;
 }
-interface FirestoreModelContract {
+export interface FirestoreModelContract {
   new (firestore: firebase.firestore.Firestore): any;
 }
-interface UserInterface {
+export interface UserInterface {
   displayName: string;
   photoURL: string;
   createdAt: Date | null;
   uid: string;
 }
-interface GlobalInterface {
+export interface GlobalInterface {
   loading: boolean;
 }
-interface StateInterface {
+export interface StateInterface {
   user: UserInterface;
   global: GlobalInterface;
 }
-interface BookInterface {
-  id: string;
+export interface BookInterface {
   file: {
     type: string;
     name: string;
@@ -40,7 +39,7 @@ interface BookInterface {
   status: string;
 }
 
-interface SimpleControllerInterface {
+export interface SimpleControllerInterface {
   firestore: firebase.firestore.Firestore;
-  auth: ReturnType<typeof IAuth>;
+  auth: IAuth;
 }
