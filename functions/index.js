@@ -14,8 +14,15 @@ firestore.settings({ timestampsInSnapshots: true });
 exports.helloWorld = functions.https.onRequest(async (request, response) => {
   response.send('Hello from Firebasess!');
 });
-
-exports.createUser = functions.firestore
+exports.createNewBook = functions.firestore
+  .document('books/{bookId}')
+  .onCreate((snap, postId) => {
+    const newValue = snap.data();
+    const name = newValue.name;
+    console.log(newValue);
+    return;
+  });
+exports.createUsers = functions.firestore
   .document('posts/{postId}')
   .onWrite((snap, context) => {
     // Get an object representing the document
@@ -23,7 +30,6 @@ exports.createUser = functions.firestore
     const newValue = snap.data();
     process.exit();
     // access a particular field as you would any JS property
-    const name = newValue.name;
-    console.log(name);
+
     // perform desired operations ...
   });

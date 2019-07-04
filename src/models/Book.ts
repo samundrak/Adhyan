@@ -18,6 +18,7 @@ class Book extends FirestoreModel {
   name: string = 'books';
 
   create(data: BookType) {
+    console.log(data);
     return this.firestore.collection(this.name).add(data);
   }
   async get<T extends keyof BookType>(
