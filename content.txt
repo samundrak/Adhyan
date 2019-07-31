@@ -1,0 +1,4662 @@
+
+----------------Page (0) Break----------------
+2
+----------------Page (1) Break----------------
+Contents
+I Background7
+1 Aboutthisbook9
+1.1  What’s in this book?  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   9
+1.2  What is not covered by this book? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   9
+1.3  This book isn’t finished, yet  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   9
+1.4  Can I buy a print edition?  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  10
+1.5  Will there be a free online version? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  10
+1.6  Acknowledgements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  10
+2 Tipsforreadingthisbook11
+2.1  What are the “advanced” chapters and sections about?  . . . . . . . . . . . . . . . . . . .  11
+2.2  What should I read if I’mreallyimpatient?  . . . . . . . . . . . . . . . . . . . . . . . . . .  11
+2.3  How do I submit feedback and corrections? . . . . . . . . . . . . . . . . . . . . . . . . . .  11
+2.4  I’m occasionally seeing type annotations – how do those work? . . . . . . . . . . . . . . .  11
+3 HistoryandevolutionofJavaScript13
+3.1  How JavaScript was created . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  13
+3.2  Standardization . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  13
+3.3  Evolving JavaScript: don’t break the web . . . . . . . . . . . . . . . . . . . . . . . . . . .  16
+4 FAQ:JavaScript17
+4.1  Why does JavaScript fail silently so often?  . . . . . . . . . . . . . . . . . . . . . . . . . .  17
+II Firststeps19
+5 Thebigpicture21
+5.1  What are you learning in this book? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  21
+5.2  The structure of browsers and Node.js . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  21
+5.3  Trying out JavaScript code . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  22
+5.4  Further reading . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  25
+6 Syntax27
+6.1  An overview of JavaScript’s syntax  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  27
+6.2  (Advanced) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  31
+6.3  Identifiers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  31
+6.4  Statement vs. expression . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  32
+6.5  Syntactically ambiguous constructs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  33
+3
+----------------Page (2) Break----------------
+4CONTENTS
+6.6  Semicolons  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  35
+6.7  Automatic semicolon insertion (ASI)  . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  36
+6.8  Semicolons: best practices . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  38
+6.9  Strict mode  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  39
+7 AssertionAPI41
+7.1  Assertions in software development . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  41
+7.2  How assertions are used in this book  . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  41
+7.3  Normal comparison versus deep comparison . . . . . . . . . . . . . . . . . . . . . . . . .  42
+7.4  Quick reference: moduleassert. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  42
+8 Gettingstartedwithquizzesandexercises45
+8.1  Quizzes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  45
+8.2  Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  45
+8.3  Unit tests in JavaScript . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  46
+III Variablesandvalues49
+9 Variablesandassignment51
+9.1let. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  51
+9.2const. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  51
+9.3  Deciding betweenletandconst. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  52
+9.4  Variables are block-scoped . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  53
+10 Values55
+10.1 What’s a type? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  55
+10.2 JavaScript’s type hierarchy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  55
+10.3 The types of the language specification . . . . . . . . . . . . . . . . . . . . . . . . . . . .  55
+10.4 Primitive values versus objects . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  56
+10.5 Classes and constructor functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  58
+10.6 Constructor functions associated with primitive types . . . . . . . . . . . . . . . . . . . .  59
+10.7 The operatorstypeofandinstanceof: what’s the type of a value? . . . . . . . . . . . . .  59
+10.8 Converting between types . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  61
+11 Operators63
+11.1 Two important rules for operators . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  63
+11.2 The plus operator (+) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  64
+11.3 Assignment operators  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  64
+11.4 Equality:==versus===. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  65
+11.5 Ordering operators . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  67
+11.6 Various other operators . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  68
+IV Primitivevalues69
+12 Thenon-valuesundefinedandnull71
+12.1undefinedvs.null. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  71
+12.2 Occurrences ofundefinedandnull. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  72
+12.3 Checking forundefinedornull. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  72
+12.4undefinedandnulldon’t have properties . . . . . . . . . . . . . . . . . . . . . . . . . .  73
+----------------Page (3) Break----------------
+CONTENTS5
+13 Booleans75
+13.1 Converting to boolean  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  75
+13.2 Falsy and truthy values . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  76
+13.3 Conditional operator (? :) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  78
+13.4 Binary logical operators: And (&&), Or (||) . . . . . . . . . . . . . . . . . . . . . . . . . .  79
+13.5 Logical Not (!)  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  81
+14 Numbers83
+14.1 JavaScript only has floating point numbers . . . . . . . . . . . . . . . . . . . . . . . . . .  83
+14.2 Number literals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  83
+14.3 Number operators  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  84
+14.4 Converting to number  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  86
+14.5 Error values . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  87
+14.6 Error value:NaN. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  87
+14.7 Error value:Infinity. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  88
+14.8 The precision of numbers: careful with decimal fractions  . . . . . . . . . . . . . . . . . .  89
+14.9 (Advanced) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  89
+14.10Background: floating point precision . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  89
+14.11Integers in JavaScript . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  90
+14.12Bitwise operators . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  92
+14.13Quick reference: numbers  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  94
+15Math101
+15.1 Data properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 101
+15.2 Exponents, roots, logarithms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 102
+15.3 Rounding . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 103
+15.4 Trigonometric Functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 104
+15.5 asm.js helpers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 106
+15.6 Various other functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 106
+15.7 Sources  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 107
+16 Strings109
+16.1 Plain string literals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 109
+16.2 Accessing characters and code points . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 110
+16.3 String concatenation via+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 110
+16.4 Converting to string  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 111
+16.5 Comparing strings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 113
+16.6 JavaScript characters vs. Unicode code points . . . . . . . . . . . . . . . . . . . . . . . . . 113
+16.7 Quick reference: Strings  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 115
+17 Usingtemplateliteralsandtaggedtemplates123
+17.1 Disambiguation: “template” . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 123
+17.2 Template literals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 124
+17.3 Tagged templates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 124
+17.4 Raw string literals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+17.5 (Advanced) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+17.6 Multi-line template literals and indentation . . . . . . . . . . . . . . . . . . . . . . . . . . 127
+17.7 Simple templating via template literals . . . . . . . . . . . . . . . . . . . . . . . . . . . . 128
+17.8 Further reading . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 130
+----------------Page (4) Break----------------
+6CONTENTS
+18 Symbols131
+18.1 Use cases for symbols . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 131
+18.2 Publicly known symbols . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 133
+18.3 Converting symbols  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 134
+18.4 Further reading . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 135
+V Controlflowanddataflow137
+19 Controlflowstatements139
+19.1 Controlling loops:breakandcontinue. . . . . . . . . . . . . . . . . . . . . . . . . . . . 139
+19.2ifstatements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 141
+19.3switchstatements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 142
+19.4whileloops . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 145
+19.5do-whileloops . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 146
+19.6forloops  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 146
+19.7for-ofloops  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 147
+19.8for-await-ofloops . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 148
+19.9for-inloops (avoid) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 148
+20 Callablevalues151
+20.1 Kinds of functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 151
+20.2 Named function expressions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 154
+20.3 Arrow functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 155
+20.4 Hoisting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 157
+20.5 Returning values from functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 158
+20.6 Parameter handling . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 158
+20.7 Understanding JavaScript’s callable values (advanced) . . . . . . . . . . . . . . . . . . . . 162
+21 Wherearetheremainingchapters?165
+----------------Page (5) Break----------------
+PartI
+Background
+7
+----------------Page (6) Break----------------
+
+----------------Page (7) Break----------------
+Chapter1
+Aboutthisbook
+1.1 What’sinthisbook?
+Goal of this book: make JavaScript less challenging to learn for newcomers, by offering a modern view
+that is as consistent as possible.
+Highlights:
+• The book covers all essential features of the language, up to and including ECMAScript 2018 (the
+current standard).
+–The focus on modern JavaScript means that there are many features you don’t have to learn
+initially – maybe ever (e.g.,var).
+–These features are still mentioned, along with pointers to documentation.
+• There are test-driven exercises and quizzes for most chapters (paid feature).
+• Includes advanced sections, so you can occasionally dig deeper – if you want to.
+No prior knowledge of JavaScript is required, but you should know how to program.
+1.2 Whatisnotcoveredbythisbook?
+• Some advanced language features are not explained, but references to appropriate material are
+provided. For example, to my other JavaScript books atExploringJS.com1, which are free to read
+online.
+• This book deliberately focuses on the language. Browser-only features etc. are not included.
+1.3 Thisbookisn’tfinished,yet
+More content is still to come. Buy this book now and get free updates for at least 2 years!
+1http://exploringjs.com/
+9
+----------------Page (8) Break----------------
+10CHAPTER1. ABOUTTHISBOOK
+1.4 CanIbuyaprintedition?
+The current plan is to release a print edition once the book is finished. Rough guess: sometime in 2019.
+1.5 Willtherebeafreeonlineversion?
+There will eventually be a version that is free to read online (with most of the chapters, but without
+exercises and quizzes). Current estimate: early 2019.
+1.6 Acknowledgements
+• Cover by Fran Caye2.
+• Thanks for reviewing:
+–Johannes Weber (@jowe3)
+Generated: 2018-11-06 09:01
+2http://francaye.net
+3https://twitter.com/jowe
+----------------Page (9) Break----------------
+Chapter2
+Tipsforreadingthisbook
+This FAQ answers questions you may have and gives tips for reading this book.
+2.1 Whatarethe“advanced”chaptersandsectionsabout?
+Several chapters and sections are marked as “advanced”. The idea is that you can initially skip them.
+That is, you can get a quick working knowledge of JavaScript by only reading the basic (non-advanced)
+content.
+As your knowledge evolves, you can later come back to some or all of the advanced content.
+2.2 WhatshouldIreadifI’mreallyimpatient?
+Do the following:
+• Start reading with chapter “The big picture”.
+• Skip all chapters and sections marked as “advanced”, and all quick references.
+Then this book should be a fairly quick read.
+2.3 HowdoIsubmitfeedbackandcorrections?
+The HTML version of this book (online, or ad-free archive in paid version) has a link at the end of each
+chapter that enables you to give feedback.
+2.4 I’moccasionallyseeingtypeannotations–howdothosework?
+For example, you may see:
+11
+----------------Page (10) Break----------------
+12CHAPTER2. TIPSFORREADINGTHISBOOK
+Number.isFinite(num: number): boolean
+The type annotations: numberand: booleanare not real JavaScript. They are a notation for static
+typing, borrowed from the compile-to-JavaScript language TypeScript (which is mostly just JavaScript
+plus static typing).
+Why is this notation being used? It helps give you a quick idea of how a function works.
+The type notation is explained in detailin a chapterat the end of this book.
+----------------Page (11) Break----------------
+Chapter3
+HistoryandevolutionofJavaScript
+3.1 HowJavaScriptwascreated
+JavaScript was created in May 1995, in 10 days, by Brendan Eich. Eich worked at Netscape and imple-
+mented JavaScript for their web browser,NetscapeNavigator.
+Theideawasthatmajorinteractivepartsoftheclient-sidewebweretobeimplementedinJava. JavaScript
+was supposed to be a glue language for those parts and to also make HTML slightly more interactive.
+Given its role of assisting Java, JavaScript had to look like Java. That ruled out existing solutions such as
+Perl, Python, TCL and others.
+Initially, JavaScript’s name changed frequently:
+• Its code name wasMocha.
+• In the Netscape Navigator 2.0 betas (September 1995), it was calledLiveScript.
+• In Netscape Navigator 2.0 beta 3 (December 1995), it got its final name,JavaScript.
+3.2 Standardization
+There are two standards for JavaScript:
+• ECMA-262 is hosted by Ecma International. It is the primary standard.
+• ISO/IEC 16262 is hosted by the International Organization for Standardization (ISO) and the Inter-
+national Electrotechnical Commission (IEC). This is a secondary standard.
+The language described by these standards is calledECMAScript, notJavaScript. A different name was
+chosen, because Sun (now Oracle) had a trademark for the latter name. The “ECMA” in “ECMAScript”
+comes from the organization that hosts the primary standard.
+The original name of that organization wasECMA, an acronym forEuropeanComputerManufacturersAs-
+sociation. It was later changed toEcmaInternational(where Ecma is not an acronym, anymore), as “Euro-
+pean” didn’t reflect the organization’s global activities. The initial all-caps acronym explains the spelling
+of ECMAScript.
+13
+----------------Page (12) Break----------------
+14CHAPTER3. HISTORYANDEVOLUTIONOFJAVASCRIPT
+In principle, JavaScript and ECMAScript mean the same thing. Sometimes, the following distinction is
+made:
+• The termJavaScriptrefers to the language and its implementations.
+• The termECMAScriptrefers to the language standard and language versions.
+Therefore,ECMAScript6is a version of the language (its 6th edition).
+3.2.1 TimelineofECMAScriptversions
+This is a brief timeline of ECMAScript versions:
+• ECMAScript 1 (June 1997): First version of the standard.
+• ECMAScript 2 (June 1998): Small update, to keep ECMA-262 in sync with the ISO standard.
+• ECMAScript3(December1999): Addsmanycorefeatures–“[...]regularexpressions, betterstring
+handling, new control statements [do-while, switch], try/catch exception handling, [...]”
+• ECMAScript 4 (abandoned in July 2008): Would have been a massive upgrade (with static typing,
+modules, namespaces and more), but ended up being too ambitious and dividing the language’s
+stewards. Therefore, it was abandoned.
+• ECMAScript 5 (December 2009): Brought minor improvements – a few standard library features
+andstrictmode.
+• ECMAScript 5.1 (June 2011): Another small update to keep Ecma and ISO standards in sync.
+• ECMAScript 6 (June 2015): A large update that fulfilled many of the promises of ECMAScript
+4. This version is the first one whose official name –ECMAScript 2015– is based on the year of
+publication.
+• ECMAScript 2016 (June 2016): First yearly release. That resulted in fewer new features per release
+– compared to ES6, which was a large upgrade.
+• ECMAScript 2017 (June 2017)
+• ECMAScript 2018 (June 2018)
+3.2.2 EcmaTechnicalCommittee39(TC39)
+TC39 is the committee that evolves JavaScript. Its member are, strictly speaking, companies: Adobe,
+Apple, Facebook, Google, Microsoft, Mozilla, Opera, Twitter, and others. That is, companies that are
+usually fierce competitors are working together for the good of the language.
+3.2.3 TheTC39process
+With ECMAScript 6, two issues with the release process used at that time became obvious:
+• If too much time passes between releases then features that are ready early, have to wait a long
+time until they can be released. And features that are ready late, risk being rushed to make the
+deadline.
+• Features were often designed long before they were implemented and used. Design deficiencies
+related to implementation and use were therefore discovered too late.
+In response to these issues, TC39 instituted a new process that was namedTC39process:
+----------------Page (13) Break----------------
+3.2. STANDARDIZATION15
+• ECMAScript features are designed independently and go through stages, starting at 0 (“straw-
+man”), ending at 4 (“finished”).
+• Especially the later stages require prototype implementations and real-world testing, leading to
+feedback loops between designs and implementations.
+• ECMAScript versions are released once per year and include all features that have reached stage 4
+prior to a release deadline.
+Theresult: smaller,incrementalreleases,whosefeatureshavealreadybeenfield-tested. Fig.3.1illustrates
+the TC39 process.
+Stage 0: strawman
+Stage 1: proposal
+Stage 2: draft
+Stage 3: candidate
+Stage 4: finished
+Pick champions
+First spec text, 2 implementations
+Spec complete
+Test 262 acceptance tests
+Review at TC39 meeting
+TC39 helps
+Likely to be standardized
+Done, needs feedback from implementations
+Ready for standardization
+Sketch
+Figure 3.1: Each ECMAScript feature proposal goes through stages that are numbered from 0 to 4.Cham-
+pionsare TC39 members that support the authors of a feature. Test 262 is a suite of tests that checks
+JavaScript engines for compliance with the language specification.
+ES2016 was the first ECMAScript version that was designed according to the TC39 process.
+For more information on the TC39 process, consult “Exploring ES2018 and ES20191”.
+1http://exploringjs.com/es2018-es2019/ch_tc39-process.html
+----------------Page (14) Break----------------
+16CHAPTER3. HISTORYANDEVOLUTIONOFJAVASCRIPT
+3.2.4 Tip: thinkinindividualfeaturesandstages,notECMAScriptversions
+UptoandincludingES6,itwasmostcommontothinkaboutJavaScriptintermsofECMAScriptversions.
+E.g., “Does this browser support ES6, yet?”
+Starting with ES2016, it’s better to think in individual features: Once a feature reaches stage 4, you can
+safely use it (if it’s supported by the JavaScript engines you are targeting). You don’t have to wait until
+the next ECMAScript release.
+3.3 EvolvingJavaScript: don’tbreaktheweb
+One idea that occasionally comes up, is to clean up JavaScript, by removing old features and quirks.
+While the appeal of that idea is obvious, it has significant downsides.
+Let’s assume we create a new version of JavaScript that is not backward compatible and fixes all of its
+flaws. As a result, we’d encounter the following problems:
+• JavaScript engines become bloated: they need to support both the old and the new version. The
+same is true for tools such as IDEs and build tools.
+• Programmers need to know, and be continually conscious of, the differences between the versions.
+• You can either migrate all of an existing code base to the new version (which can be a lot of work).
+Or you can mix versions and refactoring becomes harder, because can’t move code between ver-
+sions without changing it.
+• You somehow have to specify per piece of code – be it a file or code embedded in a web page –
+what version it is written in. Every conceivable solution has pros and cons. For example,strict
+modeis a slightly cleaner version of ES5. One of the reasons why it wasn’t as popular as it should
+have been: it was a hassle to opt in via a directive at the beginning of a file or function.
+So what is the solution? Can we have our cake and eat it? The approach that was chosen for ES6 is called
+“One JavaScript”:
+• New versions are always completely backward compatible (but there may occasionally be minor,
+hardly noticeable clean-ups).
+• Oldfeaturesaren’tremovedorfixed. Instead,betterversionsofthemareintroduced. Oneexample
+is declaring variables vialet– which is an improved version ofvar.
+• If aspects of the language are changed, it is done so inside new syntactic constructs. That is, you
+opt in implicitly. For example,yieldis only a keyword inside generators (which were introduced
+in ES6). And all code inside modules and classes (both introduced in ES6) is implicitly in strict
+mode.
+For more information on One JavaScript, consult “Exploring ES62”.
+Quiz
+See quiz app.
+2http://exploringjs.com/es6/ch_one-javascript.html
+----------------Page (15) Break----------------
+Chapter4
+FAQ:JavaScript
+4.1 WhydoesJavaScriptfailsilentlysooften?
+JavaScript often fails silently. Let’s look at two examples.
+First example: If the operands of an operator don’t have the appropriate types, they are converted as
+necessary.
+> '3' * '5'
+15
+Second example: If an arithmetic computation fails, you get an error value, not an exception.
+> 1 / 0
+Infinity
+Whyisthat?
+The reason is historical: JavaScript did not have exceptions until ECMAScript 3. Since then, its designers
+have tried to avoid silent failures.
+17
+----------------Page (16) Break----------------
+18CHAPTER4. FAQ:JAVASCRIPT
+----------------Page (17) Break----------------
+PartII
+Firststeps
+19
+----------------Page (18) Break----------------
+
+----------------Page (19) Break----------------
+Chapter5
+Thebigpicture
+In this chapter, I’d like to paint the big picture: What are you learning in this book and how does it fit
+into the overall landscape of web development?
+5.1 Whatareyoulearninginthisbook?
+This book teaches the JavaScript language. It focuses on just the language, but offers occasional glimpses
+at two platforms where JavaScript can be used:
+• Web browsers
+• Node.js
+Node.js is important for web development in three ways:
+• You can use it to write server-side software in JavaScript.
+• You can also use it to write software for the command line (think Unix shell, Windows PowerShell,
+etc.). Many JavaScript-related tools are based on (and executed via) Node.js.
+• Node’spackagemanager,npm,hasbecomethedominantwayofinstallingtools(suchascompilers
+and build tools) and libraries – even for client-side development.
+5.2 ThestructureofbrowsersandNode.js
+The structures of the two JavaScript platformswebbrowserandNode.jsare similar (fig.5.1):
+• The JavaScript engine runs JavaScript code.
+• The JavaScript standard library is part of JavaScript proper and runs on top of the engine.
+• Platform APIs are also available from JavaScript – they provide access to platform-specific func-
+tionality. For example:
+–In browsers, you need to use platform-specific APIs if you want to do anything related to the
+user interface: react to mouse clicks, play sound, etc.
+–In Node.js, platform-specific APIs let you read and write files, download data via HTTP, etc.
+21
+----------------Page (20) Break----------------
+22CHAPTER5. THEBIGPICTURE
+JavaScript enginePlatform core
+JS standard 
+libraryPlatform APIs
+Figure 5.1: The structure of the two JavaScript platformswebbrowserandNode.js.
+5.2.1 Theconsole
+One interesting example is the JavaScript operation for printing information:
+console.log('This text is shown on the “console”!');
+console.log()is not part of JavaScript proper. That is, it is part of a platform API, but supported by
+both browsers and Node.js:
+• On browsers, the console is a pane with text that is usually hidden, but can be brought up.
+• On Node.js, anything you log to the console is printed on the command line (think stdout).
+5.3 TryingoutJavaScriptcode
+You have many options for quickly running pieces of JavaScript. The following subsections describe a
+few of them.
+5.3.1 Browserconsoles
+The consoles of browsers also let you input code. They are JavaScript command lines. How to open the
+console differs from browser to browser. Fig.5.2shows the console of Google Chrome.
+To find out how to open the console in your web browser, you can do a web search for “console «name-
+of-your-browser»”. These are pages for some commonly used web browsers:
+• Apple Safari1
+• Google Chrome2
+• Microsoft Edge3
+• Mozilla Firefox4
+1https://developer.apple.com/safari/tools/
+2https://developers.google.com/web/tools/chrome-devtools/console/
+3https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console
+4https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console
+----------------Page (21) Break----------------
+5.3. TRYINGOUTJAVASCRIPTCODE23
+Figure 5.2: The console of the web browser “Google Chrome” is open while visiting a web page.
+----------------Page (22) Break----------------
+24CHAPTER5. THEBIGPICTURE
+5.3.2 TheNode.jsREPL
+REPLstandsforread-eval-printloopandbasicallymeanscommandline. Touseit,youmustfirststartNode.js
+from an operating system command line, via the commandnode. Then an interaction with it looks as
+depicted in fig.5.3: The text after>is input from the user; everything else is output from Node.js.
+Figure 5.3: Starting and using the Node.js REPL (interactive command line).
+Reading: REPLinteractions
+I occasionally demonstrate JavaScript via REPL interactions. Then I also use greater-than symbols
+(>) to mark input. For example:
+> 3 + 5
+8
+5.3.3 Otheroptions
+Other options include:
+• There are many web apps that let you experiment with JavaScript in web browsers. For example,
+Babel’s REPL5.
+• There are also native apps and IDE plugins for running JavaScript.
+5https://babeljs.io/repl
+----------------Page (23) Break----------------
+5.4. FURTHERREADING25
+5.4 Furtherreading
+• The chapter “Next steps” at the end of this book, provides a more comprehensive look at web
+development.
+----------------Page (24) Break----------------
+26CHAPTER5. THEBIGPICTURE
+----------------Page (25) Break----------------
+Chapter6
+Syntax
+6.1 AnoverviewofJavaScript’ssyntax
+6.1.1 Basicsyntax
+Comments:
+// single-line comment
+/*
+Comment with
+multiple lines
+*/
+Primitive(atomic) values:
+// Booleans
+true
+false
+// Numbers (JavaScript only has one type for numbers)
+-123
+1.141
+// Strings (JavaScript has no type for characters)
+'abc'
+"abc"
+Checking and logging to the console:
+// “Asserting” (checking) the expected result of an expression
+// (a method call with 2 parameters).
+// Assertions are a Node.js API that is explained in the next chapter.
+assert.equal(7+1,8);
+27
+----------------Page (26) Break----------------
+28CHAPTER6. SYNTAX
+// Printing a value to standard out (another method call)
+console.log('Hello!');
+// Printing an error message to standard error
+console.error('Something went wrong!');
+Declaring variables:
+letx;// declare x (mutable)
+x=3*5;// assign a value to x
+lety=3*5;// declare and assign
+constz=8;// declare z (immutable)
+Control flow statements:
+// Conditional statement
+if(x<0){// is x less than zero?
+x= -x;
+}
+Ordinary function declarations:
+// add1() has the parameters a and b
+functionadd1(a,b){
+returna+b;
+}
+// Calling function add1()
+assert.equal(add1(5,2),7);
+Arrow function expressions (used especially for arguments of function or method calls):
+// The body of add2 is an expression:
+constadd2=(a,b)=>a+b;
+// Calling function add2()
+assert.equal(add2(5,2),7);
+// The body of add3 is a code block:
+constadd3=(a,b)=> {returna+b};
+Objects:
+// Create plain object via object literal
+constobj= {
+first:'Jane',// property
+last:'Doe',// property
+getFullName(){// property (method)
+return this.first+' '+this.last;
+},
+};
+// Get a property value
+assert.equal(obj.first,'Jane');
+----------------Page (27) Break----------------
+6.1. ANOVERVIEWOFJAVASCRIPT’SSYNTAX29
+// Set a property value
+obj.first='Janey';
+// Call the method
+assert.equal(obj.getFullName(),'Janey Doe');
+Arrays (Arrays are also objects):
+// Creating an Array via an Array literal
+constarr=['a','b','c'];
+// Get Array element
+assert.equal(arr[1],'b');
+// Set Array element
+arr[1]='β';
+6.1.2 Modules
+Each module is a single file. Consider, for example, the following two files with modules in them:
+file-tools.js
+main.js
+The module infile-tools.jsexports its functionisTextFilePath():
+exportfunctionisTextFilePath(filePath){
+returnstr.endsWith('.txt');
+}
+The module inmain.jsimports the whole modulepathand the functionisTextFilePath():
+// Import whole module as namespace object `path`
+import*as path from'path';
+// Import a single export of module file-tools.js
+import{isTextFilePath}from'./file-tools.js';
+6.1.3 Legalvariableandpropertynames
+The grammatical category of variable names and property names is calledidentifier.
+Identifiers are allowed to have the following characters:
+• Unicode letters:A–Z,a–z(etc.)
+•$,_
+• Unicode digits:0–9(etc.)
+–Variable names can’t start with a digit
+Some words have special meaning in JavaScript and are calledreserved. Examples include:if,true,
+const.
+Reserved words can’t be used as variable names:
+----------------Page (28) Break----------------
+30CHAPTER6. SYNTAX
+const if=123;
+// SyntaxError: Unexpected token if
+But they are allowed as names of properties:
+> const obj = { if: 123 };
+> obj.if
+123
+6.1.4 Capitalizationofnames
+Lowercase:
+• Functions, variables:myFunction
+• Methods:obj.myMethod
+• CSS:
+–CSS entity:special-class
+–JS variable:specialClass
+• Labels (break,continue):my_label
+• Modules (imported as namespaces):myModule(exact style varies)
+Uppercase:
+• Classes:MyConstructor
+• Constants:MY_CONSTANT
+6.1.5 Wheretoputsemicolons?
+At the end of a statement:
+constx=123;
+func();
+But not if that statement ends with a curly brace:
+while(false){
+// ···
+}// no semicolon
+functionfunc(){
+// ···
+}// no semicolon
+However, adding a semicolon after such a statement is not a syntax error – it is interpreted as an empty
+statement:
+// Function declaration followed by empty statement:
+functionfunc(){
+// ···
+};
+----------------Page (29) Break----------------
+6.2. (ADVANCED)31
+Quiz: basic
+See quiz app.
+6.2 (Advanced)
+All remaining sections of this chapter are advanced.
+6.3 Identifiers
+6.3.1 Valididentifiers(variablenamesetc.)
+First character:
+• Unicode letter (including accented characters such aséandüand characters from non-latin alpha-
+bets, such asα)
+•$
+•_
+Subsequent characters:
+• Legal first characters
+• Unicode digits (including Eastern Arabic numerals)
+• Some other Unicode marks and punctuations
+Examples:
+constε=0.0001;
+constстрока='';
+let_tmp=0;
+const$foo2=true;
+6.3.2 Reservedwords
+Reserved words can’t be variable names, but they can be property names. They are:
+awaitbreakcasecatchclassconstcontinuedebuggerdefaultdeletedoelseexportex-
+tends finally for function if import in instanceof let new return static super switch
+this throw try typeof var void while with yield
+The following words are also reserved, but not used in the language, yet:
+enum implements package protected interface private public
+These words are not technically reserved, but you should avoid them, too, because they effectively are
+keywords:
+Infinity NaN undefined,async
+Is is also a good idea to avoid the names of global variables (String,Math, etc.).
+----------------Page (30) Break----------------
+32CHAPTER6. SYNTAX
+6.4 Statementvs.expression
+Statementandexpressionare categories for syntactic constructs. That is, they split JavaScript’s syntax
+into two kinds of constructs. (In this book – for the sake of simplicity – we pretend that there are only
+statements and expressions in JavaScript.) How do they differ?
+First, statements “do something”. For example,ifis a statement:
+letmyStr;
+if(myBool){
+myStr='Yes';
+}else{
+myStr='No';
+}
+Second,expressionsareevaluated. Theyproducevalues. Forexample,thecodebetweentheparentheses
+is an expression:
+letmyStr=(myBool?'Yes':'No');
+The operator_ ? _ : _used between the parentheses is called theternaryoperator. It is the expression
+version of theifstatement.
+6.4.1 Whatisallowedwhere?
+ThecurrentlocationwithinJavaScriptsourcecodedetermineswhichkindofsyntacticconstructsyouare
+allowed to use:
+• The body of a function must be a sequence of statements.
+• The arguments of a function call must be expressions.
+However, expressions can be used as statements. Then they are calledexpressionstatements. The opposite
+is not true: when the context requires an expression, you can’t use statements.
+The following is an example of a functionfoo()whose body contains three expression statements:
+functionfoo(){
+3+5;
+'hello world';
+bar();
+}
+The first two expression statements don’t do anything (as their results are ignored). The last expression
+statement may or may not do something – depending on whether it has side effects.
+The following code demonstrates that any expressionbar()can be either expression or statement – it
+depends on the context:
+console.log(bar());// bar() is expression
+bar();// bar() is (expression) statement
+----------------Page (31) Break----------------
+6.5. SYNTACTICALLYAMBIGUOUSCONSTRUCTS33
+6.5 Syntacticallyambiguousconstructs
+JavaScript has several programming constructs that are syntactically ambiguous: They are different de-
+pending on whether they are used in statement context or in expression context. This section explores
+the phenomenon and its consequences.
+6.5.1 Functiondeclarationvs.functionexpression
+Afunctiondeclarationis a statement:
+functionid(x){
+returnx;
+}
+Ananonymousfunctionexpressionlooks similar, but is an expression and works differently:
+constid=function(x){
+returnx;
+};
+If you give the function expression a name, it now has the same syntax as a function declaration:
+constid=functionme(x){
+returnx;
+};
+Disambiguation will have to answer the following question: What happens if I use a named function
+expression as a statement?
+6.5.2 Objectliteralvs.block
+The following is anobjectliteraldefining an object:
+{
+foo:bar(3,5)
+}
+The created object has a single property (field), whose name isfoo. Its value is the result of the function
+callbar(3, 5)(an expression).
+But it is also a code block that contains a single line:
+• The labelfoo:
+• followed by the function callbar(3, 5)(an expression statement, in this case!).
+6.5.3 Disambiguation
+The ambiguities are only a problem is statement context: If the JavaScript parser encounters something
+ambiguous, it doesn’t know if it’s a plain statement or an expression statement. Therefore, expression
+statements must not start with:
+• An open curly brace ({)
+----------------Page (32) Break----------------
+34CHAPTER6. SYNTAX
+• The keywordfunction
+If an expression starts with either of these tokens, you must put it in parentheses (which creates an ex-
+pression context) if you want to use it as a statement. Let’s continue with examples.
+6.5.4 Example: Immediately-InvokedFunctionExpression(IIFE)
+JavaScript’sconstandletdeclarations for variables are block-scoped: the scope of a variable is its sur-
+rounding scope.
+Butthereisalsothelegacyvardeclarationforvariables,whichisfunction-scoped: thescopeofavariable
+is the whole surrounding function.
+An IIFE (pronounced “iffy”) is a technique for simulating a block forvar: a piece of code is wrapped in
+a function expression, which is called immediately after its creation.
+In the following example, the IIFE in line A is incorrectly interpreted as a statement (and therefore a
+functiondeclaration). Thatcausesasyntaxerror,becausenormalfunctiondeclarationsmusthavenames.
+They can’t be immediately invoked, either.
+As an aside: we needeval()here to delay the parsing of the code and therefore the syntax error. Other-
+wise, the whole example would be rejected by JavaScript, before running it.
+letresult;
+assert.throws(
+()=>eval("function () { result = 'success' }();"),// (A)
+{
+name:'SyntaxError',
+message:'Unexpected token (',
+});
+We can fix the syntax error by putting the function expression in parentheses. Then JavaScript interprets
+it as an expression.
+letresult;
+(function(){result='success'})();
+assert.equal(result,'success');
+6.5.5 Example: immediatemethodcall
+The following code is similar to an IIFE: We create an object via an object literal and immediately call one
+of its methods.
+letresult;
+assert.throws(
+()=>eval("{ m() { result = 'yes' } }.m();"),
+{
+name:'SyntaxError',
+message:'Unexpected token {',
+});
+----------------Page (33) Break----------------
+6.6. SEMICOLONS35
+The problem is that JavaScript thinks the initial open brace starts a code block (a statement) and not an
+object literal. Once again, we fix this via parentheses:
+letresult;
+({m(){result='yes'} }.m());
+assert.equal(result,'yes');
+6.5.6 Example: destructuringviaanobjectpattern
+In the following example, we use object-destructuring to access property.propof an object:
+letp;
+assert.throws(
+()=>eval('{prop: p} = { prop: 123 };'),
+{
+name:'SyntaxError',
+message:'Unexpected token =',
+}
+);
+The problem is that JavaScript thinks the first open brace starts a code block. We fix it via parens:
+letp;
+({prop:p} = {prop:123});
+assert.equal(p,123);
+6.5.7 Example: anarrowfunctionthatreturnsanobjectliteral
+You can use an arrow function with an expression body to return an object created via an object literal:
+constfunc=()=>({prop:123});
+assert.deepEqual(func(), {prop:123});
+If you don’t use parentheses, JavaScript thinks the arrow function has a block body:
+constfunc=()=> {prop:123};
+assert.deepEqual(func(),undefined);
+6.6 Semicolons
+6.6.1 Ruleofthumbforsemicolons
+Each statement is terminated by a semicolon.
+constx=3;
+someFunction('abc');
+i++;
+Except: statements ending with blocks.
+----------------Page (34) Break----------------
+36CHAPTER6. SYNTAX
+functionfoo(){
+// ···
+}
+if(y>0){
+// ···
+}
+The following case is slightly tricky:
+constfunc=function(){};// semicolon!
+The wholeconstdeclaration (a statement) ends with a semicolon, but inside it, there is a function ex-
+pression. That is: It’s not the statement per se that ends with a curly brace; it’s the embedded function
+expression. That’s why there is a semicolon at the end.
+6.6.2 Semicolons: controlstatements
+The body of a control statement is itself a statement. For example, this is the syntax of thewhileloop:
+while(condition)
+statement
+The body can be a single statement:
+while(a>0) a--;
+But blocks are also statements and therefore legal bodies of control statements:
+while(a>0){
+a--;
+}
+If you want a loop to have an empty body, your first option is an empty statement (which is just a semi-
+colon):
+while(processNextItem()>0);
+Your second option is an empty block:
+while(processNextItem()>0){}
+6.7 Automaticsemicoloninsertion(ASI)
+While I recommend to always write semicolons, most of them are optional in JavaScript. The mechanism
+that makes this possible is calledautomaticsemicoloninsertion(ASI). In a way, it corrects syntax errors.
+ASI works as follows. Parsing of a statement continues until there is either:
+• A semicolon
+• A line terminator followed by an illegal token
+In other words, ASI can be seen as inserting semicolons at line breaks. The next subsections cover the
+pitfalls of ASI.
+----------------Page (35) Break----------------
+6.7. AUTOMATICSEMICOLONINSERTION(ASI)37
+6.7.1 ASItriggeredunexpectedly
+The good news about ASI is that – if you don’t rely on it and always write semicolons – there is only one
+pitfall that you need to be aware of. It is that JavaScript forbids line breaks after some tokens. If you do
+insert a line break, a semicolon will be inserted, too.
+The token where this is most practically relevant isreturn. Consider, for example, the following code:
+return
+{
+first:'jane'
+};
+This code is parsed as:
+return;
+{
+first:'jane';
+}
+;
+That is, an empty return statement, followed by a code block, followed by an empty statement.
+Why does JavaScript do this? It protects against accidentally returning a value in a line after areturn.
+6.7.2 ASIunexpectedlynottriggered
+In some cases, ASI isnottriggered when you think it should be. That makes life more complicated for
+people who don’t like semicolons, because they need to be aware of those cases.
+Example1:Unintended function call.
+a=b+c
+(d+e).print()
+Parsed as:
+a=b+c(d+e).print();
+Example2:Unintended division.
+a=b
+/hi/g.exec(c).map(d)
+Parsed as:
+a=b / hi /g.exec(c).map(d);
+Example3:Unintended property access.
+someFunction()
+['ul','ol'].map(x=>x+x)
+Executed as:
+----------------Page (36) Break----------------
+38CHAPTER6. SYNTAX
+constpropKey=('ul','ol');
+assert.equal(propKey,'ol');// due to comma operator
+someFunction()[propKey].map(x=>x+x);
+Example4:Unintended function call.
+conststringify=function(x){
+returnString(x)
+}
+`abc`.split('')
+Executed as:
+constfunc=function(x){
+returnString(x)
+};
+const_tmp=func`abc`;
+assert.equal(_tmp,'abc');
+conststringify=_tmp.split('');
+assert.deepEqual(stringify,['a','b','c']);
+Afunctionputinfrontofatemplateliteral(suchas`abc`)leadstothatfunctionbeingcalled(thetemplate
+literal determines what parameters it gets). More on that in the chapter on tagged templates.
+6.8 Semicolons: bestpractices
+I recommend that you always write semicolons:
+• I like the visual structure it gives code – you clearly see when a statement ends.
+• There are less rules to keep in mind.
+• The majority of JavaScript programmers use semicolons.
+However, there are also many people who don’t like the added visual clutter of semicolons. If you are
+oneofthem: codewithoutthemislegal. Irecommendthatyouusetoolstohelpyouavoidmistakes. The
+following are two examples:
+• The automatic code formatter Prettier1can be configured to not use semicolons. It then automati-
+callyfixesproblems. Forexample,ifitencountersalinethatstartswithasquarebracket,itprefixes
+that line with a semicolon.
+• The static checker ESLint2has a rule3that warns about critical cases if you either require or forbid
+semicolons.
+1https://prettier.io
+2https://eslint.org
+3https://eslint.org/docs/rules/semi
+----------------Page (37) Break----------------
+6.9. STRICTMODE39
+6.9 Strictmode
+StartingwithECMAScript5,youcanoptionallyexecuteJavaScriptinaso-calledstrictmode. Inthatmode,
+the language is slightly cleaner: a few quirks don’t exist and more exceptions are thrown.
+The default (non-strict) mode is also calledsloppymode.
+Note that strict mode is switched on by default inside modules and classes, so you don’t really need
+to know about it when you write modern JavaScript. In this book, I assume that strict mode is always
+switched on.
+6.9.1 Switchingonstrictmode
+In legacy script files and CommonJS modules, you switch on strict mode for a complete file, by putting
+the following code in the first line:
+'use strict';
+The neat thing about this “directive” is that ECMAScript versions before 5 simply ignore it: it’s an ex-
+pression statement that does nothing.
+You can also switch on strict mode for just a single function:
+functionfunctionInStrictMode(){
+'use strict';
+}
+6.9.2 Example: strictmodeinaction
+Let’s look at an example where sloppy mode does something bad that strict mode doesn’t: Changing an
+unknown variable (that hasn’t been created vialetor similar) creates a global variable.
+functionsloppyFunc(){
+unknownVar1=123;
+}
+sloppyFunc();
+// Created global variable `unknownVar1`:
+assert.equal(unknownVar1,123);
+Strict mode does it better:
+functionstrictFunc(){
+'use strict';
+unknownVar2=123;
+}
+assert.throws(
+()=>strictFunc(),
+{
+name:'ReferenceError',
+message:'unknownVar2 is not defined',
+});
+----------------Page (38) Break----------------
+40CHAPTER6. SYNTAX
+Quiz: advanced
+See quiz app.
+----------------Page (39) Break----------------
+Chapter7
+AssertionAPI
+7.1 Assertionsinsoftwaredevelopment
+In software development,assertionsmake statements about values or pieces of code that must be true.
+If they aren’t, an exception is thrown. Node.js supports assertions via its built-in moduleassert. For
+example:
+import{strict as assert}from'assert';
+assert.equal(3+5,8);
+Thisassertionstatesthattheexpectedresultof3plus5is8. Theimportstatementusestherecommended
+strictversion1ofassert.
+7.2 Howassertionsareusedinthisbook
+In this book, assertions are used in two ways: to document results in code examples and to implement
+test-driven exercises.
+7.2.1 Documentingresultsincodeexamplesviaassertions
+In code examples, assertions express expected results. Take, for example, the following function:
+functionid(x){
+returnx;
+}
+id()returns its parameter. We can show it in action via an assertion:
+assert.equal(id('abc'),'abc');
+In the examples, I usually omit the statement for importingassert.
+The motivation behind using assertions is:
+1https://nodejs.org/api/assert.html#assert_strict_mode
+41
+----------------Page (40) Break----------------
+42CHAPTER7. ASSERTIONAPI
+• You can specify precisely what is expected.
+• Code examples can be tested automatically, which ensures that they really work.
+7.2.2 Implementingtest-drivenexercisesviaassertions
+Theexercisesforthisbookaretest-driven,viathetestframeworkmocha. Checksinsidethetestsaremade
+via methods ofassert.
+The following is an example of such a test:
+// For the exercise, you must implement the function hello().
+// The test checks if you have done it properly.
+test('First exercise',()=> {
+assert.equal(hello('world'),'Hello world!');
+assert.equal(hello('Jane'),'Hello Jane!');
+assert.equal(hello('John'),'Hello John!');
+assert.equal(hello(''),'Hello !');
+});
+For more information, consultthe chapter on quizzes and exercises
+7.3 Normalcomparisonversusdeepcomparison
+The strict.equal()uses===to compare values. That means that an object is only equal to itself – even if
+two objects have the same content:
+assert.notEqual({foo:1}, {foo:1});
+In such cases, you can use.deepEqual():
+assert.deepEqual({foo:1}, {foo:1});
+This method works for Arrays, too:
+assert.notEqual(['a','b','c'],['a','b','c']);
+assert.deepEqual(['a','b','c'],['a','b','c']);
+7.4 Quickreference: moduleassert
+For the full documentation, see the Node.js docs2.
+7.4.1 Normalequality
+•function equal(actual: any, expected: any, message?: string): void
+assert.equal(3+3,6);
+•function notEqual(actual: any, expected: any, message?: string): void
+2https://nodejs.org/api/assert.html
+----------------Page (41) Break----------------
+7.4. QUICKREFERENCE:MODULEASSERT43
+assert.notEqual(3+3,22);
+7.4.2 Deepequality
+•function deepEqual(actual: any, expected: any, message?:string): void
+assert.deepEqual([1,2,3],[1,2,3]);
+assert.deepEqual([],[]);
+// To .equal(), an object is only equal to itself:
+assert.notEqual([],[]);
+•function notDeepEqual(actual: any, expected: any, message?: string): void
+assert.notDeepEqual([1,2,3],[1,2]);
+7.4.3 Expectingexceptions
+If you want to (or expect to) receive an exception, you need.throws:
+•function throws(block: Function, message?: string): void
+assert.throws(
+()=> {
+null.prop;
+}
+);
+•function throws(block: Function, error: Function, message?: string): void
+assert.throws(
+()=> {
+null.prop;
+},
+TypeError
+);
+•function throws(block: Function, error: RegExp, message?: string): void
+assert.throws(
+()=> {
+null.prop;
+},
+/^TypeError: Cannot read property 'prop' of null$/
+);
+•function throws(block: Function, error: Object, message?: string): void
+assert.throws(
+()=> {
+null.prop;
+},
+{
+----------------Page (42) Break----------------
+44CHAPTER7. ASSERTIONAPI
+name:'TypeError',
+message:`Cannot read property 'prop' of null`,
+}
+);
+7.4.4 Othertoolfunctions
+•function fail(message: string | Error): never
+try{
+functionThatShouldThrow();
+assert.fail();
+}catch(_){
+// Success
+}
+Quiz
+See quiz app.
+----------------Page (43) Break----------------
+Chapter8
+Gettingstartedwithquizzesand
+exercises
+Attheendofmostchapters,therearequizzesandexercises. Theseareapaidfeature,butacomprehensive
+preview is available. This chapter explains how to get started with them.
+8.1 Quizzes
+Installation:
+• Download and unzipimpatient-js-quiz.zip
+Running the quiz app:
+• Openimpatient-js-quiz/index.htmlin a web browser
+• You’ll see a TOC of all the quizzes.
+8.2 Exercises
+8.2.1 Installingtheexercises
+To install the exercises:
+• Download and unzipimpatient-js-code.zip
+• Follow the instructions inREADME.txt
+8.2.2 Runningexercises
+• Exercises are referred to by path in this book.
+–For example:exercises/syntax/first_module_test.js
+• Within each file:
+45
+----------------Page (44) Break----------------
+46CHAPTER8. GETTINGSTARTEDWITHQUIZZESANDEXERCISES
+–The first line contains the command for running the exercise.
+–The following lines describe what you have to do.
+8.3 UnittestsinJavaScript
+All exercises in this book are tests that are run via the test framework Mocha1. This section gives a brief
+introduction.
+8.3.1 Atypicaltest
+Typical test code is split into two parts:
+• Part 1: the code to be tested.
+• Part 2: the tests for the code.
+Take, for example, the following two files:
+•id.js(code to be tested)
+•id_test.js(tests)
+8.3.1.1 Part1: thecode
+The code itself resides inid.js:
+exportfunctionid(x){
+returnx;
+}
+Thekeythinghereis: everythingyouwanttotestmustbeexported. Otherwise, thetestcodecan’taccess
+it.
+8.3.1.2 Part2: thetests
+The tests for the code reside inid_test.js:
+import{strict as assert}from'assert';// (A)
+import{id}from'./id.js';// (B)
+test('My test',()=> {// (C)
+assert.equal(id('abc'),'abc');// (D)
+});
+You don’t need to worry too much about the syntax: You won’t have to write this kind of code yourself
+– all tests are written for you.
+The core of this test file resides in line D – a so-calledassertion:assert.equal()specifies that the ex-
+pected result ofid('abc')is'abc'. The assertion library, a built-in Node.js module calledassert, is
+documented inthe next chapter.
+1https://mochajs.org
+----------------Page (45) Break----------------
+8.3. UNITTESTSINJAVASCRIPT47
+As for the other lines:
+• Line A: We import the assertion library.
+• Line B: We import the function to test.
+• Line C: We define a test. This is done by calling the functiontest():
+–First parameter: the name of the test.
+–Second parameter: the test code (provided via an arrow function with zero parameters).
+To run the test, we execute the following in a command line:
+npm t demos/syntax/id_test.js
+Thetis an abbreviation fortest. That is, the long version of this command is:
+npm text demos/syntax/id_test.js
+Exercise: Yourfirstexercise
+The following exercise gives you a first taste of what exercises are like:exercises/syntax/first_
+module_test.js
+8.3.2 Asynchronoustestsinmocha
+Reading
+You can postpone reading this section until you get to the chapters on asynchronous programming.
+Writing tests for asynchronous code requires extra work: The test receives its results later and has to
+signal to mocha that it isn’t finished, yet, when it returns. The following subsections examine three ways
+of doing so.
+8.3.2.1 Callingdone()
+A test becomes asynchronous if it has at least one parameter. That parameter is usually calleddoneand
+receives a function that you call once your code is finished:
+test('addViaCallback',(done)=> {
+addViaCallback(1,2,(error,result)=> {
+if(error){
+done(error);
+}else{
+assert.strictEqual(result,3);
+done();
+}
+});
+});
+----------------Page (46) Break----------------
+48CHAPTER8. GETTINGSTARTEDWITHQUIZZESANDEXERCISES
+8.3.2.2 ReturningaPromise
+A test also becomes asynchronous if it returns a Promise. Mocha considers the test to be finished once
+the Promise is either fulfilled or rejected. A test is considered successful if the Promise is fulfilled and
+failed if the Promise is rejected.
+test('addAsync',()=> {
+returnaddAsync(1,2)
+.then(result=> {
+assert.strictEqual(result,3);
+});
+});
+8.3.2.3 Thetestisanasyncfunction
+AsyncfunctionsalwaysreturnPromises. Therefore, anasyncfunctionisaconvenientwayofimplement-
+ing an asynchronous test. The following code is equivalent to the previous example.
+test('addAsync',async()=> {
+constresult=awaitaddAsync(1,2);
+assert.strictEqual(result,3);
+// No explicit return necessary!
+});
+You don’t need to explicitly return anything: The implicitly returnedundefinedis used to fulfill the
+Promisereturnedbythisasyncfunction. Andifthetestcodethrowsanexceptionthentheasyncfunction
+takes care of rejecting the returned Promise.
+----------------Page (47) Break----------------
+PartIII
+Variablesandvalues
+49
+----------------Page (48) Break----------------
+
+----------------Page (49) Break----------------
+Chapter9
+Variablesandassignment
+These are JavaScript’s main ways of declaring variables:
+•letdeclares mutable variables.
+•constdeclaresconstants(immutable variables).
+Before ES6, there was alsovar. But it has several quirks, so it’s best to avoid it in modern JavaScript. You
+can read more about it in “Speaking JavaScript1”.
+9.1let
+Variables declared vialetare mutable:
+leti;
+i=0;
+i=i+1;
+assert.equal(i,1);
+You can also declare and assign at the same time:
+leti=0;
+9.2const
+Variables declared viaconstare immutable. You must always initialize immediately:
+consti=0;// must initialize
+assert.throws(
+()=> {i=i+1},
+{
+name:'TypeError',
+1http://speakingjs.com/es5/ch16.html
+51
+----------------Page (50) Break----------------
+52CHAPTER9. VARIABLESANDASSIGNMENT
+message:'Assignment to constant variable.',
+}
+);
+9.2.1constandimmutability
+In JavaScript,constonly means that thebinding(the association between variable name and variable
+value) is immutable. The value itself may be mutable, likeobjin the following example.
+constobj= {prop:0};
+obj.prop=obj.prop+1;
+assert.equal(obj.prop,1);
+However:
+constobj= {prop:0};
+assert.throws(
+()=> {obj= {} },
+{
+name:'TypeError',
+message:'Assignment to constant variable.',
+}
+);
+9.2.2constandloops
+You can useconstwithfor-ofloops, where a fresh binding is created for each iteration:
+constarr=['hello','world'];
+for(constelem of arr){
+console.log(elem);
+}
+// Output:
+// 'hello'
+// 'world'
+In plainforloops, you must uselet, however:
+constarr=['hello','world'];
+for(leti=0;i<arr.length;i++){
+constelem=arr[i];
+console.log(elem);
+}
+9.3 Decidingbetweenletandconst
+I recommend the following rules to decide betweenletandconst:
+----------------Page (51) Break----------------
+9.4. VARIABLESAREBLOCK-SCOPED53
+•constindicates an immutable binding and that a variable never changes its value. Prefer it.
+•letindicates that the value of a variable changes. Use it only when you can’t useconst.
+Exercise:const
+`exercises/variables-assignment/const_exrc.js`
+9.4 Variablesareblock-scoped
+Thescopeof a variable is the region of a program where it can be accessed.
+Likeinmostmodernprogramminglanguages,variablesdeclaredvialetandconstareblock-scoped: they
+can only be accessed from within the block that the are declared in.
+{
+constx=0;
+}
+assert.throws(
+()=>x+1,
+{
+name:'ReferenceError',
+message:'x is not defined',
+}
+);
+The curly braces enclose a code block.xonly exists within that block and can’t be access outside it.
+9.4.1 Shadowingandblocks
+You can’t declare the same variable twice at the same level. You can, however, nest a block and use the
+same variable namexthat you used outside the block:
+constx=1;
+assert.equal(x,1);
+{
+constx=2;
+assert.equal(x,2);
+}
+assert.equal(x,1);
+Inside the block, the innerxis the only accessible variable with that name. The innerxis said toshadow
+the outerx. Once you leave the block, you can access the old value again.
+Quiz
+See quiz app.
+----------------Page (52) Break----------------
+54CHAPTER9. VARIABLESANDASSIGNMENT
+----------------Page (53) Break----------------
+Chapter10
+Values
+In this chapter, we’ll examine what kinds of values JavaScript has.
+We’ll occasionally use the strict equality operator (===), which is explained inthe chapter on operators.
+10.1 What’satype?
+For this chapter, I consider types to be sets of values. For example, the typebooleanis the set {false,
+true}.
+10.2 JavaScript’stypehierarchy
+Fig.10.1shows JavaScript’s type hierarchy. What do we learn from that diagram?
+• JavaScriptdistinguishestwokindsofvalues: primitivevaluesandobjects. We’llseesoonwhatthe
+difference is.
+• Some objects are not instances of classObject. Inthe chapter on prototype chains and classes,
+you’ll learn how to create those special objects. However, you’ll rarely encounter them in practice.
+10.3 Thetypesofthelanguagespecification
+The ECMAScript specification only knows a total of 7 types. The names of those types are (I’m using
+TypeScript’s names, not the spec’s names):
+•undefined: with the only elementundefined.
+•null: with the only elementnull.
+•boolean: with the elementsfalseandtrue.
+•number: the type of all numbers (e.g.-123,3.141).
+•string: the type of all strings (e.g.'abc').
+•symbol: the type of all symbols (e.g.Symbol('My Symbol')).
+55
+----------------Page (54) Break----------------
+56CHAPTER10. VALUES
+(any)
+(object)(primitive value)
+boolean
+number
+string
+symbol
+undefined
+null
+Object
+Array
+Map
+Set
+Function
+RegExp
+Date
+Figure 10.1: A partial hierarchy of JavaScript’s types. Missing are the classes for errors, the constructor
+functions associated with primitive types, and more. The diagram hints at the fact that not all objects are
+instances ofObject.
+•object: the type of all objects (different fromObject, the type of all instances of classObjectand
+its subclasses).
+10.4 Primitivevaluesversusobjects
+The specification makes an important distinction between values:
+•Primitivevaluesare the elements of the typesundefined,null,boolean,number,string,symbol.
+• All other values areobjects.
+In contrast to Java (that inspired JavaScript here), primitives are not second-class citizens. The difference
+between them and objects is more subtle. In a nutshell, it is:
+• Primitive values: are atomic building blocks of data in JavaScript. They are passed and compared
+byvalue: We pass and compare their contents (details soon).
+• Objects: are compound pieces of data. They are passed and comparedby reference: We pass and
+compare (transparent) references to the actual objects on the heap (details soon).
+Next, we’ll look at primitive values and objects in more depth.
+----------------Page (55) Break----------------
+10.4. PRIMITIVEVALUESVERSUSOBJECTS57
+10.4.1 Primitivevalues
+10.4.1.1 Primitivesareimmutable
+You can’t change, add or remove the properties (fields) of primitives:
+letnum=123;
+assert.throws(
+()=> {num.foo='abc'},
+{
+name:'TypeError',
+message:"Cannot create property 'foo' on number '123'",
+}
+);
+10.4.1.2 Primitivesarepassedandcomparedby value
+Primitives are passed and comparedby value. That means: Variables (incl. parameters) store the primi-
+tives themselves and when comparing primitives, we are comparing their contents.
+The following code demonstrates comparing by value:
+assert.ok(123===123);
+assert.ok('abc'==='abc');
+To see what’s so special about this way of comparing, read on and find out how objects are compared.
+10.4.2 Objects
+Two common literals for creating objects, are:
+• Object literals:
+constobj= {
+first:'Jane',
+last:'Doe',
+};
+• Array literals:
+constarr=['foo','bar'];
+10.4.2.1 Objectsaremutablebydefault
+By default, you can freely change, add and remove the properties of objects:
+constobj= {};
+obj.foo='abc';// add a property
+assert.equal(obj.foo,'abc');
+----------------Page (56) Break----------------
+58CHAPTER10. VALUES
+obj.foo='def';// change a property
+assert.equal(obj.foo,'def');
+10.4.2.2 Objectsarepassedandcomparedby reference
+Objectsarepassedandcomparedbyreference. Thatmeans: Variables(incl. parameters)hold(transparent)
+referencestoobjectsontheheap(thinksharedmainmemory). Whencomparingobjects,wearecomparing
+references. Each object literal creates a fresh object on the heap and returns a reference to it.
+The following code demonstrates comparing by reference:
+constobj= {};// fresh empty object
+assert.ok(obj===obj);
+assert.ok({} !== {});// two fresh, different objects
+The following code demonstrates passing by reference:
+consta= {};
+// Pass the reference in `a` to `b`:
+constb=a;
+// Now `a` and `b` point to the same object
+// (they “share” that object):
+assert.ok(a===b);
+// Changing `a` also changes `b`:
+a.foo=123;
+assert.equal(b.foo,123);
+JavaScript usesgarbagecollectionto automatically manage memory:
+letobj= {prop:'value'};
+obj= {};
+Nowtheoldvalue{ prop: 'value' }ofobjisgarbage(notusedanymore). JavaScriptwillautomatically
+garbage-collectit (remove it from memory), at some point in time (possibly never if there is enough free
+memory).
+10.5 Classesandconstructorfunctions
+JavaScript’s original factories for objects areconstructor functions: ordinary functions that return “in-
+stances” of themselves if you invoke them via thenewoperator.
+ES6 introducedclasses, which are mainly better syntax for constructor functions.
+In this book, I’m using the termsconstructorfunctionandclassinterchangeably.
+Classes can be seen as partitioning the single typeobjectof the specification into subtypes – they give
+us more types than the limited 7 ones of the specification. Each class is the type of the objects that were
+created by it.
+----------------Page (57) Break----------------
+10.6. CONSTRUCTORFUNCTIONSASSOCIATEDWITHPRIMITIVETYPES59
+10.6 Constructorfunctionsassociatedwithprimitivetypes
+Each primitive type (except for the spec-internal types forundefinedandnull) has an associatedcon-
+structorfunction(think class):
+• The constructor functionBooleanis associated with booleans.
+• The constructor functionNumberis associated with numbers.
+• The constructor functionStringis associated with strings.
+• The constructor functionSymbolis associated with symbols.
+Each of these functions plays several roles. For example,Number:
+• You can use it as a function and convert values to numbers:
+assert.equal(Number('123'),123);
+• The properties stored inNumber.prototypeare “inherited” by numbers:
+assert.equal((123).toString,Number.prototype.toString);
+• It also contains tool functions for numbers. For example:
+assert.equal(Number.isInteger(123),true);
+• Lastly, you can also useNumberas a class and create number objects. These objects are different
+from real numbers and should be avoided.
+assert.notStrictEqual(newNumber(123),123);
+assert.equal(newNumber(123).valueOf(),123);
+10.7 Theoperatorstypeofandinstanceof: what’sthetypeofavalue?
+The two operatorstypeofandinstanceoflet you determine what type a given valuexhas:
+if(typeofx==='string') ···
+if(xinstanceofArray) ···
+So how do they differ?
+•typeofdistinguishes the 7 types of the specification (minus one omission, plus one addition).
+•instanceoftests which class created a given value.
+Thus, as a rough rule of thumb:typeofis for primitive values,instanceofis for objects.
+10.7.1typeof
+Table 10.1: The results of thetypeofoperator.
+x               typeof x
+undefined       'undefined'
+null            'object'
+Boolean'boolean'
+----------------Page (58) Break----------------
+60CHAPTER10. VALUES
+x               typeof x
+Number'number'
+String'string'
+Symbol'symbol'
+Function'function'
+All other objects'object'
+Tbl.10.1lists all results oftypeof. They roughly correspond to the 7 types of the language specification.
+Alas, there are two differences and they are language quirks:
+•typeof nullreturns'object'andnot'null'. That’sabug. Unfortunately, itcan’tbefixed. TC39
+tried to do that, but it broke too much code on the web.
+•typeofof a function should be'object'(functions are objects). Introducing a separate category
+for functions is confusing.
+Exercises: Twoexercisesontypeof
+•`exercises/operators/typeof_exrc.js`
+• Bonus:exercises/operators/is_object_test.js
+10.7.2instanceof
+This operator answers the question: has a valuexbeen created by a classC?
+xinstanceofC
+For example:
+> (function() {}) instanceof Function
+true
+> ({}) instanceof Object
+true
+> [] instanceof Array
+true
+Primitive values are not instances of anything:
+> 123 instanceof Number
+false
+> '' instanceof String
+false
+> '' instanceof Object
+false
+Exercise:instanceof
+`exercises/operators/instanceof_exrc.js`
+----------------Page (59) Break----------------
+10.8. CONVERTINGBETWEENTYPES61
+10.8 Convertingbetweentypes
+There are two ways in which values are converted to other types in JavaScript:
+• Explicit conversion: via functions such asString().
+• Coercion (automatic conversion): happens when an operation receives operands/parameters that
+it can’t work with.
+10.8.1 Explicitconversionbetweentypes
+The function associated with a primitive type explicitly converts values to that type:
+> Boolean(0)
+false
+> Number('123')
+123
+> String(123)
+'123'
+You can also useObject()to convert values to objects:
+> 123 instanceof Number
+false
+> Object(123) instanceof Number
+true
+10.8.2 Coercion(automaticconversionbetweentypes)
+For many operations, JavaScript automatically converts the operands/parameters if their types don’t fit.
+This kind of automatic conversion is calledcoercion.
+For example, the multiplication operator coerces its operands to numbers:
+> '7' * '3'
+21
+Many built-in functions coerce, too. For example,parseInt()coerces its parameter to string (parsing
+stops at the first character that is not a digit):
+> parseInt(123.45)
+123
+Exercise: Convertingvaluestoprimitives
+`exercises/values/conversion_exrc.js`
+Quiz
+----------------Page (60) Break----------------
+62CHAPTER10. VALUES
+See quiz app.
+----------------Page (61) Break----------------
+Chapter11
+Operators
+11.1 Twoimportantrulesforoperators
+• Operators coerce their operands to appropriate types
+• Most operators only work with primitive values
+11.1.1 Operatorscoercetheiroperandstoappropriatetypes
+If an operator gets operands that don’t have the proper types, it rarely throws an exception. Instead, it
+coerces(automatically converts) the operands so that it can work with them. Let’s look at two examples.
+First, the multiplication operator can only work with numbers. Therefore, it converts strings to numbers
+before computing its result.
+> '7' * '3'
+21
+Second,thesquarebracketsoperator([ ])foraccessingthepropertiesofanobjectcanonlyhandlestrings
+and symbols. All other values are coerced to string:
+constobj= {};
+obj['true']=123;
+// Coerce true to the string 'true'
+assert.equal(obj[true],123);
+11.1.2 Mostoperatorsonlyworkwithprimitivevalues
+The main rule to keep in mind for JavaScript’s operators is:
+Most operators only work with primitive values.
+If an operand is an object, it is usually coerced to a primitive value.
+For example:
+63
+----------------Page (62) Break----------------
+64CHAPTER11. OPERATORS
+> [1,2,3] + [4,5,6]
+'1,2,34,5,6'
+Why? The plus operator first coerces its operands to primitive values:
+> String([1,2,3])
+'1,2,3'
+> String([4,5,6])
+'4,5,6'
+Next, it concatenates the two strings:
+> '1,2,3' + '4,5,6'
+'1,2,34,5,6'
+11.2 Theplusoperator(+)
+TheplusoperatorworksasfollowsinJavaScript: Itfirstconvertsbothoperandstoprimitivevalues. Then
+it switches to one of two modes:
+• String mode: If one of the two results is a string then convert the other result to string, too, and
+concatenate both strings.
+• Number mode: Otherwise, convert both operands to numbers and add them.
+String mode lets you use+to assemble strings:
+> 'There are ' + 3 + ' items'
+'There are 3 items'
+Number mode means that if neither operand is a string (or an object that becomes a string) then every-
+thing is coerced to numbers:
+> 4 + true
+5
+(Number(true)is1.)
+11.3 Assignmentoperators
+11.3.1 Theplainassignmentoperator
+•x = value
+Assign to a previously declared variable.
+•const x = value
+Declare and assign at the same time.
+•obj.propKey = value
+Assign to a property.
+----------------Page (63) Break----------------
+11.4. EQUALITY:==VERSUS===65
+•arr[index] = value
+Assign to an Array element.
+11.3.2 Compoundassignmentoperators
+Given an operatorop, the following two ways of assigning are equivalent:
+myvar op= value
+myvar = myvar op value
+If, for example,opis+then we get the operator+=that works as follows.
+letstr='';
+str+='<b>';
+str+='Hello!';
+str+='</b>';
+assert.equal(str,'<b>Hello!</b>');
+11.3.3 Allcompoundassignmentoperators
+• Arithmetic operators:
++= -= *= /= %= **=
++=also works for string concatenation
+• Bitwise operators:
+<<= >>= >>>= &= ^= |=
+11.4 Equality:==versus===
+JavaScript has two kinds of equality operators: lenient equality (==) and strict equality (===). The recom-
+mendation is to always use the latter.
+11.4.1 Lenientequality(==and!=)
+Lenient equality is one of JavaScript’s quirks. It often coerces operands. Some of those coercions make
+sense:
+> '123' == 123
+true
+> false == 0
+true
+Others less so:
+----------------Page (64) Break----------------
+66CHAPTER11. OPERATORS
+> '' == 0
+true
+Objects are coerced to primitives if (and only if!) the other operand is primitive:
+> [1, 2, 3] == '1,2,3'
+true
+> ['1', '2', '3'] == '1,2,3'
+true
+If both operands are objects, they are only equal if they are the same object:
+> [1, 2, 3] == ['1', '2', '3']
+false
+> [1, 2, 3] == [1, 2, 3]
+false
+> const arr = [1, 2, 3];
+> arr == arr
+true
+Lastly,==considersundefinedandnullto be equal:
+> undefined == null
+true
+11.4.2 Strictequality(===and!==)
+Strict equality never coerces. Two values are only equal if they have the same type. Let’s revisit our
+previous interaction with the==operator and see what the===operator does:
+> false === 0
+false
+> '123' === 123
+false
+An object is only equal to another value if that value is the same object:
+> [1, 2, 3] === '1,2,3'
+false
+> ['1', '2', '3'] === '1,2,3'
+false
+> [1, 2, 3] === ['1', '2', '3']
+false
+> [1, 2, 3] === [1, 2, 3]
+false
+> const arr = [1, 2, 3];
+> arr === arr
+true
+The===operator does not considerundefinedandnullto be equal:
+----------------Page (65) Break----------------
+11.5. ORDERINGOPERATORS67
+> undefined === null
+false
+11.4.3 Recommendation: alwaysusestrictequality
+I recommend to always use===. It makes your code easier to understand and spares you from having to
+think about the quirks of==.
+Let’s look at two use cases for==and what I recommend to do instead.
+11.4.3.1 Usecasefor==: comparingwithanumberorastring
+==lets you check if a valuexis a number or that number as a string – with a single comparison:
+if(x==123){
+// x is either 123 or '123'
+}
+I prefer either of the following two alternatives:
+if(x===123||x==='123') ···
+if(Number(x)===123) ···
+You can also convertxto a number when you first encounter it.
+11.4.3.2 Usecasefor==: comparingwithundefinedornull
+Another use case for==is to check if a valuexis eitherundefinedornull:
+if(x==null){
+// x is either null or undefined
+}
+Theproblemwiththiscodeisthatyoucan’tbesureifsomeonemeanttowriteitthatwayoriftheymade
+a typo and meant=== null.
+I prefer either of the following two alternatives:
+if(x===undefined||x===null) ···
+if(x) ···
+Thesecondalternativeisevenmoresloppythanusing==,butitisawell-establishedpatterninJavaScript
+(to be explained in detail inthe chapter on booleans, when we look at truthiness and falsiness).
+11.5 Orderingoperators
+Table 11.1: JavaScript’s ordering operators.
+Operator  name
+<less than
+----------------Page (66) Break----------------
+68CHAPTER11. OPERATORS
+Operator  name
+<=Less than or equal
+>Greater than
+>=Greater than or equal
+JavaScript’s ordering operators (tbl.11.1) work for both numbers and strings:
+> 5 >= 2
+true
+> 'bar' < 'foo'
+true
+Caveat: Theseoperatorsdon’tworkwellforcomparingtextinahumanlanguage(capitalization,accents,
+etc.). The details are explained inthe chapter on strings.
+11.6 Variousotheroperators
+• Comma operator1:a, b
+•voidoperator2:void 0
+• Operators for booleans, strings, numbers, objects: are covered elsewhere in this book.
+Quiz
+See quiz app.
+1http://speakingjs.com/es5/ch09.html#comma_operator
+2http://speakingjs.com/es5/ch09.html#void_operator
+----------------Page (67) Break----------------
+PartIV
+Primitivevalues
+69
+----------------Page (68) Break----------------
+
+----------------Page (69) Break----------------
+Chapter12
+Thenon-valuesundefinedandnull
+12.1undefinedvs.null
+Many programming languages, especially object-oriented ones, have the non-valuenullindicating that
+a variable does not currently point to an object. For example, when it hasn’t been initialized, yet.
+In addition tonull, JavaScript also has the similar non-valueundefined. So what is the difference be-
+tween them? This is a rough description of how they work:
+•undefinedmeans: somethingdoesnotexistorisuninitialized. Thisvalueisoftenproducedbythe
+language. It exists at a more fundamental level thannull.
+•nullmeans: something is switched off. This value is often produced by code.
+Inreality, both non-values areoften used interchangeablyand manyapproachesfordetectingundefined
+also detectnull.
+We’ll soon see examples of where the two are used, which should give you a clearer idea of their natures.
+12.1.1 Thehistoryofundefinedandnull
+When it came to picking one or more non-values for JavaScript, inspiration was taken from Java where
+initialization values depend on the static type of a variable:
+• Variables with object types are initialized withnull.
+• Eachprimitivetypehasitsowninitializationvalue. Forexample,intvariablesareinitializedwith
+0.
+Therefore, the original idea was:
+•nullmeans: not an object.
+•undefinedmeans: neither a primitive value nor an object.
+71
+----------------Page (70) Break----------------
+72CHAPTER12. THENON-VALUESUNDEFINEDANDNULL
+12.2 Occurrencesofundefinedandnull
+The following subsections describe whereundefinedandnullappear in the language. We’ll encounter
+several mechanisms that are explained in more detail later in this book.
+12.2.1 Occurrencesofundefined
+Uninitialized variablemyVar:
+letmyVar;
+assert.equal(myVar,undefined);
+Parameterxis not provided:
+functionfunc(x){
+returnx;
+}
+assert.equal(func(),undefined);
+Property.unknownPropis missing:
+constobj= {};
+assert.equal(obj.unknownProp,undefined);
+If you don’t explicitly specify the result of a function via thereturnoperator, JavaScript returnsunde-
+finedfor you:
+functionfunc(){}
+assert.equal(func(),undefined);
+12.2.2 Occurrencesofnull
+Last member of a prototype chain:
+> Object.getPrototypeOf(Object.prototype)
+null
+Result if a regular expression/a/does not match a string'x':
+> /a/.exec('x')
+null
+The JSON data format does not supportundefined, onlynull:
+> JSON.stringify({a: undefined, b: null})
+'{"b":null}'
+12.3 Checkingforundefinedornull
+Checking for either:
+----------------Page (71) Break----------------
+12.4.UNDEFINEDANDNULLDON’THAVEPROPERTIES73
+if(x===null) ···
+if(x===undefined) ···
+Doesxhave a value?
+if(x!==undefined&&x!==null){
+// ···
+}
+if(x){// truthy?
+// x is neither: undefined, null, false, 0, NaN, ''
+}
+Isxeitherundefinedornull?
+if(x===undefined||x===null){
+// ···
+}
+if(!x){// falsy?
+// x is: undefined, null, false, 0, NaN, ''
+}
+Truthymeans “istrueif coerced to boolean”.Falsymeans “isfalseif coerced to boolean”. Both concepts
+are explained properly inthe chapter on booleans).
+12.4undefinedandnulldon’thaveproperties
+undefinedandnullare the two only JavaScript values where you get an exception if you try to read a
+property. To explore this phenomenon, let’s use the following function, which reads (“gets”) property
+.fooand returns the result.
+functiongetFoo(x){
+returnx.foo;
+}
+If we applygetFoo()to various value, we can see that it only fails forundefinedandnull:
+> getFoo(undefined)
+TypeError: Cannot read property 'foo' of undefined
+> getFoo(null)
+TypeError: Cannot read property 'foo' of null
+> getFoo(true)
+undefined
+> getFoo({})
+undefined
+Quiz
+See quiz app.
+----------------Page (72) Break----------------
+74CHAPTER12. THENON-VALUESUNDEFINEDANDNULL
+----------------Page (73) Break----------------
+Chapter13
+Booleans
+The primitive typebooleancomprises two values:
+> typeof false
+'boolean'
+> typeof true
+'boolean'
+13.1 Convertingtoboolean
+Table 13.1: Converting values to booleans.
+x             Boolean(x)
+undefined     false
+null          false
+boolean valuex(no change)
+number value0 → false,NaN → false
+other numbers→ true
+string value'' → false
+other strings→ true
+object value    alwaystrue
+Tbl.13.1describes how various values are converted to boolean.
+13.1.1 Waysofconvertingtoboolean
+These are three ways in which you can convert an arbitrary valuexto a boolean.
+•Boolean(x)
+Most descriptive; recommended.
+75
+----------------Page (74) Break----------------
+76CHAPTER13. BOOLEANS
+•x ? true : false
+Uses the conditional operator (explainedlater in this chapter).
+•!!x
+Usesthe logical Not operator (!). This operator coerces its operand to boolean. It is applied a
+second time to get a non-negated result.
+13.2 Falsyandtruthyvalues
+In JavaScript, if you try to read something that doesn’t exist, you often getundefinedas a result. In
+these cases, an existence check amounts to comparing an expression withundefined. For example, the
+following code checks if objectobjhas the property.prop:
+if(obj.prop!==undefined){
+// obj has property .prop
+}
+To simplify this check, we can use the fact that theifstatement always converts its conditional value to
+boolean:
+if('abc'){// true, if converted to boolean
+console.log('Yes!');
+}
+Therefore, we can use the following code to check ifobj.propexists. That is less precise than comparing
+withundefined, but also more succinct:
+if(obj.prop){
+// obj has property .prop
+}
+This simplified check is so popular that the following two names were introduced:
+• A value is calledtruthyif it istruewhen converted to boolean.
+• A value is calledfalsyif it isfalsewhen converted to boolean.
+Consulting tbl.13.1, we can make an exhaustive list of falsy values:
+•undefined,null
+• Booleans:false
+• Numbers:0,NaN
+• Strings:''
+All other values (incl.allobjects) are truthy:
+> Boolean('abc')
+true
+> Boolean([])
+true
+> Boolean({})
+true
+----------------Page (75) Break----------------
+13.2. FALSYANDTRUTHYVALUES77
+13.2.1 Pitfall: truthinesschecksareimprecise
+Truthiness checks have one pitfall: they are not very precise. Consider this previous example:
+if(obj.prop){
+// obj has property .prop
+}
+The body of theifstatement is skipped if:
+•obj.propis missing (in which case, JavaScript returnsundefined).
+However, it is also skipped if:
+•obj.propisundefined.
+•obj.propis any other falsy value (null,0,'', etc.).
+In practice, this rarely causes problems, but you have to be aware of this pitfall.
+13.2.2 Checkingfortruthinessorfalsiness
+if(x){
+// x is truthy
+}
+if(!x){
+// x is falsy
+}
+if(x){
+// x is truthy
+}else{
+// x is falsy
+}
+constresult=x?'truthy':'falsy';
+The conditional operator that is used in the last line, is explainedlater in this chapter.
+13.2.3 Usecase: wasaparameterprovided?
+A truthiness check is often used to determine if the caller of a function provided a parameter:
+functionfunc(x){
+if(!x){
+throw newError('Missing parameter x');
+}
+// ···
+}
+On the plus side, this pattern is established and concise. It correctly throws errors forundefinedand
+null.
+----------------Page (76) Break----------------
+78CHAPTER13. BOOLEANS
+Ontheminusside,thereisthepreviouslymentionedpitfall: thecodealsothrowserrorsforallotherfalsy
+values.
+An alternative is to check forundefined:
+if(x===undefined){
+throw newError('Missing parameter x');
+}
+13.2.4 Usecase: doesapropertyexist?
+Truthiness checks are also often used to determine if a property exists:
+functionreadFile(fileDesc){
+if(!fileDesc.path){
+throw newError('Missing property: .path');
+}
+// ···
+}
+readFile({path:'foo.txt'});// no error
+This pattern is also established and has the usual caveat: it not only throws if the property is missing, but
+also if it exists and has any of the falsy values.
+If you truly want to check if the property exists, you have to usetheinoperator:
+if(!('path'infileDesc)){
+throw newError('Missing property: .path');
+}
+Exercise: Truthiness
+`exercises/booleans/truthiness_exrc.js`
+13.3 Conditionaloperator(? :)
+The conditional operator is the expression version of theifstatement. Its syntax is:
+«condition» ? «thenExpression» : «elseExpression»
+It is evaluated as follows:
+• Ifconditionis truthy, evaluate and returnthenExpression.
+• Otherwise, evaluate and returnelseExpression.
+The conditional operator is also calledternaryoperator, because it has three operands.
+Examples:
+> true ? 'yes' : 'no'
+'yes'
+> false ? 'yes' : 'no'
+----------------Page (77) Break----------------
+13.4. BINARYLOGICALOPERATORS:AND(&&),OR(||)79
+'no'
+> '' ? 'yes' : 'no'
+'no'
+Thefollowingcodedemonstratesthat, whicheverofthetwobranches“then”and“else”ischosenviathe
+condition – only that branch is evaluated. The other branch isn’t.
+constx=(true?console.log('then') :console.log('else'));
+// Output:
+// 'then'
+13.4 Binarylogicaloperators: And(&&),Or(||)
+The operators&&and||arevalue-preservingandshort-circuiting. What does that mean?
+Value-preservationmeans that operands are interpreted as booleans, but returned unchanged:
+> 12 || 'hello'
+12
+> 0 || 'hello'
+'hello'
+Short-circuitingmeans: If the first operand already determines the result, the second operand is not eval-
+uated. The only other operator that delays evaluating its operands is the conditional operator: Usually,
+all operands are evaluated before performing an operation.
+For example, logical And (&&) does not evaluate its second operand if the first one is falsy:
+constx=false&&console.log('hello');
+// No output
+If the first operand is truthy, theconsole.log()is executed:
+constx=true&&console.log('hello');
+// Output:
+// 'hello'
+13.4.1 LogicalAnd(&&)
+The expressiona && b(“aAndb”) is evaluated as follows:
+• Evaluatea.
+• Is the result falsy? Return it.
+• Otherwise, evaluateband return the result.
+In other words, the following two expressions are roughly equivalent:
+a&&b
+!a?a : b
+Examples:
+----------------Page (78) Break----------------
+80CHAPTER13. BOOLEANS
+> false && true
+false
+> false && 'abc'
+false
+> true && false
+false
+> true && 'abc'
+'abc'
+> '' && 'abc'
+''
+13.4.2 LogicalOr(||)
+The expressiona || b(“aOrb”) is evaluated as follows:
+• Evaluatea.
+• Is the result truthy? Return it.
+• Otherwise, evaluateband return the result.
+In other words, the following two expressions are roughly equivalent:
+a|| b
+a?a : b
+Examples:
+> true || false
+true
+> true || 'abc'
+true
+> false || true
+true
+> false || 'abc'
+'abc'
+> 'abc' || 'def'
+'abc'
+13.4.3 DefaultvaluesvialogicalOr(||)
+Sometimes you receive a value and only want to use it if it isn’t eithernullorundefined. Otherwise,
+you’d like to use a default value, as a fallback. You can do that via the||operator:
+constvalueToUse=valueReceived||defaultValue;
+The following code shows a real-world example:
+----------------Page (79) Break----------------
+13.5. LOGICALNOT(!)81
+functioncountMatches(regex,str){
+constmatchResult=str.match(regex);// null or Array
+return(matchResult||[]).length;
+}
+If there are one or more matches forregexinsidestrthen.match()returns an Array. If there are no
+matches, it unfortunately returnsnull(and not the empty Array). We fix that via the||operator.
+Exercise: DefaultvaluesviatheOroperator(||)
+`exercises/booleans/default_via_or_exrc.js`
+13.5 LogicalNot(!)
+The expression!x(“Notx”) is evaluated as follows:
+• Evaluatex.
+• Is it truthy? Returnfalse.
+• Otherwise, returntrue.
+Examples:
+> !false
+true
+> !true
+false
+> !0
+true
+> !123
+false
+> !''
+true
+> !'abc'
+false
+Quiz
+See quiz app.
+----------------Page (80) Break----------------
+82CHAPTER13. BOOLEANS
+----------------Page (81) Break----------------
+Chapter14
+Numbers
+This chapter covers JavaScript’s single type for numbers,number.
+14.1 JavaScriptonlyhasfloatingpointnumbers
+You can express both integers and floating point numbers in JavaScript:
+98
+123.45
+However, there is only a single type for all numbers: They are alldoubles, 64-bit floating point numbers
+implemented according the the IEEE Standard for Floating-Point Arithmetic (IEEE 754).
+Integers are simply floating point numbers without a decimal fraction:
+> 98 === 98.0
+true
+Note that, under the hood, most JavaScript engines are often still able to use real integers, with all asso-
+ciated performance and storage size benefits.
+14.2 Numberliterals
+Let’s examine literals for numbers.
+14.2.1 Integerliterals
+Severalintegerliteralslet you express integers with various bases:
+// Binary (base 2)
+assert.equal(0b11,3);
+// Octal (base 8)
+83
+----------------Page (82) Break----------------
+84CHAPTER14. NUMBERS
+assert.equal(0o10,8);
+// Decimal (base 10):
+assert.equal(35,35);
+// Hexadecimal (base 16)
+assert.equal(0xE7,231);
+14.2.2 Floatingpointliterals
+Floating point numbers can only be expressed in base 10.
+Fractions:
+> 35.0
+35
+Exponent:eNmeans ×10N
+> 3e2
+300
+> 3e-2
+0.03
+> 0.3e2
+30
+14.2.3 Syntacticpitfall: propertiesofintegerliterals
+Accessing a property of an integer literal entails a pitfall: If the integer literal is immediately followed by
+a dot then that dot is interpreted as a decimal dot:
+7.toString(); // syntax error
+There are four ways to work around this pitfall:
+7.0.toString()
+(7).toString()
+7..toString()
+7.toString()// space before dot
+14.3 Numberoperators
+14.3.1 Binaryarithmeticoperators
+assert.equal(1+4,5);// addition
+assert.equal(6-3,3);// subtraction
+assert.equal(2*1.25,2.5);// multiplication
+assert.equal(6/4,1.5);// division
+----------------Page (83) Break----------------
+14.3. NUMBEROPERATORS85
+assert.equal(6%4,2);// remainder
+assert.equal(2**3,8);// exponentiation
+%is a remainder operator (not a modulo operator) – its result has the sign of the first operand:
+> 3 % 2
+1
+> -3 % 2
+-1
+14.3.2 Unaryplusandnegation
+assert.equal(+(-3),-3);// unary plus
+assert.equal(-(-3),3);// unary negation
+Both operators coerce their operands to numbers:
+> +'123'
+123
+14.3.3 Incrementing(++)anddecrementing(--)
+The incrementation operator++exists in a prefix version and a suffix version and destructively adds
+one to its operand. Therefore, its operand must be a storage location, so that it can be changed. The
+decrementation operator--works the same, but subtracts one from its operand. The next two examples
+explain the difference between the prefix and the suffix versions.
+Prefix++and prefix--: change and then return.
+letfoo=3;
+assert.equal(++foo,4);
+assert.equal(foo,4);
+letbar=3;
+assert.equal(--bar,2);
+assert.equal(bar,2);
+Suffix++and prefix--: return and then change.
+letfoo=3;
+assert.equal(foo++,3);
+assert.equal(foo,4);
+letbar=3;
+assert.equal(bar--,3);
+assert.equal(bar,2);
+14.3.3.1 Operands: notjustvariables
+You can also apply these operators to property values:
+----------------Page (84) Break----------------
+86CHAPTER14. NUMBERS
+constobj= {a:1};
+++obj.a;
+assert.equal(obj.a,2);
+And to Array elements:
+constarr=[4];
+arr[0]++;
+assert.deepEqual(arr,[5]);
+Exercise: Numberoperators
+`exercises/numbers-math/is_odd_test.js`
+14.4 Convertingtonumber
+Three ways of converting values to numbers:
+•Number(value)
+•+value
+•parseFloat(value)(avoid; different than other two!)
+Recommendation: use the descriptiveNumber().
+Examples:
+assert.equal(Number(undefined),NaN);
+assert.equal(Number(null),0);
+assert.equal(Number(false),0);
+assert.equal(Number(true),1);
+assert.equal(Number(123),123);
+assert.equal(Number(''),0);
+assert.equal(Number('123'),123);
+assert.equal(Number('xyz'),NaN);
+How objects are converted to numbers can be configured via several special methods. For example,
+.valueOf():
+> Number({ valueOf() { return 123 } })
+123
+Exercise: Convertingtonumber
+`exercises/numbers-math/parse_number_test.js`
+----------------Page (85) Break----------------
+14.5. ERRORVALUES87
+14.5 Errorvalues
+Two number values are returned when errors happen:
+•NaN
+•Infinity
+14.6 Errorvalue:NaN
+NaNis an abbreviation of “not a number”. Ironically, JavaScript considers it to be a number:
+> typeof NaN
+'number'
+When isNaNreturned?
+NaNis returned if a number can’t be parsed:
+> Number('$$$')
+NaN
+> Number(undefined)
+NaN
+NaNis returned if an operation can’t be performed:
+> Math.log(-1)
+NaN
+> Math.sqrt(-1)
+NaN
+NaNis returned if an operand or argument isNaN(to propagate errors):
+> NaN - 3
+NaN
+> 7 ** NaN
+NaN
+14.6.1 CheckingforNaN
+NaNis the only JavaScript value that is not strictly equal to itself:
+constn=NaN;
+assert.equal(n===n,false);
+These are several ways of checking if a valuexisNaN:
+constx=NaN;
+assert.ok(Number.isNaN(x));// preferred
+assert.ok(x!==x);
+assert.ok(Object.is(x,NaN));
+----------------Page (86) Break----------------
+88CHAPTER14. NUMBERS
+14.6.2 FindingNaNinArrays
+Some Array methods can’t findNaN:
+> [NaN].indexOf(NaN)
+-1
+Others can:
+> [NaN].includes(NaN)
+true
+> [NaN].findIndex(x => Number.isNaN(x))
+0
+> [NaN].find(x => Number.isNaN(x))
+NaN
+14.7 Errorvalue:Infinity
+When is the error valueInfinityreturned?
+Infinity is returned if a number is too large:
+> Math.pow(2, 1023)
+8.98846567431158e+307
+> Math.pow(2, 1024)
+Infinity
+Infinity is returned if there is a division by zero:
+> 5 / 0
+Infinity
+> -5 / 0
+-Infinity
+14.7.1Infinityasadefaultvalue
+Infinityis larger than all other numbers (exceptNaN), making it a good default value:
+functionfindMinimum(numbers){
+letmin=Infinity;
+for(constn of numbers){
+if(n<min) min=n;
+}
+returnmin;
+}
+assert.equal(findMinimum([5,-1,2]),-1);
+assert.equal(findMinimum([]),Infinity);
+----------------Page (87) Break----------------
+14.8. THEPRECISIONOFNUMBERS:CAREFULWITHDECIMALFRACTIONS89
+14.7.2 CheckingforInfinity
+These are two common ways of checking if a valuexisInfinity:
+constx=Infinity;
+assert.ok(x===Infinity);
+assert.ok(!Number.isFinite(x));
+Exercise: Comparingnumbers
+`exercises/numbers-math/find_max_test.js`
+14.8 Theprecisionofnumbers: carefulwithdecimalfractions
+Internally, JavaScript floating point numbers are represented with base 2 (according the the IEEE 754
+standard). That means that decimal fractions (base 10) can’t always be represented precisely:
+> 0.1 + 0.2
+0.30000000000000004
+> 1.3 * 3
+3.9000000000000004
+> 1.4 * 100000000000000
+139999999999999.98
+You therefore need to take rounding errors into consideration when performing arithmetic in JavaScript.
+Read on for an explanation of this phenomenon.
+Quiz: basic
+See quiz app.
+14.9 (Advanced)
+All remaining sections of this chapter are advanced.
+14.10 Background: floatingpointprecision
+In this section, we explore how JavaScript represents floating point numbers internally. It uses three
+numbers to do so (which take up a total of 64 bits of storage):
+• the sign (1 bit)
+• the fraction (52 bits)
+• the exponent (11 bits)
+----------------Page (88) Break----------------
+90CHAPTER14. NUMBERS
+The value of a represented number is computed as follows:
+(–1)sign× 0b1.fraction × 2exponent
+To make things easier to understand, we make two changes:
+• Second component: we switch from a fraction to amantissa(an integer).
+• Third component: we switch from base 2 (binary) to base 10 (decimal).
+How does this representation work for numbers withdecimals(digits after the decimal point)? We move
+the trailing point of an integer (the mantissa), by multiplying it with 10 to the power of a negative expo-
+nent.
+For example, this is how we move the trailing point of 15 so that it becomes 1.5:
+> 15 * (10 ** -1)
+1.5
+This is another example. This time, we move the point by two digits:
+> 325 * (10 ** -2)
+3.25
+If we write negative exponents as fractions with positive exponents, we can see why some fractions can
+be represented as floating point numbers, while others can’t:
+• Base 10: mantissa / 10exponent.
+–Can be represented: 1/10
+–Can be represented: 1/2 ()=5/10)
+–Cannot be represented: 1/3
+*Why? We can’t get a three into the denominator.
+• Base 2: mantissa / 2exponent.
+–Can be represented: 1/2
+–Can be represented: 1/4
+–Cannot be represented: 1/10 (=1/(2×5))
+*Why? We can’t get a five into the denominator.
+14.11 IntegersinJavaScript
+Integers are simply (floating point) numbers without a decimal fraction:
+> 1 === 1.0
+true
+> Number.isInteger(1.0)
+true
+14.11.1 Convertingtointeger
+The recommended way of converting numbers to integers is to use one of the rounding methods of the
+Mathobject (which is documentedin the next chapter):
+•Math.floor(): closest lower integer
+•Math.ceil(): closest higher integer
+----------------Page (89) Break----------------
+14.11. INTEGERSINJAVASCRIPT91
+•Math.round(): closest integer (.5 is rounded up). For example:
+–Math.round(2.5)rounds up to3.
+–Math.round(-2.5)rounds up to-2.
+•Math.trunc(): remove the fraction
+Tbl.14.1shows the results of these functions for various inputs.
+Table 14.1: Functions for converting numbers to integers.
+-2.9   -2.5   -2.1   2.1   2.5   2.9
+Math.floor   -3     -3     -3     2     2     2
+Math.ceil    -2     -2     -2     3     3     3
+Math.round   -3     -2     -2     2     3     3
+Math.trunc   -2     -2     -2     2     2     2
+14.11.2 RangesofintegersinJavaScript
+It’s good to be aware of the following ranges of integers in JavaScript:
+•Safeintegers:can be represented “safely” by JavaScript (more on what that means next)
+–Precision: 53 bits plus sign
+–Range: (−253, 253)
+•Arrayindices
+–Precision: 32 bits, unsigned
+–Range: [0, 232−1) (excluding the maximum length)
+–Typed Arrays have a larger range of 53 bits (safe and unsigned)
+•Bitwiseoperands(bitwise Or etc.)
+–Precision: 32 bits
+–Range of unsigned right shift (>>>): unsigned, [0, 232)
+–Range of all other bitwise operators: signed, [−231, 231)
+14.11.3 Safeintegers
+Recall that this is how JavaScript represents floating point numbers:
+(–1)sign× 0b1.fraction × 2exponent
+For integers, JavaScript mainly relies on the fraction. Once integers grow beyond the capacity of the
+fraction, some of them can still be represented as numbers (with the help of the exponent), but there are
+now gaps between them.
+For example, the smallest positiveunsafeinteger is2 ** 53:
+> 2 ** 53
+9007199254740992
+> 9007199254740992 + 1
+9007199254740992
+----------------Page (90) Break----------------
+92CHAPTER14. NUMBERS
+We can see that the JavaScript number 9007199254740992 represents both the corresponding integer and
+the corresponding integer plus one. That is, at this point, only every second integer can be represented
+precisely by JavaScript.
+The following properties ofNumberhelp determine if an integer is safe:
+•Number.isSafeInteger(number)
+•Number.MIN_SAFE_INTEGER = (2 ** 53) - 1
+•Number.MAX_SAFE_INTEGER = -Number.MIN_SAFE_INTEGER
+Number.isSafeInteger()can be implemented as follows.
+functionisSafeInteger(n){
+return(typeofn==='number'&&
+Math.trunc(n)===n&&
+Number.MIN_SAFE_INTEGER<=n&&
+n<=Number.MAX_SAFE_INTEGER);
+}
+14.11.3.1 Safecomputations
+Let’s look at computations involving unsafe integers.
+The following result is incorrect and unsafe, even though both of its operands are safe.
+> 9007199254740990 + 3
+9007199254740992
+The following result is incorrect, but safe. Only one of the operands is unsafe.
+> 9007199254740995 - 10
+9007199254740986
+Therefore, the result of an expressiona op bis correct if and only if:
+isSafeInteger(a)&&isSafeInteger(b)&&isSafeInteger(a op b)
+Exercise: Safeintegers
+`exercises/numbers-math/is_safe_integer_test.js`
+14.12 Bitwiseoperators
+14.12.1 Binarybitwiseoperators
+Table 14.2: Binary bitwise operators.
+Operation    Name
+num1 & num2Bitwise And
+num1 | num2Bitwise Or
+----------------Page (91) Break----------------
+14.12. BITWISEOPERATORS93
+Operation    Name
+num1 ^ num2Bitwise Xor
+The binary operators (tbl.14.2) combine the bits of their operands to produce their results:
+> (0b1010 & 0b11).toString(2)
+'10'
+> (0b1010 | 0b11).toString(2)
+'1011'
+> (0b1010 ^ 0b11).toString(2)
+'1001'
+14.12.2 BitwiseNot
+Table 14.3: The bitwise Not operator.
+Operation  Name
+~numBitwise Not, ones’ complement
+The bitwise Not operator (tbl.14.3) inverts each binary digit of its operand:
+> bin(~0b100)
+'11111111111111111111111111111011'
+bin()returns a binary representation of its argument and is implemented as follows.
+functionbin(n){
+// >>> ensures highest bit isn’t interpreted as a sign
+return(n>>>0).toString(2).padStart(32,'0');
+}
+14.12.3 Bitwiseshiftoperators
+Table 14.4: Bitwise shift operators.
+Operation      Name
+num << countLeft shift
+num >> countSigned right shift
+num >>> countUnsigned right shift
+The shift operators (tbl.14.4) move binary digits to the left or to the right:
+> (0b10 << 1).toString(2)
+'100'
+----------------Page (92) Break----------------
+94CHAPTER14. NUMBERS
+>>preserves highest bit,>>>doesn’t:
+> bin(0b10000000000000000000000000000010 >> 1)
+'11000000000000000000000000000001'
+> bin(0b10000000000000000000000000000010 >>> 1)
+'01000000000000000000000000000001'
+14.13 Quickreference: numbers
+14.13.1 Convertingtonumber
+Tbl.14.5shows what happens if you convert various values to numbers viaNumber().
+Table 14.5: Converting values to numbers.
+x           Number(x)
+undefined   NaN
+null        0
+booleanfalse → 0,true → 1
+numberx(no change)
+string'' → 0
+other→parse number, ignoring whitespace
+object      configurable (.valueOf(),.toString(),Symbol.toPrimitive)
+14.13.2 Arithmeticoperators
+JavaScript has the following arithmetic operators:
+• Binary arithmetic operators (tbl.14.6)
+• Prefix and suffix arithmetic operators (tbl.14.7)
+Table 14.6: Binary arithmetic operators.
+Operator  Name                Example
+_ + _Addition       ES13 + 4 → 7
+_ - _Subtraction     ES19 - 1 → 8
+_ * _Multiplication   ES13 * 2.25 → 6.75
+_ / _Division       ES15.625 / 5 → 1.125
+_ % _Remainder     ES18 % 5 → 3
+-8 % 5 → -3
+_ ** _Exponentiation  ES20166 ** 2 → 36
+----------------Page (93) Break----------------
+14.13. QUICKREFERENCE:NUMBERS95
+Table 14.7: Prefix and suffix arithmetic operators
+Operator  Name              Example
++_Unary plus     ES1+(-7) → -7
+-_Unary negation  ES1-(-7) → 7
+_++Increment      ES1let x=0; [x++, x] → [0, 1]
+++_Increment      ES1let x=0; [++x, x] → [1, 1]
+_--Decrement      ES1let x=1; [x--, x] → [1, 0]
+--_Decrement      ES1let x=1; [--x, x] → [0, 0]
+14.13.3 Bitwiseoperators
+JavaScript has the following bitwise operators:
+• Bitwise And, Or, Xor, Not (tbl.14.8)
+• Bitwise shift operators (tbl.14.9)
+Operands and results of bitwise operators:
+• Unsigned right shift operator (>>>): 32 bits, range [0, 232)
+• All other bitwise operators: 32 bits including a sign, range [−231, 231)
+Helper function for displaying binary numbers:
+functionbin(x){
+// >>> ensures highest bit isn’t interpreted as a sign
+return(x>>>0).toString(2).padStart(32,'0');
+}
+Table 14.8: Bitwise And, Or, Xor, Not.
+Operator  Name            Example
+_ & _Bitwise And  ES1(0b1010 & 0b1100).toString(2) → '1000'
+_ | _Bitwise Or   ES1(0b1010 | 0b1100).toString(2) → '1110'
+_ ^ _Bitwise Xor   ES1(0b1010 ^ 0b0011).toString(2) → '1001'
+~_Bitwise Not   ES1~0b11111111111111111111111111111110 → 1
+Table 14.9: Bitwise shift operators.
+Operator    Name                    Example
+_ << _Left shift            ES1(0b1 << 1).toString(2) → '10'
+_ >> _Signed right shift      ES1bin(0b10000000000000000000000000000010 >> 1)
+→ '11000000000000000000000000000001'
+_ >>> _Unsigned right shift    ES1bin(0b10000000000000000000000000000010 >>>
+1)
+→ '01000000000000000000000000000001'
+----------------Page (94) Break----------------
+96CHAPTER14. NUMBERS
+14.13.4Number.*dataproperties
+•Number.EPSILON: number[ES6]
+The difference between 1 and the next representable floating point number. In general, a machine
+epsilon1provides an upper bound for rounding errors in floating point arithmetic.
+–Approximately: 2.2204460492503130808472633361816 × 10-16
+•Number.MAX_SAFE_INTEGER: number[ES6]
+The largest integer that JavaScript can represent uniquely. The same as(2 ** 53)-1.
+•Number.MAX_VALUE: number[ES1]
+The largest positive finite JavaScript number.
+–Approximately: 1.7976931348623157 × 10308
+•Number.MIN_SAFE_INTEGER: number[ES6]
+The smallest integer that JavaScript can represent precisely (with smaller integers, more than one
+integer is represented by the same number). The same as-Number.MAX_SAFE_INTEGER.
+•Number.MIN_VALUE: number[ES1]
+The smallest positive JavaScript number. Approximately 5 × 10−324.
+•Number.NaN: number[ES1]
+The same as the global variableNaN.
+•Number.NEGATIVE_INFINITY: number[ES1]
+The same as-Number.POSITIVE_INFINITY.
+•Number.POSITIVE_INFINITY: number[ES1]
+The same as the global variableInfinity.
+14.13.5Number.*methods
+•Number.isFinite(num: number): boolean[ES6]
+Returnstrueifnumis an actual number (neitherInfinitynor-InfinitynorNaN).
+> Number.isFinite(Infinity)
+false
+> Number.isFinite(-Infinity)
+false
+> Number.isFinite(NaN)
+false
+> Number.isFinite(123)
+true
+This method does not coerce its parameter to number (whereas the global functionisFinite()
+does):
+1https://en.wikipedia.org/wiki/Machine_epsilon
+----------------Page (95) Break----------------
+14.13. QUICKREFERENCE:NUMBERS97
+> isFinite('123')
+true
+> Number.isFinite('123')
+false
+•Number.isInteger(num: number): boolean[ES6]
+Returnstrueifnumis a number and does not have a decimal fraction.
+> Number.isInteger(-17)
+true
+> Number.isInteger(33)
+true
+> Number.isInteger(33.1)
+false
+> Number.isInteger('33')
+false
+> Number.isInteger(NaN)
+false
+> Number.isInteger(Infinity)
+false
+•Number.isNaN(num: number): boolean[ES6]
+Returnstrueifnumis the valueNaN. In contrast to the global functionisNaN(), this method does
+not coerce its parameter to number:
+> isNaN('???')
+true
+> Number.isNaN('???')
+false
+•Number.isSafeInteger(num: number): boolean[ES6]
+Returnstrueifnumis a number and uniquely represents an integer.
+•Number.parseFloat(str: string): number[ES6]
+Coerces its parameter to string and parses it as a floating point number. Works the same as the
+global functionparseFloat(). For converting strings to numbers,Number()(which ignores lead-
+ing and trailing whitespace) is usually a better choice thatNumber.parseFloat()(which ignores
+leading whitespace and any illegal trailing characters and can hide problems).
+> Number.parseFloat(' 123.4#')
+123.4
+> Number(' 123.4#')
+NaN
+•Number.parseInt(str: string, radix=10): number[ES6]
+Coercesitsparametertostringandparsesitasaninteger, ignoringillegaltrailingcharacters. Same
+as the global functionparseInt().
+> Number.parseInt('101#', 2)
+5
+> Number.parseInt('FF', 16)
+----------------Page (96) Break----------------
+98CHAPTER14. NUMBERS
+255
+Donotusethismethodtoconvertnumberstointegers(usetheroundingmethodsofMath,instead):
+it is inefficient and can produce incorrect results:
+> Number.parseInt(1e21, 10) // wrong
+1
+> Math.trunc(1e21) // correct
+1e+21
+14.13.6Number.prototype.*
+•toExponential(fractionDigits?: number): string[ES3]
+Returns a string that represents the receiver via exponential notation. WithfractionDigits, you
+can specify, how many digits should be shown of the number that is multiplied with the exponent
+(the default is to show as many digits as necessary).
+Example: number too small to get a positive exponent via.toString().
+> 1234..toString()
+'1234'
+> 1234..toExponential()
+'1.234e+3'
+> 1234..toExponential(5)
+'1.23400e+3'
+Example: fraction not small enough to get a negative exponent via.toString().
+> 0.003.toString()
+'0.003'
+> 0.003.toExponential()
+'3e-3'
+> 0.003.toExponential(4)
+'3.0000e-3'
+•toFixed(fractionDigits=0): string[ES3]
+Returns an exponent-free representation of the receiver, rounded tofractionDigitsdigits.
+> 0.0000003.toString()
+'3e-7'
+> 0.0000003.toFixed(10)
+'0.0000003000'
+> 0.0000003.toFixed()
+'0'
+If the receiver is 1021or greater, even.toFixed()uses an exponent:
+> (10 ** 21).toFixed()
+'1e+21'
+----------------Page (97) Break----------------
+14.13. QUICKREFERENCE:NUMBERS99
+•toPrecision(precision?: number): string[ES3]
+Works like.toString(), but prunes the mantissa toprecisiondigits before returning a result. If
+precisionis missing,.toString()is used.
+> 1234..toPrecision(3)  // requires exponential notation
+'1.23e+3'
+> 1234..toPrecision(4)
+'1234'
+> 1234..toPrecision(5)
+'1234.0'
+> 1.234.toPrecision(3)
+'1.23'
+•toString(radix=10): string[ES1]
+Returns a string representation of the receiver.
+Returning a result with base 10:
+> 123.456.toString()
+'123.456'
+Returning results with bases other than 10 (specified viaradix):
+> 4..toString(2)
+'100'
+> 4.5.toString(2)
+'100.1'
+> 255..toString(16)
+'ff'
+> 255.66796875.toString(16)
+'ff.ab'
+> 1234567890..toString(36)
+'kf12oi'
+You can useparseInt()to convert integer results back to numbers:
+> parseInt('kf12oi', 36)
+1234567890
+14.13.7 Sources
+• Wikipedia
+• TypeScript’s built-in typings2
+• MDN web docs for JavaScript3
+2https://github.com/Microsoft/TypeScript/blob/master/lib/
+3https://developer.mozilla.org/en-US/docs/Web/JavaScript
+----------------Page (98) Break----------------
+100CHAPTER14. NUMBERS
+• ECMAScript language specification4
+Quiz: advanced
+See quiz app.
+4https://tc39.github.io/ecma262/
+----------------Page (99) Break----------------
+Chapter15
+Math
+Mathis an object with data properties and methods for processing numbers.
+Youcanseeitasapoorman’smodule. Today,itwouldprobablybecreatedasamodule,butithasexisted
+since long before modules.
+15.1 Dataproperties
+•Math.E: number[ES1]
+Euler’s number, base of the natural logarithms, approximately 2.7182818284590452354.
+•Math.LN10: number[ES1]
+The natural logarithm of 10, approximately 2.302585092994046.
+•Math.LN2: number[ES1]
+The natural logarithm of 2, approximately 0.6931471805599453.
+•Math.LOG10E: number[ES1]
+The logarithm ofeto base 10, approximately 0.4342944819032518.
+•Math.LOG2E: number[ES1]
+The logarithm ofeto base 2, approximately 1.4426950408889634.
+•Math.PI: number[ES1]
+The mathematical constant π, ratio of a circle’s circumference to its diameter, approximately
+3.1415926535897932.
+•Math.SQRT1_2: number[ES1]
+The square root of 1/2, approximately 0.7071067811865476.
+•Math.SQRT2: number[ES1]
+The square root of 2, approximately 1.4142135623730951.
+101
+----------------Page (100) Break----------------
+102CHAPTER15.MATH
+15.2 Exponents,roots,logarithms
+•Math.cbrt(x: number): number[ES6]
+Returns the cube root ofx.
+> Math.cbrt(8)
+2
+•Math.exp(x: number): number[ES1]
+Returnsex(ebeing Euler’s number). The inverse ofMath.log().
+> Math.exp(0)
+1
+> Math.exp(1) === Math.E
+true
+•Math.expm1(x: number): number[ES6]
+ReturnsMath.exp(x)-1. The inverse ofMath.log1p(). Very small numbers (fractions close to 0)
+are represented with a higher precision. This function returns such values whenever the result of
+.exp()is close to 1.
+•Math.log(x: number): number[ES1]
+Returns the natural logarithm ofx(to basee, Euler’s number). The inverse ofMath.exp().
+> Math.log(1)
+0
+> Math.log(Math.E)
+1
+> Math.log(Math.E ** 2)
+2
+•Math.log1p(x: number): number[ES6]
+ReturnsMath.log(1 + x). The inverse ofMath.expm1(). Very small numbers (fractions close
+to 0) are represented with a higher precision. This function receives such numbers whenever a
+parameter to.log()is close to 1.
+•Math.log10(x: number): number[ES6]
+Returns the logarithm ofxto base 10. The inverse of10 ** x.
+> Math.log10(1)
+0
+> Math.log10(10)
+1
+> Math.log10(100)
+2
+•Math.log2(x: number): number[ES6]
+Returns the logarithm ofxto base 2. The inverse of2 ** x.
+> Math.log2(1)
+0
+----------------Page (101) Break----------------
+15.3. ROUNDING103
+> Math.log2(2)
+1
+> Math.log2(4)
+2
+•Math.pow(x: number, y: number): number[ES1]
+Returnsxy,xto the power ofy. The same asx ** y.
+> Math.pow(2, 3)
+8
+> Math.pow(25, 0.5)
+5
+•Math.sqrt(x: number): number[ES1]
+Returns the square root ofx. The inverse ofx ** 2.
+> Math.sqrt(9)
+3
+15.3 Rounding
+Rounding means converting an arbitrary number to an integer (a number without a decimal fraction).
+Tbl.15.1lists the available functions and what they return for a few representative inputs.
+Table 15.1: Rounding functions ofMath.
+-2.9   -2.5   -2.1   2.1   2.5   2.9
+Math.floor   -3     -3     -3     2     2     2
+Math.ceil    -2     -2     -2     3     3     3
+Math.round   -3     -2     -2     2     3     3
+Math.trunc   -2     -2     -2     2     2     2
+•Math.ceil(x: number): number[ES1]
+Returns the smallest (closest to −∞) integeriwithx≤i.
+> Math.ceil(1.9)
+2
+> Math.ceil(2.1)
+3
+•Math.floor(x: number): number[ES1]
+Returns the greatest (closest to +∞) integeriwithi≤x.
+> Math.floor(1.9)
+1
+> Math.floor(2.1)
+2
+•Math.round(x: number): number[ES1]
+----------------Page (102) Break----------------
+104CHAPTER15.MATH
+Returns the integer that is closest tox. If the decimal fraction ofxis.5then.round()rounds up
+(to the integer closer to positive infinity):
+> Math.round(2.5)
+3
+> Math.round(-2.5)
+-2
+•Math.trunc(x: number): number[ES6]
+Removes the decimal fraction ofxand returns the resulting integer.
+> Math.trunc(1.9)
+1
+> Math.trunc(2.1)
+2
+15.4 TrigonometricFunctions
+All angles are specified in radians. Use the following two functions to convert between degrees and
+radians.
+functiontoRadians(degrees){
+returndegrees /180*Math.PI;
+}
+functiontoDegrees(radians){
+returnradians /Math.PI*180;
+}
+•Math.acos(x: number): number[ES1]
+Returns the arc cosine (inverse cosine) ofx.
+> Math.acos(0)
+1.5707963267948966
+> Math.acos(1)
+0
+•Math.acosh(x: number): number[ES6]
+Returns the inverse hyperbolic cosine ofx.
+•Math.asin(x: number): number[ES1]
+Returns the arc sine (inverse sine) ofx.
+> Math.asin(0)
+0
+> Math.asin(1)
+1.5707963267948966
+•Math.asinh(x: number): number[ES6]
+Returns the inverse hyperbolic sine ofx.
+----------------Page (103) Break----------------
+15.4. TRIGONOMETRICFUNCTIONS105
+•Math.atan(x: number): number[ES1]
+Returns the arc tangent (inverse tangent) ofx.
+•Math.atanh(x: number): number[ES6]
+Returns the inverse hyperbolic tangent ofx.
+•Math.atan2(y: number, x: number): number[ES1]
+Returns the arc tangent of the quotient y/x.
+•Math.cos(x: number): number[ES1]
+Returns the cosine ofx.
+> Math.cos(0)
+1
+> Math.cos(Math.PI)
+-1
+•Math.cosh(x: number): number[ES6]
+Returns the hyperbolic cosine ofx.
+•Math.hypot(...values: number[]): number[ES6]
+Returns the square root of the sum of the squares ofvalues(Pythagoras’ theorem):
+> Math.hypot(3, 4)
+5
+•Math.sin(x: number): number[ES1]
+Returns the sine ofx.
+> Math.sin(0)
+0
+> Math.sin(Math.PI / 2)
+1
+•Math.sinh(x: number): number[ES6]
+Returns the hyperbolic sine ofx.
+•Math.tan(x: number): number[ES1]
+Returns the tangent ofx.
+> Math.tan(0)
+0
+> Math.tan(1)
+1.5574077246549023
+•Math.tanh(x: number): number;[ES6]
+Returns the hyperbolic tangent ofx.
+----------------Page (104) Break----------------
+106CHAPTER15.MATH
+15.5 asm.jshelpers
+WebAssembly is a virtual machine based on JavaScript that is supported by most JavaScript engines.
+asm.js is a precursor to WebAssembly. It is a subset of JavaScript that produces fast executables if static
+languages (such as C++) are compiled to it. In a way, it is also a virtual machine, within the confines of
+JavaScript.
+The following two methods help asm.js and have few use cases, otherwise.
+•Math.fround(x: number): number[ES6]
+Roundsxto a 32-bit floating point value (float). Used by asm.js to tell an engine to internally use
+afloatvalue (normal numbers are doubles and take up 64 bits).
+•Math.imul(x: number, y: number): number[ES6]
+Multiplies the two 32 bit integersxandyand returns the lower 32 bits of the result. Needed by
+asm.js: All other basic 32-bit math operations can be simulated by coercing 64-bit results to 32 bits.
+With multiplication, you may lose bits for results beyond 32 bits.
+15.6 Variousotherfunctions
+•Math.abs(x: number): number[ES1]
+Returns the absolute value ofx.
+> Math.abs(3)
+3
+> Math.abs(-3)
+3
+> Math.abs(0)
+0
+•Math.clz32(x: number): number[ES6]
+Counts the leading zero bits in the 32-bit integerx. Used in DSP algorithms.
+> Math.clz32(0b01000000000000000000000000000000)
+1
+> Math.clz32(0b00100000000000000000000000000000)
+2
+> Math.clz32(2)
+30
+> Math.clz32(1)
+31
+•Math.max(...values: number[]): number[ES1]
+Convertsvaluesto numbers and returns the largest one.
+> Math.max(3, -5, 24)
+24
+----------------Page (105) Break----------------
+15.7. SOURCES107
+•Math.min(...values: number[]): number[ES1]
+Convertsvaluesto numbers and returns the smallest one.
+> Math.min(3, -5, 24)
+-5
+•Math.random(): number[ES1]
+Returns a pseudo-random numbernwhere 0 ≤n< 1.
+Computing a random integeriwhere 0 ≤i<max:
+functiongetRandomInteger(max){
+returnMath.floor(Math.random()*max);
+}
+•Math.sign(x: number): number[ES6]
+Returns the sign of a number:
+> Math.sign(-8)
+-1
+> Math.sign(0)
+0
+> Math.sign(3)
+1
+15.7 Sources
+• Wikipedia
+• TypeScript’s built-in typings1
+• MDN web docs for JavaScript2
+• ECMAScript language specification3
+1https://github.com/Microsoft/TypeScript/blob/master/lib/
+2https://developer.mozilla.org/en-US/docs/Web/JavaScript
+3https://tc39.github.io/ecma262/
+----------------Page (106) Break----------------
+108CHAPTER15.MATH
+----------------Page (107) Break----------------
+Chapter16
+Strings
+Strings are primitive values in JavaScript and immutable. That is, string-related operations always pro-
+duce new strings and never change existing strings.
+16.1 Plainstringliterals
+Plain string literals are delimited by either single quotes or double quotes:
+conststr1='abc';
+conststr2="abc";
+assert.equal(str1,str2);
+Single quotes are used more often, because it makes it easier to mention HTML with its double quotes.
+The next chaptercoverstemplateliterals, which give you:
+• String interpolation
+• Multiple lines
+• Raw string literals (backslash has no special meaning)
+16.1.1 Escaping
+The backslash lets you create special characters:
+• Unix line break:'\n'
+• Windows line break:'\r\n'
+• Tab:'\t'
+• Backslash:'\\'
+The backslash also lets you use the delimiter of a string literal inside that literal:
+'She said: "Let\'s go!"'
+"She said: \"Let's go!\""
+109
+----------------Page (108) Break----------------
+110CHAPTER16. STRINGS
+16.2 Accessingcharactersandcodepoints
+16.2.1 AccessingJavaScriptcharacters
+JavaScript has no extra data type for characters – characters are always transported as strings.
+conststr='abc';
+// Reading a character at a given index
+assert.equal(str[1],'b');
+// Counting the characters in a string:
+assert.equal(str.length,3);
+16.2.2 AccessingUnicodecodepointsviafor-ofandspreading
+Iterating over strings viafor-ofor spreading (...) visits Unicodecode points(whose range is 21 bits).
+Eachcodepointisrepresentedby1–2JavaScriptcharacters(whoserangeis16bits). Formoreinformation,
+seethe section on code pointsin this chapter.
+This is how you iterate over the code points of a string viafor-of:
+for(constch of'abc'){
+console.log(ch);
+}
+// Output:
+// 'a'
+// 'b'
+// 'c'
+And this is how you convert a string into an Array of code points via spreading:
+assert.deepEqual([...'abc'],['a','b','c']);
+16.3 Stringconcatenationvia+
+If at least one operand is a string, the plus operator (+) converts any non-strings to strings and concate-
+nates the result:
+assert.equal(3+' times '+4,'3 times 4');
+The assignment operator+=is useful if you want to assemble a string, piece by piece:
+letstr='';// must be `let`!
+str+='Say it';
+str+=' one more';
+str+=' time';
+assert.equal(str,'Say it one more time');
+----------------Page (109) Break----------------
+16.4. CONVERTINGTOSTRING111
+As an aside, this way of assembling strings is quite efficient, because most JavaScript engines internally
+optimize it.
+Exercise: Concatenatingstrings
+`exercises/strings/concat_string_array_test.js`
+16.4 Convertingtostring
+These are three ways of converting a valuexto a string:
+•String(x)
+•''+x
+•x.toString()(does not work forundefinedandnull)
+Recommendation: use the descriptive and safeString().
+Examples:
+assert.equal(String(undefined),'undefined');
+assert.equal(String(null),'null');
+assert.equal(String(false),'false');
+assert.equal(String(true),'true');
+assert.equal(String(123.45),'123.45');
+Pitfall for booleans: If you convert a boolean to a string viaString(), you can’t convert it back via
+Boolean().
+> String(false)
+'false'
+> Boolean('false')
+true
+16.4.1 Stringifyingobjects
+Plain objects have a default representation that is not very useful:
+> String({a: 1})
+'[object Object]'
+Arrays have a better string representation, but it still hides much information:
+> String(['a', 'b'])
+'a,b'
+> String(['a', ['b']])
+'a,b'
+> String([1, 2])
+----------------Page (110) Break----------------
+112CHAPTER16. STRINGS
+'1,2'
+> String(['1', '2'])
+'1,2'
+> String([true])
+'true'
+> String(['true'])
+'true'
+> String(true)
+'true'
+Stringifying functions returns their source code:
+> String(function f() {return 4})
+'function f() {return 4}'
+16.4.2 Customizingthestringificationofobjects
+You can override the built-in way of stringifying objects by implementing the methodtoString():
+constobj= {
+toString(){
+return'hello';
+}
+};
+assert.equal(String(obj),'hello');
+16.4.3 Analternatewayofstringifyingvalues
+TheJSONdataformatisatextrepresentationofJavaScriptvalues. Therefore,JSON.stringify()canalso
+be used to stringify data:
+> JSON.stringify({a: 1})
+'{"a":1}'
+> JSON.stringify(['a', ['b']])
+'["a",["b"]]'
+The caveat is that JSON only supportsnull, booleans, numbers, strings, Arrays and objects (which it
+always treats as if they were created by object literals).
+Tip: The third parameter lets you switch on multi-line output and specify how much to indent. For
+example:
+console.log(JSON.stringify({first:'Jane',last:'Doe'},null,2));
+This statement produces the following output.
+{
+"first": "Jane",
+"last": "Doe"
+}
+----------------Page (111) Break----------------
+16.5. COMPARINGSTRINGS113
+16.5 Comparingstrings
+Strings can be compared via the following operators:
+< <= > >=
+There is one important caveat to consider: These operators compare based on the numeric values of
+JavaScript characters. That means that the order that JavaScript uses for strings is different from the one
+used in dictionaries and phone books:
+> 'A' < 'B' // ok
+true
+> 'a' < 'B' // not ok
+false
+> 'ä' < 'b' // not ok
+false
+Properly comparing text is beyond the scope of this book. It is supported via the ECMAScript Interna-
+tionalization API1(Intl).
+16.6 JavaScriptcharactersvs.Unicodecodepoints
+Unicode’s atomic unit of text is calledcodepoint. In many ways, code points are Unicode characters, but
+you occasionally need multiple code points to represent a single text symbol (a so-calledgraphemecluster;
+details soon).
+TherangeofUnicodecodepointsis21bits. TorepresenttheminJavaScriptstrings,oneortwoJavaScript
+characters (whose range is 16 bits) are used. You can see that when counting characters via.length:
+// 3 Unicode code points, 3 JavaScript characters:
+assert.equal('abc'.length,3);
+// 1 Unicode code point, 2 JavaScript characters:
+assert.equal(''.length,2);
+16.6.1 WorkingwithUnicodecodepoints
+Let’s explore JavaScript’s tools for working with code points.
+Codepointescapeslet you specify code points hexadecimally. They expand to one or two JavaScript char-
+acters.
+> '\u{1F600}'
+''
+Converting from code points:
+> String.fromCodePoint(0x1F600)
+''
+1https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Intl
+----------------Page (112) Break----------------
+114CHAPTER16. STRINGS
+Converting to code points:
+> ''.codePointAt(0).toString(16)
+'1f600'
+Iteration honors code points. For example, the iteration-basedfor-ofloop:
+conststr='a';
+assert.equal(str.length,3);
+for(constcodePoint of str){
+console.log(codePoint);
+}
+// Output:
+// ''
+// 'a'
+Or iteration-basedspreading(...):
+> [...'a']
+[ '', 'a' ]
+Spreading is therefore a good tool for counting code points:
+> [...'a'].length
+2
+> 'a'.length
+3
+16.6.2 Caveat: graphemeclusters
+Agraphemeclusteriswhatcorrespondsmostcloselytoasymboldisplayedonscreenorpaper. Itisdefined
+as “a horizontally segmentable unit of text”. One ore more code points are needed to encode a grapheme
+cluster.
+For example, one emoji of a family is composed of 7 code points – 4 of them are graphemes themselves
+and they are joined by invisible code points:
+Another example is flag emojis:
+For more information, consult “Let’s Stop Ascribing Meaning to Code Points2” by Manish Goregaokar.
+2https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/
+----------------Page (113) Break----------------
+16.7. QUICKREFERENCE:STRINGS115
+16.7 Quickreference: Strings
+Strings are immutable, none of the string methods ever modify the receiver.
+16.7.1 Convertingtostring
+Tbl.16.1describes how various values are converted to strings.
+Table 16.1: Converting values to strings.
+x              String(x)
+undefined      'undefined'
+null           'null'
+Boolean valuefalse → 'false',true → 'true'
+Number value  Example:123 → '123'
+String valuex(input, unchanged)
+An object      Configurable via, e.g.,toString()
+16.7.2 Numericvaluesofcharactersandcodepoints
+•Charcodes:Unicode UTF-16 code units as numbers
+–String.fromCharCode(),String.prototype.charCodeAt()
+–Precision: 16 bits, unsigned
+•Codepoints:Unicode code points as numbers
+–String.fromCodePoint(),String.prototype.codePointAt()
+–Precision: 21 bits, unsigned (17 planes, 16 bits each)
+16.7.3 Stringoperators
+// Access characters via []
+conststr='abc';
+assert.equal(str[1],'b');
+// Concatenate strings via +
+assert.equal('a'+'b'+'c','abc');
+assert.equal('take '+3+' oranges','take 3 oranges');
+16.7.4String.prototype.*: findingandmatching
+•endsWith(searchString: string, endPos=this.length): boolean[ES6]
+ReturnstrueifthereceiverwouldendwithsearchStringifitslengthwereendPos. Returnsfalse,
+otherwise.
+> 'foo.txt'.endsWith('.txt')
+----------------Page (114) Break----------------
+116CHAPTER16. STRINGS
+true
+> 'abcde'.endsWith('cd', 4)
+true
+•includes(searchString: string, startPos=0): boolean[ES6]
+Returnstrueif the receiver contains thesearchStringandfalse, otherwise. The search starts at
+startPos.
+> 'abc'.includes('b')
+true
+> 'abc'.includes('b', 2)
+false
+•indexOf(searchString: string, minIndex=0): number[ES1]
+ReturnsthelowestindexatwhichsearchStringappearswithinthereceiver,or-1,otherwise. Any
+returned index will beminIndexor higher.
+> 'abab'.indexOf('a')
+0
+> 'abab'.indexOf('a', 1)
+2
+> 'abab'.indexOf('c')
+-1
+•lastIndexOf(searchString: string, maxIndex=Infinity):number[ES1]
+Returns the highest index at whichsearchStringappears within the receiver, or-1, otherwise.
+Any returned index will bemaxIndexor lower.
+> 'abab'.lastIndexOf('ab', 2)
+2
+> 'abab'.lastIndexOf('ab', 1)
+0
+> 'abab'.lastIndexOf('ab')
+2
+•match(regExp: string | RegExp): RegExpMatchArray | null[ES3]
+IfregExpis a regular expression with flag/gnot set, then.match()returns the first match for
+regExpwithin the receiver. Ornullif there is no match. IfregExpis a string, it is used to create a
+regular expression before performing the previous steps.
+The result has the following type:
+interface RegExpMatchArray extends Array<string> {
+index: number;
+input: string;
+groups: undefined | {
+[key: string]: string
+};
+}
+Numbered capture groups become Array indices. Named capture groups3(ES2018) become prop-
+3http://exploringjs.com/es2018-es2019/ch_regexp-named-capture-groups.html
+----------------Page (115) Break----------------
+16.7. QUICKREFERENCE:STRINGS117
+erties of.groups. In this mode,.match()works likeRegExp.prototype.exec().
+Examples:
+> 'ababb'.match(/a(b+)/)
+{ 0: 'ab', 1: 'b', index: 0, input: 'ababb', groups: undefined }
+> 'ababb'.match(/a(?<foo>b+)/)
+{ 0: 'ab', 1: 'b', index: 0, input: 'ababb', groups: { foo: 'b'} }
+> 'abab'.match(/x/)
+null
+•match(regExp: RegExp): string[] | null[ES3]
+If flag/gofregExpis set,.match()returns either an Array with all matches ornullif there was
+no match.
+> 'ababb'.match(/a(b+)/g)
+[ 'ab', 'abb' ]
+> 'ababb'.match(/a(?<foo>b+)/g)
+[ 'ab', 'abb' ]
+> 'abab'.match(/x/g)
+null
+•search(regExp: string | RegExp): number[ES3]
+Returns the index at whichregExpoccurs within the receiver. IfregExpis a string, it is used to
+create a regular expression.
+> 'a2b'.search(/[0-9]/)
+1
+> 'a2b'.search('[0-9]')
+1
+•startsWith(searchString: string, startPos=0): boolean[ES6]
+ReturnstrueifsearchStringoccurs in the receiver at indexstartPos. Returnsfalse, otherwise.
+> '.gitignore'.startsWith('.')
+true
+> 'abcde'.startsWith('bc', 1)
+true
+16.7.5String.prototype.*: extracting
+•slice(start=0, end=this.length): string[ES3]
+Returns the substring of the receiver that starts at (including) indexstartand ends at (excluding)
+indexend. You can use negative indices where-1meansthis.length-1(etc.).
+> 'abc'.slice(1, 3)
+'bc'
+> 'abc'.slice(1)
+'bc'
+> 'abc'.slice(-2)
+'bc'
+----------------Page (116) Break----------------
+118CHAPTER16. STRINGS
+•split(separator: string | RegExp, limit?: number): string[][ES3]
+Splits the receiver into an Array of substrings – the strings that occur between the separators. The
+separator can either be a string or a regular expression. Captures made by groups in the regular
+expression are included in the result.
+> 'abc'.split('')
+[ 'a', 'b', 'c' ]
+> 'a | b | c'.split('|')
+[ 'a ', ' b ', ' c' ]
+> 'a : b : c'.split(/ *: */)
+[ 'a', 'b', 'c' ]
+> 'a : b : c'.split(/( *):( *)/)
+[ 'a', ' ', ' ', 'b', ' ', ' ', 'c' ]
+•substring(start: number, end=this.length): string[ES1]
+Use.slice()instead of this method..substring()wasn’t implemented consistently in older
+engines and doesn’t support negative indices.
+16.7.6String.prototype.*: combining
+•concat(...strings: string[]): string[ES3]
+Returns the concatenation of the receiver andstrings.'a'+'b'is equivalent to'a'.concat('b')
+and more concise.
+> 'ab'.concat('cd', 'ef', 'gh')
+'abcdefgh'
+•padEnd(len: number, fillString=' '): string[ES2017]
+AppendsfillStringto the receiver until it has the desired lengthlen.
+> '#'.padEnd(2)
+'# '
+> 'abc'.padEnd(2)
+'abc'
+> '#'.padEnd(5, 'abc')
+'#abca'
+•padStart(len: number, fillString=' '): string[ES2017]
+PrependsfillStringto the receiver until it has the desired lengthlen.
+> '#'.padStart(2)
+' #'
+> 'abc'.padStart(2)
+'abc'
+> '#'.padStart(5, 'abc')
+'abca#'
+•repeat(count=0): string[ES6]
+----------------Page (117) Break----------------
+16.7. QUICKREFERENCE:STRINGS119
+Returns a string that is the receiver, repeatedcounttimes.
+> '*'.repeat()
+''
+> '*'.repeat(3)
+'***'
+16.7.7String.prototype.*: transforming
+•normalize(form: 'NFC'|'NFD'|'NFKC'|'NFKD' = 'NFC'): string[ES6]
+Normalizes the receiver according to the Unicode Normalization Forms4.
+•replace(searchValue: string | RegExp, replaceValue: string): string[ES3]
+Replace matches ofsearchValuewithreplaceValue. IfsearchValueis a string, only the first
+verbatim occurrence is replaced. IfsearchValueis a regular expression without flag/g, only the
+firstmatchisreplaced. IfsearchValueisaregularexpressionwith/gthenallmatchesarereplaced.
+> 'x.x.'.replace('.', '#')
+'x#x.'
+> 'x.x.'.replace(/./, '#')
+'#.x.'
+> 'x.x.'.replace(/./g, '#')
+'####'
+Special characters inreplaceValueare:
+–$$: becomes$
+–$n: becomes the capture of numbered groupn(alas,$0does not work)
+–$&: becomes the complete match
+–$`: becomes everything before the match
+–$': becomes everything after the match
+Examples:
+> 'a 2018-04 b'.replace(/([0-9]{4})-([0-9]{2})/, '|$2|')
+'a |04| b'
+> 'a 2018-04 b'.replace(/([0-9]{4})-([0-9]{2})/, '|$&|')
+'a |2018-04| b'
+> 'a 2018-04 b'.replace(/([0-9]{4})-([0-9]{2})/, '|$`|')
+'a |a | b'
+Named capture groups5(ES2018) are supported, too:
+–$<name>becomes the capture of named groupname
+Example:
+> 'a 2018-04 b'.replace(/(?<year>[0-9]{4})-(?<month>[0-9]{2})/, '|$<month>|')
+'a |04| b'
+4https://unicode.org/reports/tr15/
+5http://exploringjs.com/es2018-es2019/ch_regexp-named-capture-groups.html
+----------------Page (118) Break----------------
+120CHAPTER16. STRINGS
+•replace(searchValue: string | RegExp, replacer: (...args: any[]) => string): string
+[ES3]
+If the second parameter is a function occurrences are replaced with the strings it returns. Its pa-
+rametersargsare:
+–matched: string: the complete match
+–g1: string|undefined: the capture of numbered group 1
+–g2: string|undefined: the capture of numbered group 2
+–(Etc.)
+–offset: number: where was the match found in the input string?
+–input: string: the whole input string
+constregexp=/([0-9]{4})-([0-9]{2})/;
+constreplacer=(all,year,month)=>'|'+all+'|';
+assert.equal(
+'a 2018-04 b'.replace(regexp,replacer),
+'a |2018-04| b');
+Named capture groups6(ES2018) are supported, too. If there are any, a last parameter contains an
+object whose properties contain the captures:
+constregexp=/(?<year>[0-9]{4})-(?<month>[0-9]{2})/;
+constreplacer=(...args)=> {
+constgroups=args.pop();
+return'|'+groups.month+'|';
+};
+assert.equal(
+'a 2018-04 b'.replace(regexp,replacer),
+'a |04| b');
+•toUpperCase(): string[ES1]
+Returns a copy of the receiver in which all lowercase alphabetic characters are converted to upper-
+case. How well that works for various alphabets depends on the JavaScript engine.
+> '-a2b-'.toUpperCase()
+'-A2B-'
+> 'αβγ'.toUpperCase()
+'ΑΒΓ'
+•toLowerCase(): string[ES1]
+Returns a copy of the receiver in which all uppercase alphabetic characters are converted to lower-
+case. How well that works for various alphabets depends on the JavaScript engine.
+> '-A2B-'.toLowerCase()
+'-a2b-'
+> 'ΑΒΓ'.toLowerCase()
+'αβγ'
+•trim(): string[ES5]
+Returns a copy of the receiver in which all leading and trailing whitespace is gone.
+6http://exploringjs.com/es2018-es2019/ch_regexp-named-capture-groups.html
+----------------Page (119) Break----------------
+16.7. QUICKREFERENCE:STRINGS121
+> '\r\n# \t'.trim()
+'#'
+16.7.8String.prototype.*: chars,charcodes,codepoints
+•charAt(pos: number): string[ES1]
+Returns the character at indexpos, as a string (JavaScript does not have a datatype for characters).
+str[i]is equivalent tostr.charAt(i)and more concise (caveat: may not work on old engines).
+> 'abc'.charAt(1)
+'b'
+•charCodeAt(pos: number): number[ES1]
+Returns the 16-bit number (0–65535) of the UTF-16 code unit (character) at indexpos.
+> 'abc'.charCodeAt(1)
+98
+•codePointAt(pos: number): number | undefined[ES6]
+Returns the 21-bit number of the Unicode code point of the 1–2 characters at indexpos. If there is
+no such index, it returnsundefined.
+16.7.9 Sources
+• TypeScript’s built-in typings7
+• MDN web docs for JavaScript8
+• ECMAScript language specification9
+Exercise: Usingstringmethods
+`exercises/strings/remove_extension_test.js`
+Quiz
+See quiz app.
+7https://github.com/Microsoft/TypeScript/blob/master/lib/
+8https://developer.mozilla.org/en-US/docs/Web/JavaScript
+9https://tc39.github.io/ecma262/
+----------------Page (120) Break----------------
+122CHAPTER16. STRINGS
+----------------Page (121) Break----------------
+Chapter17
+Usingtemplateliteralsandtagged
+templates
+Before we dig into the two featurestemplate literalandtagged template, let’s first examine the multiple
+meanings of the termtemplate.
+17.1 Disambiguation: “template”
+The following three things are significantly different, despite all havingtemplatein their names and de-
+spite all of them looking similar:
+• Awebtemplateis a function from data to text. It is frequently used in web development and often
+definedviatextfiles. Forexample,thefollowingtextdefinesatemplateforthelibraryHandlebars1:
+<divclass="entry">
+<h1>{{title}}</h1>
+<divclass="body">
+{{body}}
+</div>
+</div>
+• Atemplateliteralis a string literal with more features. For example, interpolation. It is delimited by
+backticks:
+constnum=5;
+assert.equal(`Count: ${num}!`,'Count: 5!');
+• Ataggedtemplateis a function followed by a template literal. It results in that function being called
+and the contents of the template literal being fed into it as parameters.
+constgetArgs=(...args)=>args;
+assert.deepEqual(
+1https://handlebarsjs.com
+123
+----------------Page (122) Break----------------
+124CHAPTER17. USINGTEMPLATELITERALSANDTAGGEDTEMPLATES
+getArgs`Count: ${5}!`,
+[['Count: ','!'],5] );
+Note thatgetArgs()receives both the text of the literal and the data interpolated via${}.
+17.2 Templateliterals
+Template literals have two main benefits, compared to normal string literals.
+First, they supportstringinterpolation: you can insert expressions if you put them inside${and}:
+constMAX=100;
+functiondoSomeWork(x){
+if(x>MAX){
+throw newError(`At most ${MAX} allowed: ${x}!`);
+}
+// ···
+}
+assert.throws(
+()=>doSomeWork(101),
+{message:'At most 100 allowed: 101!'});
+Second, template literals can span multiple lines:
+conststr=`this is
+a text with
+multiple lines`;
+Template literals always produce strings.
+17.3 Taggedtemplates
+The expression in line A is ataggedtemplate:
+constfirst='Lisa';
+constlast='Simpson';
+constresult=tagFunction`Hello ${first} ${last}!`;// A
+The last line is equivalent to:
+constresult=tagFunction(['Hello ',' ','!'],first,last);
+The parameters oftagFunctionare:
+• Templatestrings(firstparameter): anArraywiththetextfragmentssurroundingtheinterpolations
+(${···}).
+–In the example:['Hello ', ' ', '!']
+• Substitutions (remaining parameters): the interpolated values.
+–In the example:'Lisa'and'Simpson'
+----------------Page (123) Break----------------
+17.3. TAGGEDTEMPLATES125
+The static (fixed) parts of the literal (the template strings) are separated from the dynamic parts (the
+substitutions).
+tagFunctioncan return arbitrary values and gets two views of the template strings as input (only the
+cooked view is shown in the previous example):
+• Acookedviewwhere, e.g.:
+–\tbecomes a tab
+–\\becomes a single backslash
+• Arawviewwhere, e.g.:
+–\tbecomes a slash followed by at
+–\\becomes two backslashes
+The raw view enables raw string literals viaString.raw(described later) and similar applications.
+Taggedtemplatesaregreatforsupportingsmallembeddedlanguages(so-calleddomain-specificlanguages).
+We’ll continue with a few examples.
+17.3.1 Tagfunctionlibrary: lit-html
+lit-html2is a templating library that is based on tagged templates and used by the frontend framework
+Polymer3:
+import{html,render}from'lit-html';
+consttemplate=(items)=>html`
+<ul>
+${
+repeat(items,
+(item)=>item.id,
+(item,index)=>html`<li>${index}. ${item.name}</li>`
+)
+}
+</ul>
+`;
+repeat()is a custom function for looping. Its 2nd parameter produces unique keys for the values re-
+turned by the 3rd parameter. Note the nested tagged template used by that parameter.
+17.3.2 Tagfunctionlibrary: re-template-tag
+re-template-tagisasimplelibraryforcomposingregularexpressions. Templatestaggedwithreproduce
+regular expressions. The main benefit is that you can interpolate regular expressions and plain text via
+${}(seeRE_DATE):
+import{re}from're-template-tag';
+constRE_YEAR=re`(?<year>[0-9]{4})`;
+2https://github.com/Polymer/lit-html
+3https://www.polymer-project.org/
+----------------Page (124) Break----------------
+126CHAPTER17. USINGTEMPLATELITERALSANDTAGGEDTEMPLATES
+constRE_MONTH=re`(?<month>[0-9]{2})`;
+constRE_DAY=re`(?<day>[0-9]{2})`;
+constRE_DATE=re`/${RE_YEAR}-${RE_MONTH}-${RE_DAY}/u`;
+constmatch=RE_DATE.exec('2017-01-27');
+assert.equal(match.groups.year,'2017');
+17.3.3 Tagfunctionlibrary: graphql-tag
+The library graphql-tag4lets you create GraphQL queries via tagged templates:
+import gql from'graphql-tag';
+constquery=gql`
+{
+user(id: 5) {
+firstName
+lastName
+}
+}
+`;
+Additionally, there are plugins for pre-compiling such queries in Babel, TypeScript, etc.
+17.4 Rawstringliterals
+Raw string literals are implemented via the tag functionString.raw. They are a string literal where
+backslashes don’t do anything special (such as escaping characters etc.):
+assert.equal(String.raw`\back`,'\\back');
+One example where that helps is strings with regular expressions:
+constregex1=/^\./;
+constregex2=newRegExp('^\\.');
+constregex3=newRegExp(String.raw`^\.`);
+All three regular expressions are equivalent. You can see that with a string literal, you have to write the
+backslash twice to escape it for that literal. With a raw string literal, you don’t have to do that.
+Another example where raw string literal are useful is Windows paths:
+constWIN_PATH=String.raw`C:\foo\bar`;
+assert.equal(WIN_PATH,'C:\\foo\\bar');
+17.5 (Advanced)
+All remaining sections are advanced
+4https://github.com/apollographql/graphql-tag
+----------------Page (125) Break----------------
+17.6. MULTI-LINETEMPLATELITERALSANDINDENTATION127
+17.6 Multi-linetemplateliteralsandindentation
+If you put multi-line text in template literals, two goals are in conflict: On one hand, the text should be
+indented to fit inside the source code. On the other hand, its lines should start in the leftmost column.
+For example:
+functiondiv(text){
+return`
+<div>
+${text}
+</div>
+`;
+}
+console.log('Output:');
+// Replace spaces with mid-dots:
+console.log(div('Hello!').replace(/ /g,'·'));
+Duetotheindentation,thetemplateliteralfitswellintothesourcecode. Alas,theoutputisalsoindented.
+And we don’t want the return at the beginning and the return plus two spaces at the end.
+Output:
+····<div>
+······Hello!
+····</div>
+··
+There are two ways to fix this: via a tagged template or by trimming the result of the template literal.
+17.6.1 Fix: templatetagfordedenting
+The first fix is to use a custom template tag that removes the unwanted whitespace. It uses the first line
+after the initial line break to determine in which column the text starts and cuts off the indents every-
+where. Italsoremovesthelinebreakattheverybeginningandtheindentationattheveryend. Onesuch
+template tag isdedentby Desmond Brand5:
+import dedent from'dedent';
+functiondivDedented(text){
+returndedent`
+<div>
+${text}
+</div>
+`;
+}
+console.log('Output:');
+console.log(divDedented('Hello!'));
+This time, the output is not indented:
+5https://github.com/dmnd/dedent
+----------------Page (126) Break----------------
+128CHAPTER17. USINGTEMPLATELITERALSANDTAGGEDTEMPLATES
+Output:
+<div>
+Hello!
+</div>
+17.6.2 Fix:.trim()
+The second fix is quicker, but also dirtier:
+functiondivDedented(text){
+return`
+<div>
+${text}
+</div>
+`.trim();
+}
+console.log('Output:');
+console.log(divDedented('Hello!'));
+The string method.trim()removes the superfluous whitespace at the beginning and at the end, but the
+content itself must start in the leftmost column. The advantage of this solution is not needing a custom
+tag function. The downside is that it looks ugly.
+The output looks like it did withdedent(however, there is no line break at the end):
+Output:
+<div>
+Hello!
+</div>
+17.7 Simpletemplatingviatemplateliterals
+While template literals look like web templates, it is not immediately obvious how to use them for (web)
+templating: A web template gets its data from an object, while a template literal gets its data from vari-
+ables. The solution is to use a template literal in the body of a function whose parameter receives the
+templating data. For example:
+consttmpl=(data)=>`Hello ${data.name}!`;
+assert.equal(tmpl({name:'Jane'}),'Hello Jane!');
+17.7.1 Amorecomplexexample
+As a more complex example, we’d like to take an Array of addresses and produce an HTML table. This
+is the Array:
+constaddresses=[
+{first:'<Jane>',last:'Bond'},
+{first:'Lars',last:'<Croft>'},
+];
+----------------Page (127) Break----------------
+17.7. SIMPLETEMPLATINGVIATEMPLATELITERALS129
+The functiontmpl()that produces the HTML table looks as follows.
+1consttmpl=(addrs)=>`
+2<table>
+3${addrs.map(
+4(addr)=>`
+5<tr>
+6<td>${escapeHtml(addr.first)}</td>
+7<td>${escapeHtml(addr.last)}</td>
+8</tr>
+9`.trim()
+10).join('')}
+11</table>
+12`.trim();
+tmpl()takes the following steps:
+• The text inside the<table>is produced via a nested templating function for single addresses (line
+4). Note how it uses the string method.trim()at the end, to remove unnecessary whitespace.
+• ThenestedtemplatingfunctionisappliedtoeachelementoftheArrayaddrsviatheArraymethod
+.map()(line 3).
+• The resulting Array (of strings) is converted into a string via the Array method.join()(line 10).
+• The helper functionescapeHtml()is used to escape special HTML characters (line 6 and line 7).
+Its implementation is shown in the next section.
+This is how to calltmpl()with the addresses and log the result:
+console.log(tmpl(addresses));
+The output is:
+<table>
+<tr>
+<td>&lt;Jane&gt;</td>
+<td>Bond</td>
+</tr><tr>
+<td>Lars</td>
+<td>&lt;Croft&gt;</td>
+</tr>
+</table>
+17.7.2 SimpleHTML-escaping
+functionescapeHtml(str){
+returnstr
+.replace(/&/g,'&amp;')// first!
+.replace(/>/g,'&gt;')
+.replace(/</g,'&lt;')
+.replace(/"/g,'&quot;')
+.replace(/'/g,'&#39;')
+.replace(/`/g,'&#96;')
+----------------Page (128) Break----------------
+130CHAPTER17. USINGTEMPLATELITERALSANDTAGGEDTEMPLATES
+;
+}
+Exercise: HTMLtemplating
+Exercise with bonus challenge:exercises/template-literals/templating_test.js
+17.8 Furtherreading
+• How to implement your own tag functions is described in “Exploring ES66”.
+Quiz
+See quiz app.
+6http://exploringjs.com/es6/ch_template-literals.html
+----------------Page (129) Break----------------
+Chapter18
+Symbols
+Symbols are primitive values that are created via the factory functionSymbol():
+constmySymbol=Symbol('mySymbol');
+The parameter is optional and provides a description, which is mainly useful for debugging.
+Ononehand,symbolsarelikeobjectsinthateachvaluecreatedbySymbol()isuniqueandnotcompared
+by value:
+> Symbol() === Symbol()
+false
+On the other hand, they also behave like primitive values – they have to be categorized viatypeofand
+they can be property keys in objects:
+constsym=Symbol();
+assert.equal(typeofsym,'symbol');
+constobj= {
+[sym]:123,
+};
+18.1 Usecasesforsymbols
+The main use cases for symbols are:
+• Defining constants for the values of an enumerated type.
+• Creating unique property keys.
+18.1.1 Symbols: enum-stylevalues
+Let’s assume you want to create constants representing the colors red, orange, yellow, green, blue and
+violet. One simple way of doing so would be to use strings:
+131
+----------------Page (130) Break----------------
+132CHAPTER18. SYMBOLS
+constCOLOR_BLUE='Blue';
+On the plus side, logging that constant produces helpful output. On the minus side, there is a risk of
+mistaking an unrelated value for a color, because two strings with the same content are considered equal:
+constMOOD_BLUE='Blue';
+assert.equal(COLOR_BLUE,MOOD_BLUE);
+We can fix that problem via a symbol:
+constCOLOR_BLUE=Symbol('Blue');
+constMOOD_BLUE='Blue';
+assert.notEqual(COLOR_BLUE,MOOD_BLUE);
+Let’s use symbol-valued constants to implement a function:
+constCOLOR_RED=Symbol('Red');
+constCOLOR_ORANGE=Symbol('Orange');
+constCOLOR_YELLOW=Symbol('Yellow');
+constCOLOR_GREEN=Symbol('Green');
+constCOLOR_BLUE=Symbol('Blue');
+constCOLOR_VIOLET=Symbol('Violet');
+functiongetComplement(color){
+switch(color){
+caseCOLOR_RED:
+returnCOLOR_GREEN;
+caseCOLOR_ORANGE:
+returnCOLOR_BLUE;
+caseCOLOR_YELLOW:
+returnCOLOR_VIOLET;
+caseCOLOR_GREEN:
+returnCOLOR_RED;
+caseCOLOR_BLUE:
+returnCOLOR_ORANGE;
+caseCOLOR_VIOLET:
+returnCOLOR_YELLOW;
+default:
+throw newException('Unknown color: '+color);
+}
+}
+assert.equal(getComplement(COLOR_YELLOW),COLOR_VIOLET);
+Notably, this function throws an exception if you call it with'Blue':
+assert.throws(()=>getComplement('Blue'));
+18.1.2 Symbols: uniquepropertykeys
+The keys of properties (fields) in objects are used at two levels:
+• The program operates at a base level. Its keys reflect the problem domain.
+----------------Page (131) Break----------------
+18.2. PUBLICLYKNOWNSYMBOLS133
+• LibrariesandECMAScriptoperateatameta-level. Forexample,.toStringisameta-levelproperty
+key:
+The following code demonstrates the difference:
+constpoint= {
+x:7,
+y:4,
+toString(){
+return`(${this.x}, ${this.y})`;
+},
+};
+assert.equal(String(point),'(7, 4)');
+Properties.xand.yexist at the base level. They are the coordinates of the point encoded bypointand
+reflect the problem domain. Method.toString()is a meta-level property. It tells JavaScript how to
+stringify this object.
+The meta-level and the base level must never clash, which becomes harder when introducing new mech-
+anisms later in the life of a programming language.
+Symbols can be used as property keys and solve this problem: Each symbol is unique and never clashes
+with any string or any other symbol.
+As an example, let’s assume we are writing a library that treats objects differently if they implement a
+specialmethod. Thisiswhatdefiningapropertykeyforsuchamethodandimplementingitforanobject
+would look like:
+constspecialMethod=Symbol('specialMethod');
+constobj= {
+[specialMethod](x){
+returnx+x;
+}
+};
+assert.equal(obj[specialMethod]('abc'),'abcabc');
+This syntax is explained in more detail inthe chapter on objects.
+18.2 Publiclyknownsymbols
+Symbols that play special roles within ECMAScript are calledpubliclyknownsymbols. Examples include:
+•Symbol.iterator: makes an objectiterable. It’s the key of a method that returns an iterator. Itera-
+tion is explained inits own chapter.
+•Symbol.hasInstance: customizes howinstanceofworks. It’s the key of a method to be imple-
+mented by the right-hand side of that operator. For example:
+classPrimitiveNull{
+static[Symbol.hasInstance](x){
+returnx===null;
+}
+----------------Page (132) Break----------------
+134CHAPTER18. SYMBOLS
+}
+assert.equal(null instanceofPrimitiveNull,true);
+•Symbol.toStringTag: influences the default.toString()method.
+> String({})
+'[object Object]'
+> String({ [Symbol.toStringTag]: 'is no money' })
+'[object is no money]'
+Note: It’s usually better to override.toString().
+Exercises: Publiclyknownsymbols
+•Symbol.toStringTag:exercises/symbols/to_string_tag_test.js
+•Symbol.hasInstance:exercises/symbols/has_instance_test.js
+18.3 Convertingsymbols
+What happens if we convert a symbolsymto another primitive type? Tbl.18.1has the answers.
+Table 18.1: The results of converting symbols to other primitive types.
+Convert to  Explicit conversion       Coercion (implicit conv.)
+booleanBoolean(sym) →OK!sym →OK
+numberNumber(sym) → TypeError   sym*2 → TypeError
+stringString(sym) →OK''+sym → TypeError
+sym.toString() →OK`${sym}` → TypeError
+One key pitfall with symbols is how often exceptions are thrown when converting them to something
+else. What is the thinking behind that? First, conversion to number never makes sense and should be
+warned about. Second, converting a symbol to a string is indeed useful for diagnostic output. But it also
+makes sense to warn about accidentally turning a symbol into a string property key:
+constobj= {};
+constsym=Symbol();
+assert.throws(
+()=> {obj['__'+sym+'__']=true},
+{message:'Cannot convert a Symbol value to a string'});
+The downside is that the exceptions make working with symbols more complicated. You have to explic-
+itly convert symbols when assembling strings via the plus operator:
+> const mySymbol = Symbol('mySymbol');
+> 'Symbol I used: ' + mySymbol
+TypeError: Cannot convert a Symbol value to a string
+> 'Symbol I used: ' + String(mySymbol)
+'Symbol I used: Symbol(mySymbol)'
+----------------Page (133) Break----------------
+18.4. FURTHERREADING135
+18.4 Furtherreading
+• In-depth coverage of symbols (cross-realm symbols, etc.): see “Exploring ES61”
+Quiz
+See quiz app.
+1http://exploringjs.com/es6/ch_symbols.html
+----------------Page (134) Break----------------
+136CHAPTER18. SYMBOLS
+----------------Page (135) Break----------------
+PartV
+Controlflowanddataflow
+137
+----------------Page (136) Break----------------
+
+----------------Page (137) Break----------------
+Chapter19
+Controlflowstatements
+This chapter covers the following control flow statements:
+•ifstatements (ES1)
+•switchstatements (ES3)
+•whileloops (ES1)
+•do-whileloops (ES3)
+•forloops (ES1)
+•for-ofloops (ES6)
+•for-await-ofloops (ES2018)
+•for-inloops (ES1)
+Beforewegettotheactualcontrolflowstatements, let’stakealookattwooperatorsforcontrollingloops.
+19.1 Controllingloops:breakandcontinue
+The two operatorsbreakandcontinuecan be used to control loops and other statements while you are
+inside them.
+19.1.1break
+There are two versions ofbreak: one with an operand and one without an operand. The latter version
+works inside the following statements:while,do-while,for,for-of,for-await-of,for-inandswitch.
+It immediately leaves the current statement:
+for(constx of ['a','b','c']){
+console.log(x);
+if(x==='b')break;
+console.log('---')
+}
+// Output:
+// 'a'
+139
+----------------Page (138) Break----------------
+140CHAPTER19. CONTROLFLOWSTATEMENTS
+// '---'
+// 'b'
+19.1.2 Additionalusecaseforbreak: leavingblocks
+breakwith an operand works everywhere. Its operand is alabel. Labels can be put in front of any state-
+ment, including blocks.break fooleaves the statement whose label isfoo:
+foo: {// label
+if(condition)breakfoo;// labeled break
+// ···
+}
+Breaking from blocks is occasionally handy if you are using a loop and want to distinguish between
+finding what you were looking for and finishing the loop without success:
+functionsearch(stringArray,suffix){
+letresult;
+search_block: {
+for(conststr of stringArray){
+if(str.endsWith(suffix)){
+// Success
+result=str;
+breaksearch_block;
+}
+}// for
+// Failure
+result='(Untitled)';
+}// search_block
+return{suffix,result};
+// same as: {suffix: suffix, result: result}
+}
+assert.deepEqual(
+search(['foo.txt','bar.html'],'.html'),
+{suffix:'.html',result:'bar.html'}
+);
+assert.deepEqual(
+search(['foo.txt','bar.html'],'.js'),
+{suffix:'.js',result:'(Untitled)'}
+);
+19.1.3continue
+continueonly works insidewhile,do-while,for,for-of,for-await-ofandfor-in. It immediately
+leaves the current loop iteration and continues with the next one. For example:
+constlines=[
+'Normal line',
+----------------Page (139) Break----------------
+19.2.IFSTATEMENTS141
+'# Comment',
+'Another normal line',
+];
+for(constline of lines){
+if(line.startsWith('#'))continue;
+console.log(line);
+}
+// Output:
+// 'Normal line'
+// 'Another normal line'
+19.2ifstatements
+These are two simpleifstatements: One with just a “then” branch and one with both a “then” branch
+and an “else” branch:
+if(cond){
+// then branch
+}
+if(cond){
+// then branch
+}else{
+// else branch
+}
+Instead of the block,elsecan also be followed by anotherifstatement:
+if(cond1){
+// ···
+}else if(cond2){
+// ···
+}
+if(cond1){
+// ···
+}else if(cond2){
+// ···
+}else{
+// ···
+}
+You can continue this chain with moreelse ifs.
+19.2.1 Thesyntaxofifstatements
+The general syntax ofifstatements is:
+----------------Page (140) Break----------------
+142CHAPTER19. CONTROLFLOWSTATEMENTS
+if(cond) «then_statement»
+else«else_statement»
+So far, thethen_statementhas always been a block, but you can also use a statement. That statement
+must be terminated with a semicolon:
+if(true)console.log('Yes');elseconsole.log('No');
+That means thatelse ifis not its own construct, it’s simply anifstatement whoseelse_statementis
+anotherifstatement.
+19.3switchstatements
+The head of aswitchstatement looks as follows:
+switch («switch_expression») {
+«switch_body»
+}
+Inside the body ofswitch, there are zero or more case clauses:
+case «case_expression»:
+«statements»
+And, optionally, a default clause:
+default:
+«statements»
+Aswitchis executed as follows:
+• Evaluate the switch expression.
+• Jump to the first case clause whose expression has the same result as the switch expression.
+• If there is no such case clause, jump to the default clause.
+• If there is no default clause, nothing happens.
+19.3.1 Afirstexample
+Let’s look at an example: The following function converts a number from 1–7 to the name of a weekday.
+functiondayOfTheWeek(num){
+switch(num){
+case1:
+return'Monday';
+case2:
+return'Tuesday';
+case3:
+return'Wednesday';
+case4:
+return'Thursday';
+case5:
+return'Friday';
+----------------Page (141) Break----------------
+19.3.SWITCHSTATEMENTS143
+case6:
+return'Saturday';
+case7:
+return'Sunday';
+}
+}
+assert.equal(dayOfTheWeek(5),'Friday');
+19.3.2 Don’tforgettoreturnorbreak!
+At the end of a case clause, execution continues with the next case clause (unless youreturnorbreak).
+For example:
+functiondayOfTheWeek(num){
+letname;
+switch(num){
+case1:
+name='Monday';
+case2:
+name='Tuesday';
+case3:
+name='Wednesday';
+case4:
+name='Thursday';
+case5:
+name='Friday';
+case6:
+name='Saturday';
+case7:
+name='Sunday';
+}
+returnname;
+}
+assert.equal(dayOfTheWeek(5),'Sunday');// not 'Friday'!
+That is, the previous implementation ofdayOfTheWeek()only worked, because we usedreturn. We can
+fix this implementation by usingbreak:
+functiondayOfTheWeek(num){
+letname;
+switch(num){
+case1:
+name='Monday';
+break;
+case2:
+name='Tuesday';
+break;
+case3:
+name='Wednesday';
+break;
+----------------Page (142) Break----------------
+144CHAPTER19. CONTROLFLOWSTATEMENTS
+case4:
+name='Thursday';
+break;
+case5:
+name='Friday';
+break;
+case6:
+name='Saturday';
+break;
+case7:
+name='Sunday';
+break;
+}
+returnname;
+}
+assert.equal(dayOfTheWeek(5),'Friday');
+19.3.3 Emptycasesclauses
+The statements of a case clause can be omitted, which effectively gives us multiple case expressions per
+case clause:
+functionisWeekDay(name){
+switch(name){
+case'Monday':
+case'Tuesday':
+case'Wednesday':
+case'Thursday':
+case'Friday':
+return true;
+case'Saturday':
+case'Sunday':
+return false;
+}
+}
+assert.equal(isWeekDay('Wednesday'),true);
+assert.equal(isWeekDay('Sunday'),false);
+19.3.4 Checkingforillegalvaluesviaadefaultclause
+Adefaultclauseisjumped toiftheswitchexpressionhas noothermatch. That makesituseful forerror
+checking:
+functionisWeekDay(name){
+switch(name){
+case'Monday':
+case'Tuesday':
+case'Wednesday':
+----------------Page (143) Break----------------
+19.4.WHILELOOPS145
+case'Thursday':
+case'Friday':
+return true;
+case'Saturday':
+case'Sunday':
+return false;
+default:
+throw newError('Illegal value: '+name);
+}
+}
+assert.throws(
+()=>isWeekDay('January'),
+{message:'Illegal value: January'});
+Exercises:switch
+•`exercises/control-flow/month_to_number_test.js`
+• Bonus:exercises/control-flow/is_object_via_switch_test.js
+19.4whileloops
+Awhileloop has the following syntax:
+while («condition») {
+«statements»
+}
+Before each loop iteration,whileevaluatescondition:
+• If the result is falsy, the loop is finished.
+• If the result is truthy, thewhilebody is executed one more time.
+19.4.1 Examples
+The following code uses awhileloop. In each loop iteration, it removes the first element ofarrvia
+.shift()and logs it.
+constarr=['a','b','c'];
+while(arr.length>0){
+constelem=arr.shift();// remove first element
+console.log(elem);
+}
+// Output:
+// 'a'
+// 'b'
+// 'c'
+If the condition istruethenwhileis an infinite loop:
+----------------Page (144) Break----------------
+146CHAPTER19. CONTROLFLOWSTATEMENTS
+while(true){
+if(Math.random()===0)break;
+}
+19.5do-whileloops
+Thedo-whileloopworksmuchlikewhile,butitchecksitsconditionaftereachloopiteration(notbefore).
+letinput;
+do{
+input=prompt('Enter text:');
+}while(input!==':q');
+19.6forloops
+With aforloop, you use the head to control how its body is executed. The head has three parts and each
+of them is optional:
+for («initialization»; «condition»; «post_iteration») {
+«statements»
+}
+•initialization: sets up variables etc. for the loop. Variables declared here vialetorconstonly
+exist inside the loop.
+•condition: This condition is checked before each loop iteration. If it is falsy, the loop stops.
+•post_iteration: This code is executed after each loop iteration.
+Aforloop is therefore roughly equivalent to the followingwhileloop:
+«initialization»
+while («condition») {
+«statements»
+«post_iteration»
+}
+19.6.1 Examples
+As an example, this is how to count from zero to two via aforloop:
+for(leti=0;i<3;i++){
+console.log(i);
+}
+// Output:
+// 0
+// 1
+// 2
+This is how to log the contents of an Array via aforloop:
+----------------Page (145) Break----------------
+19.7.FOR-OFLOOPS147
+constarr=['a','b','c'];
+for(leti=0;i<3;i++){
+console.log(arr[i]);
+}
+// Output:
+// 'a'
+// 'b'
+// 'c'
+If you omit all three parts of the head, you get an infinite loop:
+for(;;){
+if(Math.random()===0)break;
+}
+19.7for-ofloops
+Afor-ofloopiteratesoveraniterable–adatacontainerthatsupportstheiterationprotocol. Eachiterated
+value is stored in a variable, as specified in the head:
+for («iteration_variable» of «iterable») {
+«statements»
+}
+The iteration variable is usually created via a variable declaration:
+constiterable=['hello','world'];
+for(constelem of iterable){
+console.log(elem);
+}
+// Output:
+// 'hello'
+// 'world'
+But you can also use a (mutable) variable that already exists:
+constiterable=['hello','world'];
+letelem;
+for(elem of iterable){
+console.log(elem);
+}
+19.7.1const:for-ofvs.for
+Notethat,infor-ofloops,youcanuseconst. Theiterationvariablecanstillbedifferentforeachiteration
+(itjustcan’tchangeduringtheiteration). Thinkofitasanewconstdeclarationbeingexecutedeachtime,
+in a fresh scope.
+In contrast, inforloops, you must declare variables vialetorvarif their values change.
+----------------Page (146) Break----------------
+148CHAPTER19. CONTROLFLOWSTATEMENTS
+19.7.2 Iteratingoveriterables
+As mentioned before,for-ofworks with any iterable object, not just with Arrays. For example, with
+Sets:
+constset=newSet(['hello','world']);
+for(constelem of set){
+console.log(elem);
+}
+19.7.3 Iteratingover[index,element]pairsofArrays
+Lastly, you can also usefor-ofto iterate over the [index, element] entries of Arrays:
+constarr=['a','b','c'];
+for(const[index,elem] ofarr.entries()){
+console.log(`${index} -> ${elem}`);
+}
+// Output:
+// '0 -> a'
+// '1 -> b'
+// '2 -> c'
+Exercise:for-of
+`exercises/control-flow/array_to_string_test.js`
+19.8for-await-ofloops
+for-await-ofislikefor-of, butitworkswithasynchronousiterablesinsteadofsynchronousones. And
+it can only be used inside async functions and async generators.
+forawait(constitem of asyncIterable){
+// ···
+}
+for-await-ofis described in detail in a later chapter.
+19.9for-inloops(avoid)
+for-inhas several pitfalls. Therefore, it is usually best to avoid it.
+This is an example of usingfor-in:
+functiongetOwnPropertyNames(obj){
+constresult=[];
+for(constkeyinobj){
+----------------Page (147) Break----------------
+19.9.FOR-INLOOPS(AVOID)149
+if({}.hasOwnProperty.call(obj,key)){
+result.push(key);
+}
+}
+returnresult;
+}
+assert.deepEqual(
+getOwnPropertyNames({a:1,b:2}),
+['a','b']);
+assert.deepEqual(
+getOwnPropertyNames(['a','b']),
+['0','1']);// strings!
+This is a better alternative:
+functiongetOwnPropertyNames(obj){
+constresult=[];
+for(constkey ofObject.keys(obj)){
+result.push(key);
+}
+returnresult;
+}
+For more information onfor-in, consult “Speaking JavaScript1”.
+Quiz
+See quiz app.
+1http://speakingjs.com/es5/ch13.html#for-in
+----------------Page (148) Break----------------
+150CHAPTER19. CONTROLFLOWSTATEMENTS
+----------------Page (149) Break----------------
+Chapter20
+Callablevalues
+20.1 Kindsoffunctions
+JavaScript has two categories of functions:
+• Anordinary functioncan be several things at the same time: a real function, a method and a con-
+structor function (we’ll get to what exactly these things are, in a moment).
+• Aspecializedfunctioncan only be one of those things. There are three such functions:
+–Anarrowfunctioncan only be a real function.
+–Amethodcan only be a method.
+–Aclasscan only be a constructor function.
+Let’s look at ordinary functions and specialized functions in greater detail.
+20.1.1 Ordinaryfunctions
+Ordinary functions are created via:
+// Function declaration (a statement)
+functionordinary1(a,b,c){
+// ···
+}
+// Anonymous function expression
+constordinary2=function(a,b,c){
+// ···
+};
+// Named function expression
+constordinary3=functionmyName(a,b,c){
+// `myName` is only accessible in here
+};
+151
+----------------Page (150) Break----------------
+152CHAPTER20. CALLABLEVALUES
+Let’s examine the parts of a function declaration via an example:
+functionadd(x,y){
+returnx+y;
+}
+•addis thenameof the function declaration.
+•add(x, y)is theheadof the function declaration.
+•xandyare theparameters.
+• The curly braces ({and}) and everything between them are thebodyof the function declaration.
+• Thereturnoperator explicitly returns a value from the function.
+20.1.1.1 Rolesplayedbyordinaryfunctions
+Consider the following function declaration from the previous section:
+functionadd(x,y){
+returnx+y;
+}
+Thisfunctiondeclarationcreatesanordinaryfunctionwhosenameisadd. Asanordinaryfunction,add()
+can play three roles:
+• Real function: invoked via a function call. It’s what most programming languages consider to be
+simplyafunction.
+assert.equal(add(2,1),3);
+• Method: stored in property, invoked via a method call.
+constobj= {addAsMethod:add};
+assert.equal(obj.addAsMethod(2,4),6);
+• Constructor function/class: invoked vianew.
+constinst=newadd();
+assert.equal(instinstanceofadd,true);
+(As an aside, the names of classes normally start with capital letters.)
+20.1.2 Specializedfunctions
+Specializedfunctionsarespecializedversionsofordinaryfunctions. Eachoneofthemonlyplaysasingle
+role:
+• Anarrowfunctioncan only be a real function:
+constarrow=()=> {return123};
+assert.equal(arrow(),123);
+• Amethodcan only be a method:
+constobj= {method(){return'abc'} };
+assert.equal(obj.method(),'abc');
+----------------Page (151) Break----------------
+20.1. KINDSOFFUNCTIONS153
+• Aclasscan only be a constructor function:
+classMyClass{/* ··· */}
+constinst=newMyClass();
+Apart from nicer syntax, each kind of specialized function also supports new features, making them
+better at their job than ordinary functions.
+Arrowfunctionsareexplainedlaterinthischapter. Methodsareexplainedinthechapteronsingleobjects.
+Classes are explained inthe chapter on prototype chains and classes.
+Tbl.20.1lists the capabilities of ordinary and specialized functions.
+Table 20.1: Capabilities of the four kinds of functions.
+Ordinary function  Arrow function  Method  Class
+Function call✔                 ✔               ✔        ✘
+Method call✔lexicalthis      ✔        ✘
+Constructor call✔                 ✘               ✘        ✔
+It’s important to note that arrow functions, methods and classes are still categorized as functions:
+> (() => {}) instanceof Function
+true
+> ({ method() {} }.method) instanceof Function
+true
+> (class SomeClass {}) instanceof Function
+true
+20.1.3 Morekindsofrealfunctionsandmethods
+Warning: You are about to be faced with a long list of things and few explanations. This is just to give
+you a brief overview. This chapter focuses on synchronous real functions (all of which we have already
+seen). Later chapters will explain everything we are about to see.
+Sofar,wehavealwayswrittensimple,synchronouscode. Upcomingchapterswillcovertwomoremodes
+of programming in JavaScript:
+•Iterationtreats objects as containers of data (so-callediterables) and provides a standardized way
+for retrieving what is inside them.
+•Asynchronous programmingdeals with handling a long-running computation. You are notified,
+when the computation is finished and can do something else in between.
+Two variations of real functions and methods help with these modes of programming:
+•Generatorfunctionsandgeneratormethodshelp with iteration.
+•Asyncfunctionsandasyncmethodshelp with asynchronous programming.
+Both variations can be combined, leading to a total of eight different constructs (tbl.20.2).
+----------------Page (152) Break----------------
+154CHAPTER20. CALLABLEVALUES
+Table 20.2: Different kinds of real functions and methods.
+sync vs. async  generator vs. not  real function vs. method
+sync                        function
+sync                        method
+async                       function
+async                       method
+sync         generator       function
+sync         generator       method
+async        generator       function
+async        generator       method
+Tbl.20.3gives an overview of the syntax for creating these constructs (a Promise is a mechanism for
+delivering asynchronous results).
+Table 20.3: Syntax for creating real functions and methods.
+Syncfunction          Syncmethod      Result     Values
+function f() {}             { m() {} }value        1
+f = function () {}
+f = () => {}
+Syncgeneratorfunction    Syncgen. method
+function* f() {}            { * m() {} }iterable       0+
+f = function* () {}
+Asyncfunction         Asyncmethod     Result     Values
+async function f() {}       { async m() {} }Promise      1
+f = async function () {}
+f = async () => {}
+Asyncgeneratorfunction   Asyncgen. method
+async function* f() {}      { async * m() {} }async iterable  0+
+f = async function* () {}
+For the remainder of this chapter, we’ll explore real functions and their foundations.
+20.2 Namedfunctionexpressions
+Functiondeclarations(statements) always have names. With functionexpressions, you can choose whether
+to provide a name or not.
+The following is an example of a function expression without a name – ananonymousfunctionexpression.
+Its result is assigned to the variablef1:
+constf1=function(){};
+Next, we see a named function expression (assigned tof2):
+constf2=functionmyName(){};
+----------------Page (153) Break----------------
+20.3. ARROWFUNCTIONS155
+As mentioned before, named function expressions look exactly like function declarations, but they are
+expressions and thus used in different contexts.
+Named function expressions have two benefits.
+First, their names show up in stack traces:
+constfunc=functionproblem(){throw newError()};
+setTimeout(func,0);
+// Error
+//   at Timeout.problem [as _onTimeout] (repl:1:37)
+//   at ontimeout (timers.js:488:11)
+//   at tryOnTimeout (timers.js:323:5)
+//   at Timer.listOnTimeout (timers.js:283:5)
+You can see the nameproblemin the first line of the stack trace.
+Second, the name of a named function expression provides a convenient way for the function to refer to
+itself. For example:
+constfac=functionme(n){
+if(n<=1)return1;
+returnn*me(n-1);
+};
+// `me` only exists inside the function:
+assert.throws(()=>me,ReferenceError);
+assert.equal(fac(3),6);
+You are free to assign the value offacto another value. It will continue to work, because it refers to itself
+via its internal name, not viafac.
+20.3 Arrowfunctions
+Arrow functions were added to JavaScript for two reasons:
+1. To provide a more concise way for creating functions.
+2. To make working with real functions easier: You can’t refer to thethisof the surrounding scope
+inside an ordinary function (detailssoon).
+20.3.1 Thesyntaxofarrowfunctions
+Let’s review the syntax of an anonymous function expression:
+constf=function(x,y,z){return123};
+The (roughly) equivalent arrow function looks as follows. Arrow functions are expressions.
+constf=(x,y,z)=> {return123};
+Here, the body of the arrow function is a block. But it can also be an expression. The following arrow
+function works exactly like the previous one.
+----------------Page (154) Break----------------
+156CHAPTER20. CALLABLEVALUES
+constf=(x,y,z)=>123;
+If an arrow function has only a single parameter and that parameter is an identifier (not a destructuring
+pattern) then you can omit the parentheses around the parameter:
+constid=x=>x;
+That is convenient when passing arrow functions as parameters to other functions or methods:
+> [1,2,3].map(x => x+1)
+[ 2, 3, 4 ]
+This last example demonstrates the first benefit of arrow functions – conciseness. In contrast, this is the
+same method call, but with a function expression:
+[1,2,3].map(function(x){returnx+1});
+20.3.2 Arrowfunctions: lexicalthis
+Ordinary functions can be both methods and real functions. Alas, the two roles are in conflict:
+• As each ordinary function can be a method, it has its ownthis.
+• That ownthismakes it impossible to access thethisof the surrounding scope from inside an
+ordinary function. And that is inconvenient for real functions.
+The following code demonstrates a common work-around:
+constprefixer= {
+prefix:'==> ',
+prefixStringArray(stringArray){
+constthat=this;// (A)
+returnstringArray.map(
+function(x){
+returnthat.prefix+x;// (B)
+});
+},
+};
+assert.deepEqual(
+prefixer.prefixStringArray(['a','b']),
+['==> a','==> b']);
+In line B, we want to access thethisof.prefixStringArray(). But we can’t, since the surrounding
+ordinary function has its ownthisthatshadows(blocks access to) thethisof the method. Therefore, we
+save the method’sthisin the extra variablethat(line A) and use that variable in line B.
+Anarrowfunctiondoesn’thavethisasanimplicitparameter,itpicksupitsvaluefromthesurroundings.
+That is,thisbehaves just like any other variable.
+constprefixer= {
+prefix:'==> ',
+prefixStringArray(stringArray){
+returnstringArray.map(
+x=>this.prefix+x);
+----------------Page (155) Break----------------
+20.4. HOISTING157
+},
+};
+To summarize:
+• In ordinary functions,thisis an implicit (dynamic) parameter (details inthe chapter on single ob-
+jects).
+• Arrow functions getthisfrom their surrounding scopes (lexically).
+20.3.3 Syntaxpitfall: returninganobjectliteralfromanarrowfunction
+If you want the expression body of an arrow function to be an object literal, you must put the literal in
+parentheses:
+constfunc1=()=>({a:1});
+assert.deepEqual(func1(), {a:1});
+If you don’t, JavaScript thinks, the arrow function has a block body (that doesn’t return anything):
+constfunc2=()=> {a:1};
+assert.deepEqual(func2(),undefined);
+{a: 1}is interpreted as a block with the labela:and the expression statement1.
+20.4 Hoisting
+Function declarations arehoisted(internally moved to the top):
+assert.equal(foo(),123);// OK
+functionfoo(){return123; }
+Hoisting lets you call a function before it is declared.
+Variable declarations are not hoisted – you can only use their variablesafterthey were declared:
+assert.throws(// before
+()=>foo(),
+ReferenceError);
+constfoo=function(){return123; };
+assert.equal(foo(),123);// after
+Class declarations are not hoisted, either:
+assert.throws(
+()=>newMyClass(),
+ReferenceError);
+classMyClass{}
+assert.ok(newMyClass()instanceofMyClass);
+----------------Page (156) Break----------------
+158CHAPTER20. CALLABLEVALUES
+20.5 Returningvaluesfromfunctions
+You use thereturnoperator to return values from a function:
+functionfunc(){
+return123;
+}
+assert.equal(func(),123);
+Another example:
+functionboolToYesNo(bool){
+if(bool){
+return'Yes';
+}else{
+return'No';
+}
+}
+assert.equal(boolToYesNo(true),'Yes');
+assert.equal(boolToYesNo(false),'No');
+If, at the end of a function, you haven’t returned anything explicitly, JavaScript returnsundefinedfor
+you:
+functionnoReturn(){
+// No explicit return
+}
+assert.equal(noReturn(),undefined);
+20.6 Parameterhandling
+20.6.1 Terminology: parametersvs.arguments
+The termparameterand the termargumentbasically mean the same thing. If you want to, you can make
+the following distinction:
+•Parametersare part of a function definition. They are also calledformal parametersandformal argu-
+ments.
+•Argumentsare part of a function call. They are also calledactualparametersandactualarguments.
+20.6.2 Toomanyornotenougharguments
+JavaScript does not complain if a function call provides a different number of arguments than expected
+by the function definition:
+• Extra arguments are ignored.
+• Missing parameters are set toundefined.
+For example:
+----------------Page (157) Break----------------
+20.6. PARAMETERHANDLING159
+functionfoo(x,y){
+return[x,y];
+}
+// Too many arguments:
+assert.deepEqual(foo('a','b','c'),['a','b']);
+// The expected number of arguments:
+assert.deepEqual(foo('a','b'),['a','b']);
+// Not enough arguments:
+assert.deepEqual(foo('a'),['a',undefined]);
+20.6.3 Parameterdefaultvalues
+Parameter default values specify the value to use if a parameter has not been provided. For example:
+functionf(x,y=0){
+return[x,y];
+}
+assert.deepEqual(f(1),[1,0]);
+assert.deepEqual(f(),[undefined,0]);
+undefinedalso triggers the default value:
+assert.deepEqual(
+f(undefined,undefined),
+[undefined,0]);
+20.6.4 Restparameters
+Arestparameterisdeclaredbyprefixinganidentifierwiththreedots(...). Duringafunctionormethod
+call, it receives an Array with all remaining arguments. If there are no extra arguments at the end, it is
+an empty Array. For example:
+functionf(x,...y){
+return[x,y];
+}
+assert.deepEqual(
+f('a','b','c'),
+['a',['b','c']]);
+assert.deepEqual(
+f(),
+[undefined,[]]);
+20.6.4.1 Enforcinganarityviaarestparameter
+You can use rest parameters to enforce arities. Take, for example, the following function.
+----------------Page (158) Break----------------
+160CHAPTER20. CALLABLEVALUES
+functionbar(a,b){
+// ···
+}
+This is how we force callers to always provide two arguments:
+functionbar(...args){
+if(args.length!==2){
+throw newError('Please provide exactly 2 arguments!');
+}
+const[a,b]=args;
+// ···
+}
+20.6.5 Namedparameters
+When someone calls a function, the arguments provided by the caller are assigned to the parameters
+received by the callee. Two common ways of performing the mapping are:
+1. Positional parameters: An argument is assigned to a parameter if they have the same position. A
+function call with only positional arguments looks as follows.
+selectEntries(3,20,2)
+2. Named parameters: An argument is assigned to a parameter if they have the same name.
+JavaScript doesn’t have named parameters, but you can simulate them. For example, this is a
+function call with only (simulated) named arguments:
+selectEntries({start:3,end:20,step:2})
+Named parameters have several benefits:
+• They lead to more self-explanatory code, because each argument has a descriptive label. Just com-
+pare the two versions ofselectEntries(): With the second one, it is much easier to see what
+happens.
+• Order of parameters doesn’t matter (as long as the names are correct).
+• Handling more than one optional parameter is more convenient: Callers can easily provide any
+subset of all optional parameters and don’t have to be aware of the ones they omitted (with posi-
+tional parameters, you have to fill in preceding optional parameters, withundefined).
+20.6.6 Simulatingnamedparameters
+JavaScript doesn’t have real named parameters. The official way of simulating them is via object literals:
+functionselectEntries({start=0,end=-1,step=1}){
+return{start,end,step};
+}
+This function usesdestructuringto access the properties of its single parameter. The pattern it uses is an
+abbreviation for the following pattern:
+{start:start=0,end:end=-1,step:step=1}
+----------------Page (159) Break----------------
+20.6. PARAMETERHANDLING161
+This destructuring pattern works for empty object literals:
+> selectEntries({})
+{ start: 0, end: -1, step: 1 }
+But it does not work if you call the function without any parameters:
+> selectEntries()
+TypeError: Cannot destructure property `start` of 'undefined' or 'null'.
+You can fix this by providing a default value for the whole pattern. This default value works the same as
+default values for simpler parameter definitions: If the parameter is missing, the default is used.
+functionselectEntries({start=0,end=-1,step=1} = {}){
+return{start,end,step};
+}
+assert.deepEqual(
+selectEntries(),
+{start:0,end:-1,step:1});
+20.6.7 Spreading(...) intofunctioncalls
+The prefix (...) of a spread argument is the same as the prefix of a rest parameter. The former is used
+whencallingfunctionsormethods. Itsoperandmustbeaniterableobject. Theiteratedvaluesareturned
+into positional arguments. For example:
+functionfunc(x,y){
+console.log(x);
+console.log(y);
+}
+constsomeIterable=['a','b'];
+func(...someIterable);
+// Output:
+// 'a'
+// 'b'
+Therefore, spread arguments and rest parameters serve opposite purposes:
+• Rest parameters are used when defining functions or methods. They collect arguments in Arrays.
+• Spread arguments are used when calling functions or methods. They turn iterable objects into
+arguments.
+20.6.7.1 Example: spreadingintoMath.max()
+Math.max()returns the largest one of its zero or more arguments. Alas, it can’t be used for Arrays, but
+spreading gives us a way out:
+> Math.max(-1, 5, 11, 3)
+11
+> Math.max(...[-1, 5, 11, 3])
+11
+----------------Page (160) Break----------------
+162CHAPTER20. CALLABLEVALUES
+> Math.max(-1, ...[-5, 11], 3)
+11
+20.6.7.2 Example: spreadingintoArray.prototype.push()
+Similarly, the Array method.push()destructively adds its zero or more parameters to the end of its
+receiver. JavaScript has no method for destructively appending an Array to another one, but once again
+we are saved by spreading:
+constarr1=['a','b'];
+constarr2=['c','d'];
+arr1.push(...arr2);
+assert.deepEqual(arr1,['a','b','c','d']);
+Exercises: Parameterhandling
+• Positional parameters:exercises/callables/positional_parameters_test.js
+• Named parameters:exercises/callables/named_parameters_test.js
+20.7 UnderstandingJavaScript’scallablevalues(advanced)
+In order to better understand JavaScript’s many callable values, it is helpful to distinguish between:
+• Syntax: what is written in source code?
+• Semantics: what is the result of executing the source code?
+The following two concepts help with categorizing callable values:
+• Role: What role does a callable value play? The roles are:
+–Real function
+–Method
+–Class (constructor function)
+• Mode: What mode does a callable value operate in?
+–Is the real function or method synchronous or asynchronous?
+–Is the real function or method a generator or not?
+Let’s look at a few examples:
+•function foo() {}
+–Syntax: sync function declaration
+–Semantics: ordinary function
+–Potential roles: real function, method, class
+–Mode: synchronous, not a generator
+•* m() {}
+–Syntax: generator method definition
+–Semantics: generator method
+–Potential roles: method
+–Mode: synchronous generator
+----------------Page (161) Break----------------
+20.7. UNDERSTANDINGJAVASCRIPT’SCALLABLEVALUES(ADVANCED)163
+•() => {}
+–Syntax: arrow function expression
+–Semantics: arrow function
+–Potential roles: real function
+–Mode: synchronous, not a generator
+•async () => {}
+–Syntax: async arrow function expression
+–Semantics: async arrow function
+–Potential roles: real function
+–Mode: asynchronous, not a generator
+Quiz
+See quiz app.
+----------------Page (162) Break----------------
+164CHAPTER20. CALLABLEVALUES
+----------------Page (163) Break----------------
+Chapter21
+Wherearetheremainingchapters?
+You are reading a preview of the book: For now, you have to buy it to get access to the complete contents.
+There will eventually be a version that is free to read online (with most of the chapters, but without
+exercises and quizzes). Current estimate: early 2019.
+165
+----------------Page (164) Break----------------

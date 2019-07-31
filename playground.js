@@ -1,46 +1,40 @@
-const fs = require('fs');
-const pdf = require('pdf-parse');
+let fs = require('fs');
 
-let dataBuffer = fs.readFileSync(
-  '/home/samundrak/Documents/ books/javascript-the-good-parts.pdf',
-);
+let PDFParser = require('pdf2json');
 
-const renderPage = function(pageData) {
-  //check documents https://mozilla.github.io/pdf.js/
-  let render_options = {
-    //replaces all occurrences of whitespace with standard spaces (0x20). The default value is `false`.
-    normalizeWhitespace: false,
-    //do not attempt to combine same line TextItem's. The default value is `false`.
-    disableCombineTextItems: false,
-  };
-  return pageData.getTextContent(render_options).then(function(textContent) {
-    let lastY;
-    let text = '![pageStart]';
-    for (let item of textContent.items) {
-      if (lastY == item.transform[5] || !lastY) {
-        text += item.str;
-      } else {
-        text += '\n' + item.str;
-      }
-      lastY = item.transform[5];
-    }
-    return text + '![pageEnd]';
+function createFileFromPDF(pdfSourceLocation, pdfStoreDestination) {
+  let pdfParser = new PDFParser(this, 1);
+
+  pdfParser.on('pdfParser_dataError', errData =>
+    console.error(errData.parserError),
+  );
+  pdfParser.on('pdfParser_dataReady', pdfData => {
+    fs.writeFileSync(pdfStoreDestination, pdfParser.getRawTextContent());
   });
-};
-pdf(dataBuffer, {
-  pagerender: renderPage,
-}).then(function(data) {
-  //   // number of pages
-  //   console.log(data.numpages);
-  //   // number of rendered pages
-  //   console.log(data.numrender);
-  //   // PDF info
-  //   console.log(data.info);
-  //   // PDF metadata
-  //   console.log(data.metadata);
-  //   // PDF.js version
-  //   // check https://mozilla.github.io/pdf.js/getting_started/
-  //   console.log(data.version);
-  // PDF text
-  console.log(data.text);
+
+  pdfParser.loadPDF(pdfSourceLocation);
+}
+
+const file = fs.readFileSync('./content.txt', 'utf-8');
+const regexToFindTOC = new RegExp(/table(\s)*of(\s)*contents|contents(.)*/i);
+
+const regexToFindTOCLine = new RegExp(/\d+(\.\d+)\s+.*\.*\d/gi);
+const matchedString = file.match(regexToFindTOC);
+const matchedStringIndex = file.search(regexToFindTOC);
+
+const stringAfterToc = file.substring(
+  matchedStringIndex + matchedString[0].length,
+);
+const tocAsString = stringAfterToc.match(regexToFindTOCLine);
+const formattedTOC = tocAsString.map(line => {
+  const matchTopic = line.match(/\d+(\.\d+)\s+/);
+  const pageNumber = line.match(/\d+$/);
+  const topic = line.match(/\s+.*/);
+  // Unable to find topic
+  return {
+    chapter: matchTopic[0],
+    topic: topic,
+    page: pageNumber[0],
+  };
 });
+console.log(formattedTOC);
